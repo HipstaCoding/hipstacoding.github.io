@@ -20,7 +20,11 @@ const IndexPage = () => (
       <GlobalStyle />
       <Header>
         <Logo />
-        <a href="https://github.com/HipstaCodingSchool" target="_blank">
+        <a
+          href="https://github.com/HipstaCodingSchool"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FontAwesomeIcon size="2x" icon={faGithubSquare} />
         </a>
       </Header>
