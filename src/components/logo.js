@@ -6,8 +6,8 @@ const LogoContainer = styled.h1`
   width: 70px;
   border: 2px solid black;
   padding: 10px;
-	margin: 0;
-	margin-right: 55px;
+  margin: 0;
+  margin-right: 55px;
 `;
 
 const Logo = () => <LogoContainer>Hipsta Coding School</LogoContainer>;
