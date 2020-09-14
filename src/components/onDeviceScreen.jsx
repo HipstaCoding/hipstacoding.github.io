@@ -71,7 +71,6 @@ const ScaleConfig = (config, scale) => {
 
 const FitWidthConfig = (config, scale, width, marginLeft) => {
   return {
-    config,
     scale,
     width,
     marginLeft,
@@ -82,6 +81,8 @@ class SizeCalculator {
   constructor(totalWidth, totalHeight) {
     this.totalWidth = totalWidth;
     this.totalHeight = totalHeight;
+    console.log("totalWidth", this.totalWidth);
+    console.log("totalHeight", this.totalHeight);
     console.log("window aspect ratio:", this.windowAspectRatio);
     console.log("screen aspect:", SCREEN_ASPECT_RATIO);
     console.log("windowAspectRatio", this.windowAspectRatio);
@@ -201,13 +202,18 @@ const OnDeviceScreen = ({ children }) => {
       width: total.width || `${SCREEN_WIDTH}px`,
       marginLeft: 0,
     },
+    config: {
+      clamp: true,
+      duration: 250,
+      easing: t => t,
+    }
   }));
 
   const scaleTo = (prevScale, nextScale) => {
     cancel();
     const calculator = new SizeCalculator(total.width, total.height);
     if (calculator.fullWidthScale > 1) {
-      setBackgroundScale(calculator.fullWidthScale > 1);
+      setBackgroundScale(calculator.fullWidthScale);
     }
     const config = { duration: 1000 };
     let transition;
@@ -223,6 +229,7 @@ const OnDeviceScreen = ({ children }) => {
       to: stages,
       onStart: () => setAnimating(true),
       onRest: () => setAnimating(false),
+
     });
   };
 
