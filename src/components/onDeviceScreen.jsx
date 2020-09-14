@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import macbook from "../images/macbook_bg.png";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated, interpolate } from "react-spring";
 import useWindowSize from "../hooks/useWindowSize";
-import { throttle, debounce } from "lodash";
 
 const MIN_SCALE = 0.5;
 const MAX_SCALE = 1;
@@ -77,6 +76,9 @@ const FitWidthConfig = (config, scale, width, marginLeft) => {
   };
 };
 
+const liniarInterpolation = (xk, x, y) =>
+  y[0] + ((y[1] - y[0]) / (x[1] - x[0])) * (xk - x[0]);
+
 class SizeCalculator {
   constructor(totalWidth, totalHeight) {
     this.totalWidth = totalWidth;
@@ -123,8 +125,27 @@ class SizeCalculator {
     return SCREEN_WIDTH / this.totalWidth;
   }
 
-  get marginLeft() {
-    return -(SCREEN_WIDTH - window.innerWidth) / 2;
+  calculateWidth(scale) {
+    if (scale > this.fullWidthScale) {
+      const interpolatedRatio = liniarInterpolation(
+        scale,
+        [this.fullWidthScale, 1],
+        [SCREEN_WIDTH, this.totalWidth]
+      );
+      return interpolatedRatio;
+    }
+    return SCREEN_WIDTH;
+  }
+
+  calculateMarginLeft(scale) {
+    if (scale > this.fullWidthScale) {
+      return (this.totalWidth - this.calculateWidth(scale)) / 2;
+    }
+    const finalMargin = (this.totalWidth - SCREEN_WIDTH) / 2;
+    return finalMargin;
+    // console.log("SCREEN_WIDTH", SCREEN_WIDTH);
+    // const interpolatedRatio = liniarInterpolation(scale, [0, 1], [this.fullWidthScale, 0]);
+    // return finalMargin * interpolatedRatio;
   }
 }
 
@@ -190,6 +211,7 @@ class ZoomInTransition {
 
 const OnDeviceScreen = ({ children }) => {
   const ref = React.createRef();
+  const calculatorRef = React.useRef();
 
   const [isAnimating, setAnimating] = React.useState(false);
   const total = useWindowSize();
@@ -203,33 +225,31 @@ const OnDeviceScreen = ({ children }) => {
       marginLeft: 0,
     },
     config: {
-      clamp: true,
-      duration: 250,
+      duration: 10000,
       easing: t => t,
-    }
+    },
   }));
 
   const scaleTo = (prevScale, nextScale) => {
     cancel();
-    const calculator = new SizeCalculator(total.width, total.height);
-    if (calculator.fullWidthScale > 1) {
-      setBackgroundScale(calculator.fullWidthScale);
+    console.log("calculatorRef", calculatorRef);
+    if (calculatorRef.current.fullWidthScale > 1) {
+      setBackgroundScale(calculatorRef.current.fullWidthScale);
     }
     const config = { duration: 1000 };
     let transition;
     if (prevScale > nextScale) {
-      transition = new ZoomOutTransition(calculator, config);
+      transition = new ZoomOutTransition(calculatorRef.current, config);
     } else {
-      transition = new ZoomInTransition(calculator, config);
+      transition = new ZoomInTransition(calculatorRef.current, config);
     }
 
-    const stages = transition.transit(prevScale, nextScale);
-
     set({
-      to: stages,
+      to: {
+        scale: nextScale,
+      },
       onStart: () => setAnimating(true),
       onRest: () => setAnimating(false),
-
     });
   };
 
@@ -253,6 +273,7 @@ const OnDeviceScreen = ({ children }) => {
   };
 
   React.useEffect(() => {
+    calculatorRef.current = new SizeCalculator(total.width, total.height);
     scaleTo(MAX_SCALE, MIN_SCALE);
   }, []);
 
@@ -260,8 +281,20 @@ const OnDeviceScreen = ({ children }) => {
     <Website
       style={{
         transform: style.scale.interpolate(scale => `scale(${scale})`),
-        width: style.width ? style.width.interpolate(x => `${x}px`) : "100%",
-        marginLeft: style.marginLeft,
+        width: style.scale.interpolate(v => {
+          const width = calculatorRef.current
+            ? calculatorRef.current.calculateWidth(v)
+            : "100%";
+          console.log("width", width);
+          return width;
+        }),
+        marginLeft: style.scale.interpolate(v => {
+          const marginLeft = calculatorRef.current
+            ? calculatorRef.current.calculateMarginLeft(v)
+            : 0;
+          console.log("marginLeft", marginLeft);
+          return marginLeft;
+        }),
       }}
       onWheel={onWheel}
     >
