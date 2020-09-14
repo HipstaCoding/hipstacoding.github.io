@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import macbook from "../images/macbook_bg.png";
 import { useSpring, animated } from "react-spring";
+import useWindowSize from "../hooks/useWindowSize";
+import { throttle, debounce } from "lodash";
 
 const MIN_SCALE = 0.5;
 const MAX_SCALE = 1;
@@ -37,20 +39,18 @@ const Background = styled.img`
   left: 50%; /* position the left edge of the element at the middle of the parent */
 
   transform: translateX(-50%) scale(${props => props.scale});
-	transform-origin: 50% 0;
+  transform-origin: 50% 0;
   object-fit: contain;
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
+  width: ${IMAGE_WIDTH}px;
+  height: ${IMAGE_HEIGHT}px;
 `;
 
 const Content = styled(animated.div)`
   /* width: ${SCREEN_WIDTH}px; */
 	width: 100%;
-  height: ${props => props.scale * SCREEN_HEIGHT}px;
+  height: ${props => props.backgroundScale * SCREEN_HEIGHT}px;
   background-color: aqua;
   position: relative;
-  /* overflow: ${({ scale }) => (scale < 1 ? "hidden" : "scroll")}; */
-	overflow: hidden;
 `;
 
 const boundTo = (value, max, min) => {
@@ -63,69 +63,184 @@ const boundTo = (value, max, min) => {
   }
 };
 
+const ScaleConfig = (config, scale) => {
+  return {
+    scale,
+    config,
+  };
+};
+
+const FitWidthConfig = (config, scale, width, marginLeft) => {
+  return {
+    config,
+    scale,
+    width,
+    marginLeft,
+  };
+};
+
+class SizeCalculator {
+  constructor(totalWidth, totalHeight) {
+    this.totalWidth = totalWidth;
+    this.totalHeight = totalHeight;
+  }
+
+  get windowAspectRatio() {
+    return this.totalWidth / this.totalHeight;
+  }
+
+  get isScreenWider() {
+    return this.totalWidth < SCREEN_WIDTH;
+  }
+
+  get isScreenHigher() {
+    return this.totalHeight < SCREEN_HEIGHT;
+  }
+
+  get isScreenBigger() {
+    return this.isScreenWider || this.isScreenHigher;
+  }
+
+  get fullWidthScale() {
+    return this.totalWidth / SCREEN_WIDTH;
+  }
+
+  get fullWidthRatio() {
+    return SCREEN_WIDTH / this.totalWidth;
+  }
+
+  get marginLeft() {
+    return -(SCREEN_WIDTH - window.innerWidth) / 2;
+  }
+}
+
+class ZoomOutTransition {
+  constructor(calculator) {
+    this.calculator = calculator;
+    this.config = {};
+  }
+
+  transit(prevScale, nextScale) {
+    const stages = [];
+
+    if (
+      this.calculator.isScreenWider &&
+      nextScale < this.calculator.fullWidthScale
+    ) {
+      stages.push(
+        FitWidthConfig(
+          { duration: 1000 },
+          this.calculator.fullWidthScale,
+          SCREEN_WIDTH,
+          this.calculator.marginLeft
+        )
+      );
+    }
+
+    if (this.calculator.isScreenHigher) {
+      // TODO
+    }
+
+    stages.push(ScaleConfig({}, nextScale));
+
+    return stages;
+  }
+}
+
+class ZoomInTransition {
+  constructor(calculator) {
+    this.calculator = calculator;
+    this.config = {};
+  }
+
+  transit(prevScale, nextScale) {
+    const stages = [];
+
+    if (!this.calculator.isScreenBigger) {
+      return [ScaleConfig({}, nextScale)];
+    }
+
+    if (
+      this.calculator.isScreenWider &&
+      nextScale > this.calculator.fullWidthScale
+    ) {
+      stages.push(ScaleConfig({}, this.calculator.fullWidthScale));
+      stages.push(
+        FitWidthConfig(
+          { duration: 1000 },
+          nextScale,
+          this.calculator.totalWidth,
+          0
+        )
+      );
+    } else {
+      stages.push(ScaleConfig({}, nextScale));
+    }
+
+    return stages;
+  }
+}
+
 const OnDeviceScreen = ({ children }) => {
+  const ref = React.createRef();
+  const total = useWindowSize();
+
   const [backgroundScale, setBackgroundScale] = React.useState(1);
-  const [style, set] = useSpring(() => ({
+
+  const [style, set, cancel] = useSpring(() => ({
     scale: MAX_SCALE,
     from: {
-      width: window.innerWidth,
+      width: total.width || `${SCREEN_WIDTH}px`,
       marginLeft: 0,
     },
   }));
 
+  const scaleTo = (prevScale, nextScale) => {
+    cancel();
+    const calculator = new SizeCalculator(total.width, total.height);
+    if (calculator.fullWidthScale > 1) {
+      setBackgroundScale(calculator.fullWidthScale);
+    }
+
+    set({
+      to: async (next, cancel) => {
+        const config = { duration: 1000 };
+        let transition;
+        if (prevScale > nextScale) {
+          transition = new ZoomOutTransition(calculator, config);
+        } else {
+          transition = new ZoomInTransition(calculator, config);
+        }
+
+        const stages = transition.transit(prevScale, nextScale);
+
+        for (const stage of stages) {
+          await next(stage);
+        }
+      },
+    });
+  };
+
   const onWheel = e => {
-    const scale = style.scale.value;
-    if (scale <= MAX_SCALE || scale >= MIN_SCALE) {
-      const newScale = boundTo(e.deltaY / 1000 + scale, MAX_SCALE, MIN_SCALE);
-      console.log(
-        "scale",
-        scale,
-        "newScale",
-        newScale,
-        "e.deltaY / 1000",
-        e.deltaY / 1000
-      );
-      set({ scale: newScale, config: { duration: 100 } });
+    if (ref.current && ref.current.scrollTop > 10) return;
+    const currentScale = style.scale.value;
+
+    const isUp = e.deltaY > 0;
+    const isDown = e.deltaY < 0;
+    if (
+      (currentScale < MAX_SCALE && isUp) ||
+      (currentScale > MIN_SCALE && isDown)
+    ) {
+      const newScale = boundTo(e.deltaY + currentScale, MAX_SCALE, MIN_SCALE);
+      console.log("newScale", newScale);
+      console.log("prevScale", currentScale);
+      scaleTo(currentScale, newScale);
     }
   };
 
   React.useEffect(() => {
-    const WINDOW_TO_IMAGE_WIDTH_RATIO = window.innerWidth / SCREEN_WIDTH;
-    if (WINDOW_TO_IMAGE_WIDTH_RATIO > 1) {
-      setBackgroundScale(WINDOW_TO_IMAGE_WIDTH_RATIO);
-    }
-    console.log("WINDOW_TO_IMAGE_WIDTH_RATIO", WINDOW_TO_IMAGE_WIDTH_RATIO);
-
-    const WINDOW_ASPECT_RATIO = window.innerWidth / window.innerHeight;
-
-    set({
-      to: async next => {
-        console.log("WINDOW_ASPECT_RATIO", WINDOW_ASPECT_RATIO);
-        console.log("SCREEN_ASPECT_RATIO", SCREEN_ASPECT_RATIO);
-        if (window.innerWidth < SCREEN_WIDTH) {
-          const FULL_WIDTH_RATIO = SCREEN_WIDTH / window.innerWidth;
-          const FULL_WIDTH_SCALE_RATIO = 1 / FULL_WIDTH_RATIO;
-          await next({
-            scale: FULL_WIDTH_SCALE_RATIO,
-            width: SCREEN_WIDTH,
-            marginLeft: -(SCREEN_WIDTH - window.innerWidth) / 2,
-            config: { duration: 1000 },
-          });
-        }
-
-        await next({
-          scale: MIN_SCALE,
-          config: { duration: 1000 },
-        });
-      },
-    });
-
-    console.log("WINDOW_ASPECT_RATIO", WINDOW_ASPECT_RATIO);
+    scaleTo(MAX_SCALE, MIN_SCALE);
   }, []);
-
-  React.useEffect(() => {
-    console.log("style", style);
-  }, [style]);
 
   return (
     <Website
@@ -137,7 +252,17 @@ const OnDeviceScreen = ({ children }) => {
       onWheel={onWheel}
     >
       <Background src={macbook} scale={backgroundScale} />
-      <Content scale={backgroundScale}>{children}</Content>
+      <Content
+        ref={ref}
+        backgroundScale={backgroundScale}
+        style={{
+          overflow: style.scale.interpolate(x => {
+            return x < 1 ? "hidden" : "auto";
+          }),
+        }}
+      >
+        {children}
+      </Content>
     </Website>
   );
 };
