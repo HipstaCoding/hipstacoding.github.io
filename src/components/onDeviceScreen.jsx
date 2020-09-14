@@ -66,7 +66,6 @@ const boundTo = (value, max, min) => {
 const ScaleConfig = (config, scale) => {
   return {
     scale,
-    config,
   };
 };
 
@@ -83,6 +82,16 @@ class SizeCalculator {
   constructor(totalWidth, totalHeight) {
     this.totalWidth = totalWidth;
     this.totalHeight = totalHeight;
+    console.log("window aspect ratio:", this.windowAspectRatio);
+    console.log("screen aspect:", SCREEN_ASPECT_RATIO);
+    console.log("windowAspectRatio", this.windowAspectRatio);
+    console.log("isScreenWider", this.isScreenWider);
+    console.log("isScreenHigher", this.isScreenHigher);
+    console.log("isScreenBigger", this.isScreenBigger);
+    console.log("fullWidthScale", this.fullWidthScale);
+    console.log("fullHeghtScale", this.fullHeghtScale);
+    console.log("fullWidthRatio", this.fullWidthRatio);
+    console.log("marginLeft", this.marginLeft);
   }
 
   get windowAspectRatio() {
@@ -94,7 +103,7 @@ class SizeCalculator {
   }
 
   get isScreenHigher() {
-    return this.totalHeight < SCREEN_HEIGHT;
+    return this.windowAspectRatio > SCREEN_ASPECT_RATIO;
   }
 
   get isScreenBigger() {
@@ -103,6 +112,10 @@ class SizeCalculator {
 
   get fullWidthScale() {
     return this.totalWidth / SCREEN_WIDTH;
+  }
+
+  get fullHeghtScale() {
+    return this.totalHeight / SCREEN_HEIGHT;
   }
 
   get fullWidthRatio() {
@@ -117,7 +130,7 @@ class SizeCalculator {
 class ZoomOutTransition {
   constructor(calculator) {
     this.calculator = calculator;
-    this.config = {};
+    this.config = undefined;
   }
 
   transit(prevScale, nextScale) {
@@ -129,7 +142,7 @@ class ZoomOutTransition {
     ) {
       stages.push(
         FitWidthConfig(
-          { duration: 1000 },
+          {},
           this.calculator.fullWidthScale,
           SCREEN_WIDTH,
           this.calculator.marginLeft
@@ -150,7 +163,7 @@ class ZoomOutTransition {
 class ZoomInTransition {
   constructor(calculator) {
     this.calculator = calculator;
-    this.config = {};
+    this.config = undefined;
   }
 
   transit(prevScale, nextScale) {
@@ -165,14 +178,7 @@ class ZoomInTransition {
       nextScale > this.calculator.fullWidthScale
     ) {
       stages.push(ScaleConfig({}, this.calculator.fullWidthScale));
-      stages.push(
-        FitWidthConfig(
-          { duration: 1000 },
-          nextScale,
-          this.calculator.totalWidth,
-          0
-        )
-      );
+      stages.push(FitWidthConfig({}, nextScale, this.calculator.totalWidth, 0));
     } else {
       stages.push(ScaleConfig({}, nextScale));
     }
@@ -183,6 +189,8 @@ class ZoomInTransition {
 
 const OnDeviceScreen = ({ children }) => {
   const ref = React.createRef();
+
+  const [isAnimating, setAnimating] = React.useState(false);
   const total = useWindowSize();
 
   const [backgroundScale, setBackgroundScale] = React.useState(1);
@@ -199,30 +207,29 @@ const OnDeviceScreen = ({ children }) => {
     cancel();
     const calculator = new SizeCalculator(total.width, total.height);
     if (calculator.fullWidthScale > 1) {
-      setBackgroundScale(calculator.fullWidthScale);
+      setBackgroundScale(calculator.fullWidthScale > 1);
+    }
+    const config = { duration: 1000 };
+    let transition;
+    if (prevScale > nextScale) {
+      transition = new ZoomOutTransition(calculator, config);
+    } else {
+      transition = new ZoomInTransition(calculator, config);
     }
 
+    const stages = transition.transit(prevScale, nextScale);
+
     set({
-      to: async (next, cancel) => {
-        const config = { duration: 1000 };
-        let transition;
-        if (prevScale > nextScale) {
-          transition = new ZoomOutTransition(calculator, config);
-        } else {
-          transition = new ZoomInTransition(calculator, config);
-        }
-
-        const stages = transition.transit(prevScale, nextScale);
-
-        for (const stage of stages) {
-          await next(stage);
-        }
-      },
+      to: stages,
+      onStart: () => setAnimating(true),
+      onRest: () => setAnimating(false),
     });
   };
 
   const onWheel = e => {
+    if (isAnimating) return;
     if (ref.current && ref.current.scrollTop > 10) return;
+
     const currentScale = style.scale.value;
 
     const isUp = e.deltaY > 0;
