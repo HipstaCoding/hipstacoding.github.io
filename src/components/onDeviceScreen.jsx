@@ -4,7 +4,7 @@ import macbook from "../images/macbook_bg.png";
 import { useSpring, animated, interpolate } from "react-spring";
 import useWindowSize from "../hooks/useWindowSize";
 
-const MIN_SCALE = 0.5;
+const MIN_SCALE = 0.4;
 const MAX_SCALE = 1;
 
 const IMAGE_WIDTH = 1980;
@@ -17,6 +17,7 @@ const SCREEN_ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
 const IMAGE_TOP_PADDING = 25;
 const IMAGE_BOTTOM_PADDING = 104;
 const IMAGE_LEFT_PADDING = (IMAGE_WIDTH - SCREEN_WIDTH) / 2;
+const DURATION = 1000;
 
 const Website = styled(animated.div)`
   height: 100vh;
@@ -36,7 +37,6 @@ const Background = styled.img`
   position: absolute;
   top: -25px;
   left: 50%; /* position the left edge of the element at the middle of the parent */
-
   transform: translateX(-50%) scale(${props => props.scale});
   transform-origin: 50% 0;
   object-fit: contain;
@@ -46,9 +46,9 @@ const Background = styled.img`
 
 const Content = styled(animated.div)`
   /* width: ${SCREEN_WIDTH}px; */
+  background-color: white;
 	width: 100%;
   height: ${props => props.backgroundScale * SCREEN_HEIGHT}px;
-  background-color: aqua;
   position: relative;
 `;
 
@@ -127,25 +127,17 @@ class SizeCalculator {
 
   calculateWidth(scale) {
     if (scale > this.fullWidthScale) {
-      const interpolatedRatio = liniarInterpolation(
-        scale,
-        [this.fullWidthScale, 1],
-        [SCREEN_WIDTH, this.totalWidth]
-      );
-      return interpolatedRatio;
+      return this.totalWidth / scale;
     }
     return SCREEN_WIDTH;
   }
 
   calculateMarginLeft(scale) {
-    if (scale > this.fullWidthScale) {
+    if (scale >= this.fullWidthScale) {
       return (this.totalWidth - this.calculateWidth(scale)) / 2;
     }
     const finalMargin = (this.totalWidth - SCREEN_WIDTH) / 2;
     return finalMargin;
-    // console.log("SCREEN_WIDTH", SCREEN_WIDTH);
-    // const interpolatedRatio = liniarInterpolation(scale, [0, 1], [this.fullWidthScale, 0]);
-    // return finalMargin * interpolatedRatio;
   }
 }
 
@@ -225,8 +217,8 @@ const OnDeviceScreen = ({ children }) => {
       marginLeft: 0,
     },
     config: {
-      duration: 10000,
-      easing: t => t,
+      duration: DURATION,
+      easing: t => 1 - Math.pow(1 - t, 5)
     },
   }));
 
@@ -254,6 +246,7 @@ const OnDeviceScreen = ({ children }) => {
   };
 
   const onWheel = e => {
+    console.log('onWheel', onWheel);
     if (isAnimating) return;
     if (ref.current && ref.current.scrollTop > 10) return;
 
@@ -274,11 +267,14 @@ const OnDeviceScreen = ({ children }) => {
 
   React.useEffect(() => {
     calculatorRef.current = new SizeCalculator(total.width, total.height);
-    scaleTo(MAX_SCALE, MIN_SCALE);
+    setTimeout(() => {
+      scaleTo(MAX_SCALE, MIN_SCALE);
+    }, 500);
   }, []);
 
   return (
     <Website
+      onWheel={onWheel}
       style={{
         transform: style.scale.interpolate(scale => `scale(${scale})`),
         width: style.scale.interpolate(v => {
@@ -296,7 +292,6 @@ const OnDeviceScreen = ({ children }) => {
           return marginLeft;
         }),
       }}
-      onWheel={onWheel}
     >
       <Background src={macbook} scale={backgroundScale} />
       <Content
