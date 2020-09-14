@@ -13,10 +13,6 @@ const IMAGE_HEIGHT = 1173;
 const SCREEN_WIDTH = 1619;
 const SCREEN_HEIGHT = 1044;
 const SCREEN_ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
-
-const IMAGE_TOP_PADDING = 25;
-const IMAGE_BOTTOM_PADDING = 104;
-const IMAGE_LEFT_PADDING = (IMAGE_WIDTH - SCREEN_WIDTH) / 2;
 const DURATION = 1000;
 
 const Website = styled(animated.div)`
@@ -24,14 +20,6 @@ const Website = styled(animated.div)`
   width: 100vw;
   border: 1px dashed black;
 `;
-
-// const Background = styled.div`
-//   background-image: url(${macbook});
-// 	background-size: contain;
-// 	background-repeat: no-repeat;
-// 	padding: 20px 120px 80px;
-// 	overflow: hidden;
-// `;
 
 const Background = styled.img`
   position: absolute;
@@ -61,23 +49,6 @@ const boundTo = (value, max, min) => {
     return value;
   }
 };
-
-const ScaleConfig = (config, scale) => {
-  return {
-    scale,
-  };
-};
-
-const FitWidthConfig = (config, scale, width, marginLeft) => {
-  return {
-    scale,
-    width,
-    marginLeft,
-  };
-};
-
-const liniarInterpolation = (xk, x, y) =>
-  y[0] + ((y[1] - y[0]) / (x[1] - x[0])) * (xk - x[0]);
 
 class SizeCalculator {
   constructor(totalWidth, totalHeight) {
@@ -141,66 +112,6 @@ class SizeCalculator {
   }
 }
 
-class ZoomOutTransition {
-  constructor(calculator) {
-    this.calculator = calculator;
-    this.config = undefined;
-  }
-
-  transit(prevScale, nextScale) {
-    const stages = [];
-
-    if (
-      this.calculator.isScreenWider &&
-      nextScale < this.calculator.fullWidthScale
-    ) {
-      stages.push(
-        FitWidthConfig(
-          {},
-          this.calculator.fullWidthScale,
-          SCREEN_WIDTH,
-          this.calculator.marginLeft
-        )
-      );
-    }
-
-    if (this.calculator.isScreenHigher) {
-      // TODO
-    }
-
-    stages.push(ScaleConfig({}, nextScale));
-
-    return stages;
-  }
-}
-
-class ZoomInTransition {
-  constructor(calculator) {
-    this.calculator = calculator;
-    this.config = undefined;
-  }
-
-  transit(prevScale, nextScale) {
-    const stages = [];
-
-    if (!this.calculator.isScreenBigger) {
-      return [ScaleConfig({}, nextScale)];
-    }
-
-    if (
-      this.calculator.isScreenWider &&
-      nextScale > this.calculator.fullWidthScale
-    ) {
-      stages.push(ScaleConfig({}, this.calculator.fullWidthScale));
-      stages.push(FitWidthConfig({}, nextScale, this.calculator.totalWidth, 0));
-    } else {
-      stages.push(ScaleConfig({}, nextScale));
-    }
-
-    return stages;
-  }
-}
-
 const OnDeviceScreen = ({ children }) => {
   const ref = React.createRef();
   const calculatorRef = React.useRef();
@@ -228,14 +139,6 @@ const OnDeviceScreen = ({ children }) => {
     if (calculatorRef.current.fullWidthScale > 1) {
       setBackgroundScale(calculatorRef.current.fullWidthScale);
     }
-    const config = { duration: 1000 };
-    let transition;
-    if (prevScale > nextScale) {
-      transition = new ZoomOutTransition(calculatorRef.current, config);
-    } else {
-      transition = new ZoomInTransition(calculatorRef.current, config);
-    }
-
     set({
       to: {
         scale: nextScale,
