@@ -9,13 +9,23 @@ const MAX_SCALE = 1;
 
 const IMAGE_WIDTH = 1980;
 const IMAGE_HEIGHT = 1173;
+const IMAGE_BOTTOM_MARGIN = 104;
 
 const SCREEN_WIDTH = 1619;
 const SCREEN_HEIGHT = 1044;
 const SCREEN_ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
 const DURATION = 1000;
 
-const Website = styled(animated.div)`
+const Container = styled.div`
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+`;
+
+const ScaledDevice = styled(animated.div)`
+  position: absolute;
+  bottom: 0;
+  transform-origin: 50% bottom;
   height: 100vh;
   width: 100vw;
   border: 1px dashed black;
@@ -36,6 +46,7 @@ const Content = styled(animated.div)`
   /* width: ${SCREEN_WIDTH}px; */
   background-color: white;
 	width: 100%;
+  height: 100%;
   position: relative;
 `;
 
@@ -88,35 +99,54 @@ class SizeCalculator {
   }
 
   get fullHeightScale() {
-    return this.totalHeight / SCREEN_HEIGHT;
+    return this.totalHeight / this.SCREEN_HEIGHT;
   }
 
   get fullWidthRatio() {
     return SCREEN_WIDTH / this.totalWidth;
   }
 
+  get SCREEN_WIDTH() {
+    return SCREEN_WIDTH > this.totalWidth ? SCREEN_WIDTH : this.totalWidth;
+  }
+
+  get SCREEN_HEIGHT() {
+    const SCALED_SCREEN_HEIHGT = this.backgroundScale * SCREEN_HEIGHT;
+    return SCALED_SCREEN_HEIHGT > this.totalHeight
+      ? SCALED_SCREEN_HEIHGT
+      : this.totalHeight;
+  }
+
+  get backgroundScale() {
+    return this.fullWidthScale > 1 ? this.fullWidthScale : 1;
+  }
+
   calculateWidth(scale) {
     if (scale > this.fullWidthScale) {
       return this.totalWidth / scale;
     }
-    return SCREEN_WIDTH;
+    return this.SCREEN_WIDTH;
   }
 
   calculateMarginLeft(scale) {
     if (scale >= this.fullWidthScale) {
       return (this.totalWidth - this.calculateWidth(scale)) / 2;
     }
-    const finalMargin = (this.totalWidth - SCREEN_WIDTH) / 2;
+    const finalMargin = (this.totalWidth - this.SCREEN_WIDTH) / 2;
     return finalMargin;
   }
 
   calculateHeight(scale) {
-		console.log('scale', scale)
-		console.log('this.fullHeightScale', this.fullHeightScale);
+    console.log("scale", scale);
+    console.log("this.fullHeightScale", this.fullHeightScale);
     if (scale > this.fullHeightScale) {
       return this.totalHeight / scale;
     }
-    return SCREEN_HEIGHT;
+    return this.SCREEN_HEIGHT;
+  }
+
+  calculateBottomMargin(scale) {
+    return (1 - scale) * IMAGE_BOTTOM_MARGIN;
   }
 }
 
@@ -126,8 +156,6 @@ const OnDeviceScreen = ({ children }) => {
 
   const [isAnimating, setAnimating] = React.useState(false);
   const total = useWindowSize();
-
-  const [backgroundScale, setBackgroundScale] = React.useState(1);
 
   const [style, set, cancel] = useSpring(() => ({
     scale: MAX_SCALE,
@@ -143,10 +171,7 @@ const OnDeviceScreen = ({ children }) => {
 
   const scaleTo = (prevScale, nextScale) => {
     cancel();
-    console.log("calculatorRef", calculatorRef);
-    if (calculatorRef.current.fullWidthScale > 1) {
-      setBackgroundScale(calculatorRef.current.fullWidthScale);
-    }
+
     set({
       to: {
         scale: nextScale,
@@ -157,7 +182,7 @@ const OnDeviceScreen = ({ children }) => {
   };
 
   const onWheel = e => {
-    console.log("onWheel", onWheel);
+    console.log("onWheel", e, e.deltaY);
     if (isAnimating) return;
     if (ref.current && ref.current.scrollTop > 10) return;
 
@@ -184,43 +209,49 @@ const OnDeviceScreen = ({ children }) => {
   }, []);
 
   return (
-    <Website
-      onWheel={onWheel}
-      style={{
-        transform: style.scale.interpolate(scale => `scale(${scale})`),
-        width: style.scale.interpolate(v => {
-          const width = calculatorRef.current
-            ? calculatorRef.current.calculateWidth(v)
-            : "100%";
-          console.log("width", width);
-          return width;
-        }),
-        marginLeft: style.scale.interpolate(v => {
-          const marginLeft = calculatorRef.current
-            ? calculatorRef.current.calculateMarginLeft(v)
-            : 0;
-          console.log("marginLeft", marginLeft);
-          return marginLeft;
-        }),
-      }}
-    >
-      <Background src={macbook} scale={backgroundScale} />
-      <Content
-        ref={ref}
+    <Container>
+      <ScaledDevice
+        onWheel={onWheel}
         style={{
-          overflow: style.scale.interpolate(x => {
-            return x < 1 ? "hidden" : "auto";
+          transform: style.scale.interpolate(scale => `scale(${scale})`),
+          width: style.scale.interpolate(v => {
+            const width = calculatorRef.current
+              ? calculatorRef.current.calculateWidth(v)
+              : "100%";
+            console.log("width", width);
+            return width;
+          }),
+          marginLeft: style.scale.interpolate(v => {
+            const marginLeft = calculatorRef.current
+              ? calculatorRef.current.calculateMarginLeft(v)
+              : 0;
+            console.log("marginLeft", marginLeft);
+            return marginLeft;
           }),
           height: style.scale.interpolate(x => {
             const height = calculatorRef.current?.calculateHeight(x) || "100vh";
             console.log("heigth", height);
             return height;
           }),
+          marginBottom: style.scale.interpolate({range: [0.5, 1], output: [IMAGE_BOTTOM_MARGIN, 0]}),
         }}
       >
-        {children}
-      </Content>
-    </Website>
+        <Background
+          src={macbook}
+          scale={calculatorRef.current?.backgroundScale}
+        />
+        <Content
+          ref={ref}
+          style={{
+            overflow: style.scale.interpolate(x => {
+              return x < 1 ? "hidden" : "auto";
+            }),
+          }}
+        >
+          {children}
+        </Content>
+      </ScaledDevice>
+    </Container>
   );
 };
 
