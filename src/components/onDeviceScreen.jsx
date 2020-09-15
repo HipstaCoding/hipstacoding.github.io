@@ -36,7 +36,6 @@ const Content = styled(animated.div)`
   /* width: ${SCREEN_WIDTH}px; */
   background-color: white;
 	width: 100%;
-  height: ${props => props.backgroundScale * SCREEN_HEIGHT}px;
   position: relative;
 `;
 
@@ -88,7 +87,7 @@ class SizeCalculator {
     return this.totalWidth / SCREEN_WIDTH;
   }
 
-  get fullHeghtScale() {
+  get fullHeightScale() {
     return this.totalHeight / SCREEN_HEIGHT;
   }
 
@@ -110,6 +109,15 @@ class SizeCalculator {
     const finalMargin = (this.totalWidth - SCREEN_WIDTH) / 2;
     return finalMargin;
   }
+
+  calculateHeight(scale) {
+		console.log('scale', scale)
+		console.log('this.fullHeightScale', this.fullHeightScale);
+    if (scale > this.fullHeightScale) {
+      return this.totalHeight / scale;
+    }
+    return SCREEN_HEIGHT;
+  }
 }
 
 const OnDeviceScreen = ({ children }) => {
@@ -129,7 +137,7 @@ const OnDeviceScreen = ({ children }) => {
     },
     config: {
       duration: DURATION,
-      easing: t => 1 - Math.pow(1 - t, 5)
+      easing: t => 1 - Math.pow(1 - t, 5),
     },
   }));
 
@@ -149,7 +157,7 @@ const OnDeviceScreen = ({ children }) => {
   };
 
   const onWheel = e => {
-    console.log('onWheel', onWheel);
+    console.log("onWheel", onWheel);
     if (isAnimating) return;
     if (ref.current && ref.current.scrollTop > 10) return;
 
@@ -199,10 +207,14 @@ const OnDeviceScreen = ({ children }) => {
       <Background src={macbook} scale={backgroundScale} />
       <Content
         ref={ref}
-        backgroundScale={backgroundScale}
         style={{
           overflow: style.scale.interpolate(x => {
             return x < 1 ? "hidden" : "auto";
+          }),
+          height: style.scale.interpolate(x => {
+            const height = calculatorRef.current?.calculateHeight(x) || "100vh";
+            console.log("heigth", height);
+            return height;
           }),
         }}
       >
