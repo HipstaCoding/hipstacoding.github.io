@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Player } from "./components/player";
 import {
@@ -108,7 +108,8 @@ const Text = styled.div`
 const PlayerButton = ({ player }) => {
   const [status, setStatus] = useState("pause");
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    player.setContext(new (window.AudioContext || window.webkitAudioContext)());
     player.context.addEventListener("play", () => setStatus("play"));
     player.context.addEventListener("pause", () => setStatus("pause"));
     player.context.addEventListener("loading", () => setStatus("loading"));

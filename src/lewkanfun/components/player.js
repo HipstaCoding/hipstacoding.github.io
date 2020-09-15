@@ -6,8 +6,11 @@ export class Track {
 	isPlaying = false;
 
 	constructor(url) {
-		this.url = url;
-		this.context = new (window.AudioContext ||
+    this.url = url;
+  }
+  
+  setContext(context) {
+    this.context = new (window.AudioContext ||
 			window.webkitAudioContext)();
 
 		this.analyser = this.context.createAnalyser();
@@ -25,8 +28,7 @@ export class Track {
 			// analyser.getByteTimeDomainData(this.state.framerFrequencyData) // For Waves
 			if (this.cb) this.cb(this.dataArray);
 		}
-
-	}
+  }
 
 	loadTrack = () => {
 		if (this.bufferPromise) return this.bufferPromise;
@@ -101,10 +103,11 @@ export class Player {
 	get currentTrack () {
 		return this.tracks[0];
 	}
-
-	get context () {
-		return this.currentTrack.context;
-	}
+  
+  setContext(context) {
+    this.context = context;
+    this.tracks.forEach(track => track.setContext(context))
+  }
 
 	play() {
 		const currentTrack = this.tracks[0];
