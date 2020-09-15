@@ -28,7 +28,6 @@ const ScaledDevice = styled(animated.div)`
   transform-origin: 50% bottom;
   height: 100vh;
   width: 100vw;
-  border: 1px dashed black;
 `;
 
 const Background = styled.img`
