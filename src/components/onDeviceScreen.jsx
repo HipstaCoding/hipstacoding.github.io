@@ -152,7 +152,7 @@ class SizeCalculator {
 const OnDeviceScreen = ({ children }) => {
   const ref = React.createRef();
   const [calculator, setCalculator] = React.useState(null);
-  const [isAnimating, setAnimating] = React.useState(false);
+  const [isAnimating, setAnimating] = React.useState(true);
   const total = useWindowSize();
 
   const [style, set, cancel] = useSpring(() => ({
@@ -182,9 +182,14 @@ const OnDeviceScreen = ({ children }) => {
   const onWheel = e => {
     console.log("onWheel", e, e.deltaY);
     if (isAnimating) return;
-    if (ref.current && ref.current.scrollTop > 10) return;
-
     const currentScale = style.scale.value;
+    if (
+      ref.current &&
+      ref.current.scrollTop > 10 &&
+      currentScale === MAX_SCALE
+    ) {
+      return;
+    }
 
     const isUp = e.deltaY > 0;
     const isDown = e.deltaY < 0;
