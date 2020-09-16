@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import macbook from "../images/macbook_bg.png";
-import { useSpring, animated, interpolate } from "react-spring";
+import { useSpring, animated } from "react-spring";
 import useWindowSize from "../hooks/useWindowSize";
 
 const MIN_SCALE = 0.4;
@@ -151,8 +151,7 @@ class SizeCalculator {
 
 const OnDeviceScreen = ({ children }) => {
   const ref = React.createRef();
-  const calculatorRef = React.useRef();
-
+  const [calculator, setCalculator] = React.useState(null);
   const [isAnimating, setAnimating] = React.useState(false);
   const total = useWindowSize();
 
@@ -201,11 +200,15 @@ const OnDeviceScreen = ({ children }) => {
   };
 
   React.useEffect(() => {
-    calculatorRef.current = new SizeCalculator(total.width, total.height);
+    setCalculator(new SizeCalculator(total.width, total.height));
     setTimeout(() => {
       scaleTo(MAX_SCALE, MIN_SCALE);
     }, 500);
   }, []);
+
+  React.useEffect(() => {
+    setCalculator(new SizeCalculator(total.width, total.height));
+  }, [total]);
 
   return (
     <Container>
@@ -214,31 +217,29 @@ const OnDeviceScreen = ({ children }) => {
         style={{
           transform: style.scale.interpolate(scale => `scale(${scale})`),
           width: style.scale.interpolate(v => {
-            const width = calculatorRef.current
-              ? calculatorRef.current.calculateWidth(v)
-              : "100%";
+            const width = calculator ? calculator.calculateWidth(v) : "100%";
             console.log("width", width);
             return width;
           }),
           marginLeft: style.scale.interpolate(v => {
-            const marginLeft = calculatorRef.current
-              ? calculatorRef.current.calculateMarginLeft(v)
+            const marginLeft = calculator
+              ? calculator.calculateMarginLeft(v)
               : 0;
             console.log("marginLeft", marginLeft);
             return marginLeft;
           }),
           height: style.scale.interpolate(x => {
-            const height = calculatorRef.current?.calculateHeight(x) || "100vh";
+            const height = calculator?.calculateHeight(x) || "100vh";
             console.log("heigth", height);
             return height;
           }),
-          marginBottom: style.scale.interpolate({range: [0.5, 1], output: [IMAGE_BOTTOM_MARGIN, 0]}),
+          marginBottom: style.scale.interpolate({
+            range: [0.5, 1],
+            output: [IMAGE_BOTTOM_MARGIN, 0],
+          }),
         }}
       >
-        <Background
-          src={macbook}
-          scale={calculatorRef.current?.backgroundScale}
-        />
+        <Background src={macbook} scale={calculator?.backgroundScale} />
         <Content
           ref={ref}
           style={{
