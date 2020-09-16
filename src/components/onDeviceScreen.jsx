@@ -249,7 +249,7 @@ const OnDeviceScreen = ({ children }) => {
           ref={ref}
           style={{
             overflow: style.scale.interpolate(x => {
-              return x < 1 ? "hidden" : "auto";
+              return x < 0.9 ? "hidden" : "auto";
             }),
           }}
         >
