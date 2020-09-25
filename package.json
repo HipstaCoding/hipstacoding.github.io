@@ -10,7 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@svgr/webpack": "^5.4.0",
-    "gatsby": "^2.24.57",
+    "gatsby": "^2.24.65",
     "gatsby-image": "^2.4.16",
     "gatsby-plugin-manifest": "^2.4.23",
     "gatsby-plugin-offline": "^3.2.23",
@@ -26,6 +26,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-spring": "^8.0.27",
+    "reveal.js": "4.0.1",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
