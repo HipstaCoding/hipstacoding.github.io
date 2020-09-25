@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/reset.css";
-import "reveal.js/dist/theme/black.css";
+import "../lib/reveal-theme/source/hipsta.scss";
 
 const RevealViewport = styled.div`
   height: 100vh;
@@ -14,6 +14,8 @@ const RevealViewport = styled.div`
 const LessonTemplate = ({ children }) => {
   useEffect(() => {
     const deck = new Reveal({
+      overview: true,
+      mouseWheel: true,
       plugins: [Markdown],
     });
     deck.initialize();

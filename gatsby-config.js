@@ -12,6 +12,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-svgr",
+    "gatsby-plugin-sass",
     // {
     //   resolve: "gatsby-plugin-manifest",
     //   options: {
