@@ -5,3 +5,5 @@
  */
 
 // You can delete this file if you're not using it
+import "normalize.css/normalize.css";
+import "./src/assets/styles/base.css";

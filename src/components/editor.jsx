@@ -1,0 +1,46 @@
+import React from "react";
+import styled from "styled-components";
+import hljs from "highlight.js/lib/core";
+import xml from "highlight.js/lib/languages/xml";
+
+hljs.registerLanguage("xml", xml);
+
+const Textarea = styled.textarea`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  background-color: transparent;
+  font: inherit;
+  font-family: "Consolas", monospace;
+  padding: 15px 20px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  resize: none;
+  caret-color: white;
+`;
+
+const Container = styled.div`
+  position: relative;
+`;
+
+export default function Editor({ value, onChange, ...props }) {
+  const code = hljs.highlight("xml", value).value;
+
+  return (
+    <Container>
+      <pre>
+        <code
+          data-trim
+          data-noescape
+          {...props}
+          dangerouslySetInnerHTML={{ __html: code }}
+        ></code>
+        <Textarea value={value} onChange={onChange} />
+      </pre>
+    </Container>
+  );
+}

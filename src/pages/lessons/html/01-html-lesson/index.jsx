@@ -3,6 +3,7 @@ import LessonTemplate from "../../../../templates/lesson-template";
 import htmlLogo from "./html-logo.png";
 import styled from "styled-components";
 import markupDefinition from "raw-loader!./markup-definition.html";
+import Editor from "../../../../components/editor";
 
 const Logo = styled.img`
   height: 30vh;
@@ -10,6 +11,8 @@ const Logo = styled.img`
 `;
 
 export default function FirstLesson() {
+  const [code, setCode] = React.useState(markupDefinition);
+
   return (
     <LessonTemplate>
       <div className="slides">
@@ -53,14 +56,8 @@ export default function FirstLesson() {
             текст по ссылке.
           </section>
           <section>
-            <p dangerouslySetInnerHTML={{ __html: markupDefinition }} />
-            <p className="fragment">
-              <pre>
-                <code data-trim data-noescape data-line-numbers>
-                  {markupDefinition}
-                </code>
-              </pre>
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: code }} />
+            <Editor value={code} onChange={e => setCode(e.target.value)} />
           </section>
         </section>
       </div>

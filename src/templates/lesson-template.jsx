@@ -38,7 +38,9 @@ const LessonTemplate = ({ children }) => {
       <RevealViewport id="reveal" className="reveal">
         {children}
       </RevealViewport>
-      <Link href="/"><StyledLogo /></Link>
+      <Link to="/">
+        <StyledLogo />
+      </Link>
     </div>
   );
 };
