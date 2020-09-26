@@ -258,7 +258,7 @@
 
 .reveal a {
 	color: $linkColor;
-	text-decoration: none;
+	text-decoration: $linkDecoration;
 	transition: color .15s ease;
 }
 	.reveal a:hover {

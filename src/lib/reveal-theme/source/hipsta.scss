@@ -7,8 +7,9 @@
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "./fonts/helveticaneue/index.css";
+@import "./fonts/consolas/index.css";
 
 
 // Include theme-specific fonts
@@ -29,6 +30,7 @@ $headingTextTransform: none;
 $headingFontWeight: 600;
 $linkColor: #2a76dd;
 $linkColorHover: lighten( $linkColor, 15% );
+$linkDecoration: underline;
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
 $heading1Size: 2.5em;
@@ -43,3 +45,9 @@ $heading4Size: 1.0em;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal pre code {
+  border-radius: 4px;
+  padding: 15px 20px;
+  font-family: 'Consolas', monospace;
+}
