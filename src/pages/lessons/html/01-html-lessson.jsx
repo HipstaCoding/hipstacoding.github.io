@@ -6,7 +6,8 @@ export default function FirstLesson() {
     <LessonTemplate>
       <div className="slides">
         <section>
-          <h1>HTML как </h1>
+          <h3>Урок 1. </h3>
+          <h2>Героическое вступление <br /> в HTML</h2>
           <p>
             reveal.js enables you to create beautiful interactive slide decks
             using HTML. This presentation will show you examples{" "}

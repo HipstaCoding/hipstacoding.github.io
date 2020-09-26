@@ -7,10 +7,11 @@
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import "./fonts/helveticaneue/index.css";
 
 
 // Include theme-specific fonts
-@import url(./fonts/source-sans-pro/source-sans-pro.css);
 
 
 // Override theme settings (see ../template/settings.scss)
@@ -20,8 +21,8 @@ $mainColor: #222;
 $headingColor: #222;
 
 $mainFontSize: 42px;
-$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFont: 'HelveticaHue', Helvetica, sans-serif;
+$headingFont: 'Ubuntu', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: none;
