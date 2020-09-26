@@ -28,9 +28,9 @@ export default function FirstLesson() {
                 разметки»)
               </i>{" "}
               — стандартизированный язык разметки веб-страниц во Всемирной
-              паутине (интернете)
+              паутине (интернете).
             </p>
-            <p className="fragment">(c) Wikipedia</p>
+            <p className="fragment">© Wikipedia</p>
             <p className="fragment">
               <b>Ваши мысли в этот момент: </b>
               <i>
@@ -40,8 +40,8 @@ export default function FirstLesson() {
             </p>
           </section>
           <section>
-            <b>Гипертекст</b> <i>(англ. HyperText)</i> - текст, отличающийся от обычного тем, что
-            содержит{" "}
+            <b>Гипертекст</b> <i>(англ. HyperText)</i> - текст, отличающийся от
+            обычного тем, что содержит{" "}
             <a
               href="https://www.w3.org/WhatIs.html#:~:text=Hypertext%20is%20text%20which%20contains,to%20use%20this%20term%20too."
               target="_blank"
