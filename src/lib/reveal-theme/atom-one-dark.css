@@ -26,6 +26,16 @@ hue-6-2: #e6c07b
   background: #282c34;
 }
 
+.hljs-inline {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 0px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #abb2bf;
+  background: #282c34;
+}
+
 .hljs-comment,
 .hljs-quote {
   color: #5c6370;

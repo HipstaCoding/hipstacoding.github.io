@@ -46,8 +46,12 @@ $heading4Size: 1.0em;
 @import "../template/theme";
 // ---------------------------------------------
 
-.reveal pre code {
+.reveal pre > code {
   border-radius: 4px;
   padding: 15px 20px;
+  font-family: 'Consolas', monospace;
+}
+
+.reveal code {
   font-family: 'Consolas', monospace;
 }

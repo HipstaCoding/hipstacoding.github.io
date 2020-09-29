@@ -1,14 +1,14 @@
 import React from "react";
-import LessonTemplate from "../../../../templates/lesson-template";
+import LessonTemplate from "templates/lesson-template";
 import htmlLogo from "./html-logo.png";
-import styled from "styled-components";
-import markupDefinition from "raw-loader!./markup-definition.html";
-import Editor from "../../../../components/editor";
+import Editor from "components/editor";
+import InlineCode from "components/InlineCode";
+import { Image, Relative } from "components/Reveal";
 
-const Logo = styled.img`
-  height: 30vh;
-  width: auto;
-`;
+import markupDefinition from "raw-loader!./markup-definition.html";
+
+import browsers from "./browsers.png";
+import rip from "./rip.png";
 
 export default function FirstLesson() {
   const [code, setCode] = React.useState(markupDefinition);
@@ -19,10 +19,62 @@ export default function FirstLesson() {
         <section>
           <h3>Урок 1. </h3>
           <h1>Героическое вступление в</h1>
-          <Logo src={htmlLogo} />
+          <Image height="30vh" src={htmlLogo} />
         </section>
         <section>
           <h2>Основные понятия</h2>
+          <section>
+            <b>Браузер</b> <i>(от англ. Browser - обозреватель)</i> - программа,
+            через которую вы заходите в интернет.
+            <p>
+              <Relative>
+                <Image height="15vh" src={browsers} />
+                <Image
+                  height="15vh"
+                  position="absolute"
+                  left="20px"
+                  src={rip}
+                  className="fragment"
+                  data-fragment-index={1}
+                />
+                <div
+                  className="fragment"
+                  data-fragment-index={2}
+                  style={{
+                    position: "absolute",
+                    width: "40%",
+                    border: "2px solid red",
+                    height: "100%",
+                    right: 0,
+                    top: 0,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "black",
+                    fontSize: "3rem",
+                  }}
+                >
+                  <span style={{ transform: "rotate(30deg)" }}>
+                    Еще живы 😭
+                  </span>
+                </div>
+              </Relative>
+            </p>
+            <p>
+              <span
+                className="fragment fade-in-then-out"
+                data-fragment-index={1}
+              >
+                Хорошие новости
+              </span>
+              <span
+                className="fragment fade-in-then-out"
+                data-fragment-index={2}
+              >
+                Плохие новости
+              </span>
+            </p>
+          </section>
           <section>
             <p className="frament">
               <b>HTML</b>{" "}
@@ -58,6 +110,26 @@ export default function FirstLesson() {
           <section>
             <p dangerouslySetInnerHTML={{ __html: code }} />
             <Editor value={code} onChange={e => setCode(e.target.value)} />
+          </section>
+          <section>
+            <b>HTML Tag</b> - инструкция разметки HTML документа. С помощью
+            тегов <b>браузер</b> понимает как нужно отображать содержимое тега.
+            <p>
+              <ul>
+                <li className="fragment">
+                  Структура: <br />{" "}
+                  <InlineCode>{"<тег>содержимое тега</тег>"}</InlineCode>
+                </li>
+                <li className="fragment">
+                  Парность: <br /> <InlineCode>{"<тег />"}</InlineCode>
+                </li>
+                <li className="fragment">
+                  Вложенность:
+                  <br />{" "}
+                  <InlineCode>{"<тег><вложенный_тег/></тег>"}</InlineCode>
+                </li>
+              </ul>
+            </p>
           </section>
         </section>
       </div>

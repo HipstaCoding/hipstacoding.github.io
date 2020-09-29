@@ -5,10 +5,14 @@ import Highlight from "reveal.js/plugin/highlight/highlight.esm.js";
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../assets/icons/logo.svg";
 import { Link } from "gatsby";
+import hljs from "highlight.js/lib/core";
+import xml from "highlight.js/lib/languages/xml";
 
 import "reveal.js/dist/reveal.css";
 import "../lib/reveal-theme/atom-one-dark.css";
 import "../lib/reveal-theme/source/hipsta.scss";
+
+hljs.registerLanguage("xml", xml);
 
 const StyledLogo = styled(Logo)`
   position: absolute;

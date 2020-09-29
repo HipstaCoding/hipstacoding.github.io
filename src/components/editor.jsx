@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import hljs from "highlight.js/lib/core";
-import xml from "highlight.js/lib/languages/xml";
-
-hljs.registerLanguage("xml", xml);
 
 const Textarea = styled.textarea`
   position: absolute;
