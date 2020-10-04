@@ -46,6 +46,10 @@ $heading4Size: 1.0em;
 @import "../template/theme";
 // ---------------------------------------------
 
+.reveal pre {
+  width: 92%;
+}
+
 .reveal pre > code {
   border-radius: 4px;
   padding: 15px 20px;

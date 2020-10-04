@@ -6,13 +6,35 @@ import InlineCode from "components/InlineCode";
 import { Image, Relative } from "components/Reveal";
 
 import markupDefinition from "raw-loader!./markup-definition.html";
+import spaces from "raw-loader!./spaces.html";
+import tagHtml from "raw-loader!./tag.html";
+import htmlStructure from "raw-loader!./snippets/structure.html";
 
 import browsers from "./browsers.png";
 import rip from "./rip.png";
+import bug from "./bug.jpg";
+import internet from "./usage/internet.jpg";
+import silpo from "./usage/silpo.jpg";
+import ibox from "./usage/ibox.webp";
+import kfc from "./usage/kfc.jpg";
+import metro from "./usage/metro.jpg";
+import tag from "./images/tag.jpg";
+import doomers from "./images/doomers.jpg";
+import boomer from "./images/boomer.jpg";
+import wikiCharset from "./images/wiki-charset.png";
+
+const ParagraphWithSourse = ({ source }) => {
+  const [code, setCode] = React.useState(source);
+
+  return (
+    <>
+      <Editor value={code} onChange={e => setCode(e.target.value)} />
+      <p dangerouslySetInnerHTML={{ __html: code }} />
+    </>
+  );
+};
 
 export default function FirstLesson() {
-  const [code, setCode] = React.useState(markupDefinition);
-
   return (
     <LessonTemplate>
       <div className="slides">
@@ -22,7 +44,22 @@ export default function FirstLesson() {
           <Image height="30vh" src={htmlLogo} />
         </section>
         <section>
-          <h2>Основные понятия</h2>
+          <section>
+            <h1>Кому нужен HTML?</h1>
+            <h2 className="fragment">Всем*</h2>
+            <h6 className="fragment">*Кто как-то связан с программированием</h6>
+          </section>
+          <section>Где используется HTML в повседневной жизни:</section>
+          <section data-background-image={internet} />
+          <section data-background-image={silpo} />
+          <section data-background-image={ibox} />
+          <section data-background-image={kfc} />
+          <section data-background-image={metro} />
+        </section>
+        <section>
+          <section>
+            <h1>Основные понятия</h1>
+          </section>
           <section>
             <b>Браузер</b> <i>(от англ. Browser - обозреватель)</i> - программа,
             через которую вы заходите в интернет.
@@ -108,28 +145,252 @@ export default function FirstLesson() {
             текст по ссылке.
           </section>
           <section>
-            <p dangerouslySetInnerHTML={{ __html: code }} />
-            <Editor value={code} onChange={e => setCode(e.target.value)} />
+            <ParagraphWithSourse source={markupDefinition} />
+          </section>
+          <section data-background-image={bug}>
+            <p
+              style={{
+                background: "rgba(0,0,0,0.6)",
+                color: "white",
+                padding: "20px",
+                borderRadius: "10px",
+              }}
+              className="fragment fade-out"
+            >
+              <b>Баг</b> <i>(англ. software bug)</i> - ошибка допущенная в коде
+              программы, повлекшая за собой неожиданный результат. Определенние
+              появилось во времена, когда вычислительные машины занимали целые
+              команаты. Баги возникают как и по вине разработчика так и в
+              следствии ошибок в инструментах разработки.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Текст в HTML</h1>
           </section>
           <section>
-            <b>HTML Tag</b> - инструкция разметки HTML документа. С помощью
-            тегов <b>браузер</b> понимает как нужно отображать содержимое тега.
+            <ParagraphWithSourse source={spaces} />
+          </section>
+          <section>
+            <h1>HTML Tags</h1>
+          </section>
+          <section data-background-image={tag} />
+          <section>
+            <ParagraphWithSourse source={tagHtml} />
+          </section>
+          <section>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                height: "80vh",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <p
+                style={{
+                  maxHeight: "50%",
+                  width: "100%",
+                  position: "relative",
+                }}
+              >
+                <span style={{ position: "absolute", left: 0, top: 0 }}>
+                  Парные:
+                </span>
+                <img src={doomers} />
+              </p>
+              <p
+                style={{
+                  maxHeight: "50%",
+                  width: "100%",
+                  position: "relative",
+                }}
+              >
+                <span style={{ position: "absolute", left: 0, top: 0 }}>
+                  Не парные:
+                </span>
+                <img src={boomer} />
+              </p>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>Служебные</li>
+              <li>Визуальные</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Структура HTML</h1>
+          </section>
+          <section>
+            <pre>
+              <code dangerouslySetInnerHTML={{ __html: htmlStructure }} />
+            </pre>
+          </section>
+          <section>
+            <b>&lt;!DOCTYPE html&gt;</b> - говорит интерпретатору что далее в
+            документе будет использован язык HTML версии 5.
+          </section>
+          <section>
             <p>
+              <b>&lt;html lang=&quot;ru&quot; /&gt;</b> - тег, открывающий html
+              документ. Является обязательным корневым тегом. Атрибут{" "}
+              <b>lang</b> определяет язык документа и является обязательным.
+            </p>
+            <p className="fragment">
+              Атрибут lang принимает значения в формате{" "}
+              <a href="https://r12a.github.io/app-subtags/" target="_blank">
+                BCP47
+              </a>
+              . Звучит страшно, но на деле это в основном &amp;#39;en&amp;#39;,
+              но если нужен какой-то другой язык его можно найти или проверить
+              по ссылке.
+            </p>
+          </section>
+          <section>
+            <p>
+              <b>&lt;head /&gt;</b> - тег, содержащий служебную информацию для
+              браузера.
+            </p>
+            <p className="fragment">
               <ul>
-                <li className="fragment">
-                  Структура: <br />{" "}
-                  <InlineCode>{"<тег>содержимое тега</тег>"}</InlineCode>
-                </li>
-                <li className="fragment">
-                  Парность: <br /> <InlineCode>{"<тег />"}</InlineCode>
-                </li>
-                <li className="fragment">
-                  Вложенность:
-                  <br />{" "}
-                  <InlineCode>{"<тег><вложенный_тег/></тег>"}</InlineCode>
+                <li>
+                  Элементы, которые могут использоваться внутри{" "}
+                  <code>&lt;head&gt;</code>:
+                  <ul style={{ columns: "2" }}>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/title"
+                        title="HTML-элемент заголовка (<title>) определяет заголовок документа, который отображается в заголовке окна браузера или на вкладке страницы. Он содержит только текст, а теги внутри элемента игнорируются."
+                      >
+                        <code>&lt;title&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/base"
+                        title="HTML элемент&nbsp;<base>&nbsp;определяет&nbsp;основной адрес (URL), используемый для всех относительных адресов (URLs) в документе. Может быть только один&nbsp;<base>&nbsp;элемент в одном документе.&nbsp;
+ Основной адрес (URL) документа можно запросить скриптом используя&nbsp;document.baseURI."
+                      >
+                        <code>&lt;base&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="new"
+                        href="/ru/docs/Web/HTML/Element/link"
+                        rel="nofollow"
+                        title="Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!"
+                      >
+                        <code>&lt;link&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/style"
+                        title="HTML-элемент <style> содержит стилевую информацию для документа или его части. По умолчанию стилевые инструкции внутри этого элемента считаются написанными на CSS."
+                      >
+                        <code>&lt;style&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/meta"
+                        title="HTML элемент <meta> представляет такие метаданные, которые не могут быть представлены другими HTML-метатегами, такими как <base>, <link>, <script>, <style> или <title>."
+                      >
+                        <code>&lt;meta&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/script"
+                        title="HTML Элемент&nbsp;<script> "
+                      >
+                        <code>&lt;script&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/noscript"
+                        title="Элемент&nbsp;HTML <noscript>&nbsp;определяет секцию html кода, которая будет вставлена, если в&nbsp;браузере пользователя нет либо отключена поддержка&nbsp;JavaScript'а."
+                      >
+                        <code>&lt;noscript&gt;</code>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/ru/docs/Web/HTML/Element/template"
+                        title="HTML элемент контент шаблона  <template> - это механизм для отложенного создания клиентского контента, который не отображается во время загрузки, но может быть инициализирован при помощи JavaScript."
+                      >
+                        <code>&lt;template&gt;</code>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </p>
+          </section>
+          <section>
+            <p>
+              <b>&lt;meta /&gt;</b> - тег, описывающий метаданные.{" "}
+              <a
+                href="https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%9C%D0%B5%D1%82%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5"
+                target="_blank"
+              >
+                Метаданные
+              </a>{" "}
+              - это данные, что описывают другие данные. Мета теги очень сильно
+              зависят от атрибутов, которые в них объявленны.
+            </p>
+            <p>
+              Работа с мета-тегами чаще всего относится к другой IT отрасли,
+              которая называется <b>&quot;Поисковая Оптимизация&quot;</b>{" "}
+              <i>(англ. Search Engine Optimization или просто SEO)</i>.
+            </p>
+          </section>
+          <section>
+            <img
+              src={wikiCharset}
+              style={{ minWidth: "998px", minHeight: "635px" }}
+            />
+          </section>
+          <section>
+            <p>
+              <b>&lt;meta charset=&quot;UTF-8&quot; /&gt;</b> - тег задающий
+              кодировку.
+            </p>
+            <p>
+              Кракозябры в 99.9% случаев свидетельствуют о проблемах с
+              кодировкой.
+            </p>
+            <p>
+              Если кракозябры в браузере - значит был некорректно указан метатег
+              с атрибутом charset.
+            </p>
+            <p>
+              Если кракозябры в файле - то или файл был сохранен с неверной
+              кодировкой или читается с неверной кодировкой.
+            </p>
+          </section>
+          <section>
+            <b>
+              &lt;meta name="viewport" content="width=device-width,
+              initial-scale=1.0"&gt;
+            </b>{" "}
+            - метатег, отвечающий за корректное отображение на мобильных
+            телефонах. Фактически он говорит, что ширина области отображения
+            (viewport) должна равняться ширине девайса, а изначальный масштаб
+            (inital scale) не будет изменен (не отдален и не приближен, а равен
+            1)
+          </section>
+          <section>
+            <b>&lt;body /&gt; </b> - тег тела документа. Содержит визуальную
+            часть HTML документа. На странице может быть только один &lt;body
+            /&gt; тег.
           </section>
         </section>
       </div>

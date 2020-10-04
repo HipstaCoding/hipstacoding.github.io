@@ -18,7 +18,9 @@ const StyledLogo = styled(Logo)`
   position: absolute;
   bottom: 20px;
   left: 40px;
-  width: 400px;
+  width: 150px;
+  background-color: white;
+  padding: 0 10px;
 `;
 
 const RevealViewport = styled.div`
