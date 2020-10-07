@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import LessonTemplate from "templates/lesson-template";
 import htmlLogo from "./html-logo.png";
 import Editor from "components/editor";
@@ -23,7 +24,27 @@ import tag from "./images/tag.jpg";
 import doomers from "./images/doomers.jpg";
 import boomer from "./images/boomer.jpg";
 import wikiCharset from "./images/wiki-charset.png";
-import { ReactComponent as VSCode } from "./images/vscode.svg";
+import { ReactComponent as VSCodeSvg } from "./images/vscode.svg";
+import { ReactComponent as ChromeSvg } from "./images/chrome.svg";
+import liveReloadUrl from "./images/live-reload.png";
+
+const VSCode = styled(VSCodeSvg)`
+  height: 54px;
+  display: inline-block;
+  vertical-align: top;
+`;
+
+const Chrome = styled(ChromeSvg)`
+  height: 54px;
+  display: inline-block;
+  vertical-align: top;
+`;
+
+const ImgIcon = styled.img`
+  height: 54px;
+  display: inline-block;
+  margin: 0 5px !important;
+`;
 
 const ParagraphWithSourse = ({ source }) => {
   const [code, setCode] = React.useState(source);
@@ -121,23 +142,11 @@ export default function FirstLesson() {
               Если сильно упростить - то интернет это набор HTML файлов, которые
               лежат на специальных компьюетрах, называемыми серверами.
             </p>
+            <p className="fragment">
+              Давай-те же создадим вам первый HTML файл!
+            </p>
           </section>
           <section>
-            {/* <ol>
-              <li>Создаем папку my-website</li>
-              <li>Открываем VSCode</li>
-              <li>
-                Открываем в VSCode созданную папку{" "}
-                <Hotkey mac="⌘+O" win="CTRL+O" />
-              </li>
-              <li>
-                Создаем новый файл <code>CTRL+N</code> или <code>⌘+N</code>
-              </li>
-              <li>
-                Сохраняем пустой файл <code>CTRL+S</code> или <code>⌘+S</code>
-              </li>
-              <li>Называем этот файл index.html и нажимаем кнопку сохранить</li>
-            </ol> */}
             <table>
               <thead>
                 <tr>
@@ -154,7 +163,7 @@ export default function FirstLesson() {
               <tr>
                 <td>Открываем VSCode</td>
                 <td>
-                  <VSCode style={{ display: "block" }} width="54px" />
+                  <VSCode />
                 </td>
               </tr>
               <tr>
@@ -181,7 +190,41 @@ export default function FirstLesson() {
                   <Hotkey mac={["enter"]} />
                 </td>
               </tr>
+              <tr>
+                <td>Немножко магии</td>
+                <td>
+                  <Hotkey mac={["!", "tab"]} />
+                </td>
+              </tr>
             </table>
+          </section>
+          <section>
+            <p>
+              В интернете так принято, что первая страница, которая открывается
+              пользователю называется <code>index.html</code>.
+            </p>
+            <p className="fragment">
+              <a href="https://www.google.com/" target="_blank">
+                google.com
+              </a>{" "}
+              =={" "}
+              <a href="https://www.google.com/index.html" target="_blank">
+                google.com.ua/index.html
+              </a>
+            </p>
+          </section>
+          <section>
+            <p>
+              Для удобной нужно запустить LiveReload плагин, который будет
+              перезагружать страницу каждый раз, когда мы ее сохраняем.
+            </p>
+            <p>
+              <VSCode />: <Hotkey mac={["ctrl", "shift", "P"]} /> -&gt;
+              LiveReload: Enable/Disable server
+            </p>
+            <p style={{ display: "inline-flex" }}>
+              <Chrome />: Нажать на кнопку <ImgIcon src={liveReloadUrl} /> в панеле разширений
+            </p>
           </section>
         </section>
         <section>

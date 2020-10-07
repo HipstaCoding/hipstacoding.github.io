@@ -22,6 +22,7 @@ const Mac = {
   shift: "⇧",
   alt: "⌥",
   enter: "⏎",
+  tab: "↹",
 };
 
 export default function Hotkey({ mac, win }) {
