@@ -21,6 +21,14 @@ exports.onCreateWebpackConfig = ({ actions, stage, loaders }) => {
         pages: path.resolve(__dirname, "src/pages"),
       },
     },
+    module: {
+      rules: [
+        {
+          test: /snippets/,
+          use: loaders.raw(),
+        },
+      ],
+    },
   });
 
   if (stage === "build-html") {
@@ -33,7 +41,6 @@ exports.onCreateWebpackConfig = ({ actions, stage, loaders }) => {
           },
         ],
       },
-    })
+    });
   }
 };
-

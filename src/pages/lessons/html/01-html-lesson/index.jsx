@@ -2,13 +2,14 @@ import React from "react";
 import LessonTemplate from "templates/lesson-template";
 import htmlLogo from "./html-logo.png";
 import Editor from "components/editor";
-import InlineCode from "components/InlineCode";
 import { Image, Relative } from "components/Reveal";
 
-import markupDefinition from "raw-loader!./markup-definition.html";
-import spaces from "raw-loader!./spaces.html";
-import tagHtml from "raw-loader!./tag.html";
-import htmlStructure from "raw-loader!./snippets/structure.html";
+import markupDefinition from "./snippets/markup-definition.html";
+import spaces from "./snippets/spaces.html";
+import tagHtml from "./snippets/tag.html";
+import htmlStructure from "./snippets/structure.html";
+
+console.log(htmlStructure)
 
 import browsers from "./browsers.png";
 import rip from "./rip.png";
@@ -18,6 +19,7 @@ import silpo from "./usage/silpo.jpg";
 import ibox from "./usage/ibox.webp";
 import kfc from "./usage/kfc.jpg";
 import metro from "./usage/metro.jpg";
+import htmlCap from "./usage/html-cap.jpg";
 import tag from "./images/tag.jpg";
 import doomers from "./images/doomers.jpg";
 import boomer from "./images/boomer.jpg";
@@ -55,6 +57,7 @@ export default function FirstLesson() {
           <section data-background-image={ibox} />
           <section data-background-image={kfc} />
           <section data-background-image={metro} />
+          <section data-background-image={htmlCap} />
         </section>
         <section>
           <section>
@@ -391,6 +394,24 @@ export default function FirstLesson() {
             <b>&lt;body /&gt; </b> - тег тела документа. Содержит визуальную
             часть HTML документа. На странице может быть только один &lt;body
             /&gt; тег.
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>
+              Структура <br /> &lt;body /&gt;
+            </h1>
+          </section>
+          <section>
+            <p>Визуальные теги делятся на:</p>
+            <ul>
+              <li>Блоки</li>
+              <li>Строки</li>
+            </ul>
+          </section>
+          <section>
+            &lt;div /&gt; <i>(англ. division)</i> - универсальный блочный
+            тег-контейнер.
           </section>
         </section>
       </div>
