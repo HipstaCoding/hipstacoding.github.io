@@ -25,18 +25,17 @@ const Container = styled.div`
 `;
 
 export default function Editor({ value, onChange, ...props }) {
-  const code = hljs.highlight("xml", value).value;
+  const code = hljs.highlight("xml", value).value + "\n";
 
   return (
     <Container>
       <pre>
         <code
-          data-trim
           data-noescape
           {...props}
           dangerouslySetInnerHTML={{ __html: code }}
         ></code>
-        <Textarea value={value} onChange={onChange} />
+        <Textarea value={value} onChange={e => onChange(e.target.value)} />
       </pre>
     </Container>
   );

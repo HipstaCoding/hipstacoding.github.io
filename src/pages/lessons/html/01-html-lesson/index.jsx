@@ -21,8 +21,6 @@ import kfc from "./usage/kfc.jpg";
 import metro from "./usage/metro.jpg";
 import htmlCap from "./usage/html-cap.jpg";
 import tag from "./images/tag.jpg";
-import doomers from "./images/doomers.jpg";
-import boomer from "./images/boomer.jpg";
 import wikiCharset from "./images/wiki-charset.png";
 import { ReactComponent as VSCodeSvg } from "./images/vscode.svg";
 import { ReactComponent as ChromeSvg } from "./images/chrome.svg";
@@ -51,7 +49,7 @@ const ParagraphWithSourse = ({ source }) => {
 
   return (
     <>
-      <Editor value={code} onChange={e => setCode(e.target.value)} />
+      <Editor value={code} onChange={setCode} />
       <p dangerouslySetInnerHTML={{ __html: code }} />
     </>
   );
@@ -79,6 +77,121 @@ export default function FirstLesson() {
           <section data-background-image={kfc} />
           <section data-background-image={metro} />
           <section data-background-image={htmlCap} />
+        </section>
+        <section>
+          <section>
+            <h1>Основные понятия</h1>
+          </section>
+          <section>
+            <b>Браузер</b> <i>(от англ. Browser - обозреватель)</i> - программа,
+            через которую вы заходите в интернет.
+            <p>
+              <Relative>
+                <Image height="15vh" src={browsers} />
+                <Image
+                  height="15vh"
+                  position="absolute"
+                  left="20px"
+                  src={rip}
+                  className="fragment"
+                  data-fragment-index={1}
+                />
+                <div
+                  className="fragment"
+                  data-fragment-index={2}
+                  style={{
+                    position: "absolute",
+                    width: "40%",
+                    border: "2px solid red",
+                    height: "100%",
+                    right: 0,
+                    top: 0,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "black",
+                    fontSize: "3rem",
+                  }}
+                >
+                  <span style={{ transform: "rotate(30deg)" }}>
+                    Еще живы 😭
+                  </span>
+                </div>
+              </Relative>
+            </p>
+            <p>
+              <span
+                className="fragment fade-in-then-out"
+                data-fragment-index={1}
+              >
+                Хорошие новости
+              </span>
+              <span
+                className="fragment fade-in-then-out"
+                data-fragment-index={2}
+              >
+                Плохие новости
+              </span>
+            </p>
+          </section>
+          <section>
+            <p className="frament">
+              <b>HTML</b>{" "}
+              <i>
+                (от англ. HyperText Markup Language — «язык гипертекстовой
+                разметки»)
+              </i>{" "}
+              — стандартизированный язык разметки веб-страниц во Всемирной
+              паутине (интернете).
+            </p>
+            <p className="fragment">© Wikipedia</p>
+            <p className="fragment">
+              <b>Ваши мысли в этот момент: </b>
+              <i>
+                Ну и, я и сам могу это в википедии прочитать, что это вообще
+                значит, умник?
+              </i>
+            </p>
+          </section>
+          <section>
+            <b>Гипертекст</b> <i>(англ. HyperText)</i> - текст, отличающийся от
+            обычного тем, что содержит{" "}
+            <a
+              href="https://www.w3.org/WhatIs.html#:~:text=Hypertext%20is%20text%20which%20contains,to%20use%20this%20term%20too."
+              target="_blank"
+              rel="noreferrer"
+            >
+              гиперссылки
+            </a>{" "}
+            (далее просто ссылки), т.е можно из одного текста перейти в другой
+            текст по ссылке.
+          </section>
+          <section>
+            <ParagraphWithSourse source={markupDefinition} />
+          </section>
+          <section>
+            <b>Тег</b> <i>(англ. HTML Tag)</i> - единица языка HTML. Тегами
+            обозначается структура HTML документа, определяется его служебная
+            информация и контент.
+          </section>
+          <section data-background-image={tag} />
+          <section data-background-image={bug}>
+            <p
+              style={{
+                background: "rgba(0,0,0,0.6)",
+                color: "white",
+                padding: "20px",
+                borderRadius: "10px",
+              }}
+              className="fragment fade-out"
+            >
+              <b>Баг</b> <i>(англ. software bug)</i> - ошибка допущенная в коде
+              программы, повлекшая за собой неожиданный результат. Определенние
+              появилось во времена, когда вычислительные машины занимали целые
+              команаты. Баги возникают как и по вине разработчика так и в
+              следствии ошибок в инструментах разработки.
+            </p>
+          </section>
         </section>
         <section>
           <section>
@@ -223,174 +336,9 @@ export default function FirstLesson() {
               LiveReload: Enable/Disable server
             </p>
             <p style={{ display: "inline-flex" }}>
-              <Chrome />: Нажать на кнопку <ImgIcon src={liveReloadUrl} /> в панеле разширений
+              <Chrome />: Нажать на кнопку <ImgIcon src={liveReloadUrl} /> в
+              панеле разширений
             </p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Основные понятия</h1>
-          </section>
-          <section>
-            <b>Браузер</b> <i>(от англ. Browser - обозреватель)</i> - программа,
-            через которую вы заходите в интернет.
-            <p>
-              <Relative>
-                <Image height="15vh" src={browsers} />
-                <Image
-                  height="15vh"
-                  position="absolute"
-                  left="20px"
-                  src={rip}
-                  className="fragment"
-                  data-fragment-index={1}
-                />
-                <div
-                  className="fragment"
-                  data-fragment-index={2}
-                  style={{
-                    position: "absolute",
-                    width: "40%",
-                    border: "2px solid red",
-                    height: "100%",
-                    right: 0,
-                    top: 0,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    color: "black",
-                    fontSize: "3rem",
-                  }}
-                >
-                  <span style={{ transform: "rotate(30deg)" }}>
-                    Еще живы 😭
-                  </span>
-                </div>
-              </Relative>
-            </p>
-            <p>
-              <span
-                className="fragment fade-in-then-out"
-                data-fragment-index={1}
-              >
-                Хорошие новости
-              </span>
-              <span
-                className="fragment fade-in-then-out"
-                data-fragment-index={2}
-              >
-                Плохие новости
-              </span>
-            </p>
-          </section>
-          <section>
-            <p className="frament">
-              <b>HTML</b>{" "}
-              <i>
-                (от англ. HyperText Markup Language — «язык гипертекстовой
-                разметки»)
-              </i>{" "}
-              — стандартизированный язык разметки веб-страниц во Всемирной
-              паутине (интернете).
-            </p>
-            <p className="fragment">© Wikipedia</p>
-            <p className="fragment">
-              <b>Ваши мысли в этот момент: </b>
-              <i>
-                Ну и, я и сам могу это в википедии прочитать, что это вообще
-                значит, умник?
-              </i>
-            </p>
-          </section>
-          <section>
-            <b>Гипертекст</b> <i>(англ. HyperText)</i> - текст, отличающийся от
-            обычного тем, что содержит{" "}
-            <a
-              href="https://www.w3.org/WhatIs.html#:~:text=Hypertext%20is%20text%20which%20contains,to%20use%20this%20term%20too."
-              target="_blank"
-              rel="noreferrer"
-            >
-              гиперссылки
-            </a>{" "}
-            (далее просто ссылки), т.е можно из одного текста перейти в другой
-            текст по ссылке.
-          </section>
-          <section>
-            <ParagraphWithSourse source={markupDefinition} />
-          </section>
-          <section data-background-image={bug}>
-            <p
-              style={{
-                background: "rgba(0,0,0,0.6)",
-                color: "white",
-                padding: "20px",
-                borderRadius: "10px",
-              }}
-              className="fragment fade-out"
-            >
-              <b>Баг</b> <i>(англ. software bug)</i> - ошибка допущенная в коде
-              программы, повлекшая за собой неожиданный результат. Определенние
-              появилось во времена, когда вычислительные машины занимали целые
-              команаты. Баги возникают как и по вине разработчика так и в
-              следствии ошибок в инструментах разработки.
-            </p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Текст в HTML</h1>
-          </section>
-          <section>
-            <ParagraphWithSourse source={spaces} />
-          </section>
-          <section>
-            <h1>HTML Tags</h1>
-          </section>
-          <section data-background-image={tag} />
-          <section>
-            <ParagraphWithSourse source={tagHtml} />
-          </section>
-          <section>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "80vh",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <p
-                style={{
-                  maxHeight: "50%",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <span style={{ position: "absolute", left: 0, top: 0 }}>
-                  Парные:
-                </span>
-                <img src={doomers} />
-              </p>
-              <p
-                style={{
-                  maxHeight: "50%",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <span style={{ position: "absolute", left: 0, top: 0 }}>
-                  Не парные:
-                </span>
-                <img src={boomer} />
-              </p>
-            </div>
-          </section>
-          <section>
-            <ul>
-              <li>Служебные</li>
-              <li>Визуальные</li>
-            </ul>
           </section>
         </section>
         <section>
@@ -417,9 +365,8 @@ export default function FirstLesson() {
               <a href="https://r12a.github.io/app-subtags/" target="_blank">
                 BCP47
               </a>
-              . Звучит страшно, но на деле это в основном &amp;#39;en&amp;#39;,
-              но если нужен какой-то другой язык его можно найти или проверить
-              по ссылке.
+              . Звучит страшно, но на деле это в основном "en", но если нужен
+              какой-то другой язык его можно найти или проверить по ссылке.
             </p>
           </section>
           <section>
@@ -566,20 +513,19 @@ export default function FirstLesson() {
         </section>
         <section>
           <section>
-            <h1>
-              Структура <br /> &lt;body /&gt;
-            </h1>
+            <h1>Текст в HTML</h1>
           </section>
           <section>
-            <p>Визуальные теги делятся на:</p>
-            <ul>
-              <li>Блоки</li>
-              <li>Строки</li>
-            </ul>
+            <ParagraphWithSourse source={spaces} />
           </section>
           <section>
-            &lt;div /&gt; <i>(англ. division)</i> - универсальный блочный
-            тег-контейнер.
+            <p>Самые умные из вас уже наверное подумали:</p>
+            <p className="fragment">
+              <i>
+                - А что будет, если я захочу написать в HTML формулу, по типу: 1
+                + y &lt; x{" "}
+              </i>
+            </p>
           </section>
         </section>
       </div>
