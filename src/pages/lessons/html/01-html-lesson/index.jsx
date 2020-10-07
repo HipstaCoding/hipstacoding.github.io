@@ -2,6 +2,7 @@ import React from "react";
 import LessonTemplate from "templates/lesson-template";
 import htmlLogo from "./html-logo.png";
 import Editor from "components/editor";
+import Hotkey from "components/Hotkey";
 import { Image, Relative } from "components/Reveal";
 
 import markupDefinition from "./snippets/markup-definition.html";
@@ -22,6 +23,7 @@ import tag from "./images/tag.jpg";
 import doomers from "./images/doomers.jpg";
 import boomer from "./images/boomer.jpg";
 import wikiCharset from "./images/wiki-charset.png";
+import { ReactComponent as VSCode } from "./images/vscode.svg";
 
 const ParagraphWithSourse = ({ source }) => {
   const [code, setCode] = React.useState(source);
@@ -108,6 +110,78 @@ export default function FirstLesson() {
               ©.
               <p>Для начала нужно просто их установить.</p>
             </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Начинаем работу с HTML</h1>
+          </section>
+          <section>
+            <p>
+              Если сильно упростить - то интернет это набор HTML файлов, которые
+              лежат на специальных компьюетрах, называемыми серверами.
+            </p>
+          </section>
+          <section>
+            {/* <ol>
+              <li>Создаем папку my-website</li>
+              <li>Открываем VSCode</li>
+              <li>
+                Открываем в VSCode созданную папку{" "}
+                <Hotkey mac="⌘+O" win="CTRL+O" />
+              </li>
+              <li>
+                Создаем новый файл <code>CTRL+N</code> или <code>⌘+N</code>
+              </li>
+              <li>
+                Сохраняем пустой файл <code>CTRL+S</code> или <code>⌘+S</code>
+              </li>
+              <li>Называем этот файл index.html и нажимаем кнопку сохранить</li>
+            </ol> */}
+            <table>
+              <thead>
+                <tr>
+                  <th>Действие</th>
+                  <th>🔥 Hotkey / Icon</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>Создаем папку my-website</td>
+                <td>
+                  <Hotkey mac={["ctrl", "shift", "N"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Открываем VSCode</td>
+                <td>
+                  <VSCode style={{ display: "block" }} width="54px" />
+                </td>
+              </tr>
+              <tr>
+                <td>Открываем папку в VSCode</td>
+                <td>
+                  <Hotkey mac={["ctrl", "O"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Создаем новый файл</td>
+                <td>
+                  <Hotkey mac={["ctrl", "N"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Сохраняем пустой файл</td>
+                <td>
+                  <Hotkey mac={["ctrl", "S"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Называем файл index.html</td>
+                <td>
+                  <Hotkey mac={["enter"]} />
+                </td>
+              </tr>
+            </table>
           </section>
         </section>
         <section>
