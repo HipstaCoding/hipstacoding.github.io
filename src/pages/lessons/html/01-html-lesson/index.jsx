@@ -8,7 +8,6 @@ import { Image, Relative } from "components/Reveal";
 
 import markupDefinition from "./snippets/markup-definition.html";
 import spaces from "./snippets/spaces.html";
-import tagHtml from "./snippets/tag.html";
 import htmlStructure from "./snippets/structure.html";
 
 import browsers from "./browsers.png";
@@ -521,10 +520,82 @@ export default function FirstLesson() {
           <section>
             <p>Самые умные из вас уже наверное подумали:</p>
             <p className="fragment">
-              <i>
-                - А что будет, если я захочу написать в HTML формулу, по типу: 1
-                + y &lt; x{" "}
-              </i>
+              <i>- А что будет, если я захочу написать два пробела, йопта?</i>
+            </p>
+            <p className="fragment">
+              Ответ: у специальных символов есть свои{" "}
+              <a
+                href="https://www.freeformatter.com/html-entities.html"
+                target="_blank"
+              >
+                HTML спецсимволы
+              </a>
+            </p>
+          </section>
+          <section>
+            <table>
+              <thead style={{ verticalAlign: "top" }}>
+                <tr>
+                  <th>символ</th>
+                  <th>код c буквами</th>
+                  <th>код с цифрами</th>
+                  <th>описание</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&amp;nbsp;</td>
+                  <td>&amp;#160;</td>
+                  <td>
+                    <a
+                      href="https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D1%80%D0%B0%D0%B7%D1%80%D1%8B%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB"
+                      target="_blank"
+                    >
+                      Неразрывный пробел
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>&#32;</td>
+                  <td>нету 😔</td>
+                  <td>&amp;#32;</td>
+                  <td>Пробел</td>
+                </tr>
+                <tr>
+                  <td>&amp;</td>
+                  <td>&amp;amp;</td>
+                  <td>&amp;#38;</td>
+                  <td>Амперсант</td>
+                </tr>
+                <tr>
+                  <td>&lt;</td>
+                  <td>&amp;lt;</td>
+                  <td>&amp;#60;</td>
+                  <td>
+                    Меньше <i>(less then)</i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>&gt;</td>
+                  <td>&amp;gt;</td>
+                  <td>&amp;#62;</td>
+                  <td>
+                    Меньше <i>(greater then)</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <p>
+              Отступы осуществляются с помощью тега &lt;p&gt;&lt;/p&gt;, который
+              назван в честь слова &quot;параграф&quot;
+            </p>
+            <p>
+              Спецификация HTML запрещает вкладывать тег &lt;p /&gt; в другой
+              тег &lt;p/&gt;, поэтому отступы внутри &lt;p /&gt; осуществляются
+              с помощью тега &lt;br /&gt;.
             </p>
           </section>
         </section>
