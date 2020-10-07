@@ -9,8 +9,6 @@ import spaces from "./snippets/spaces.html";
 import tagHtml from "./snippets/tag.html";
 import htmlStructure from "./snippets/structure.html";
 
-console.log(htmlStructure)
-
 import browsers from "./browsers.png";
 import rip from "./rip.png";
 import bug from "./bug.jpg";
@@ -58,6 +56,59 @@ export default function FirstLesson() {
           <section data-background-image={kfc} />
           <section data-background-image={metro} />
           <section data-background-image={htmlCap} />
+        </section>
+        <section>
+          <section>
+            <h1>Програмное обеспечение</h1>
+          </section>
+          <section>
+            Google © заплатил мне кучу денег, так что мы будет использовать
+            Google Chrome © в качестве браузера.
+          </section>
+          <section
+            data-preload
+            data-background-iframe="https://www.google.com/chrome/"
+          />
+          <section>
+            <p>
+              Чтобы писать код, нам нужна специальная программа - редактор кода.
+            </p>
+            <p>
+              Использовать будем бесплатный{" "}
+              <a href="https://code.visualstudio.com/" target="_blank">
+                Visual Studio Code
+              </a>{" "}
+              (сокращенно VSCode).
+            </p>
+            <p className="fragment">
+              К сожалению, Microsoft © мне не заплатили, так что отдельного
+              слайда они не получат и скачать его можно по ссылке.
+            </p>
+          </section>
+          <section>
+            <p>
+              Обе программы поддерживают плагины от сторонних разработчиков.
+            </p>
+            <p>
+              Для мгновенного обновления страницы будем использовать Live Reload
+              © плагин для{" "}
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=ziishaned.livereload"
+                target="_blank"
+              >
+                Visual Studio Code
+              </a>{" "}
+              © и{" "}
+              <a
+                href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=ru"
+                target="_blank"
+              >
+                Google Chrome
+              </a>{" "}
+              ©.
+              <p>Для начала нужно просто их установить.</p>
+            </p>
+          </section>
         </section>
         <section>
           <section>
