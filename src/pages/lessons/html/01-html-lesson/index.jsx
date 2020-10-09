@@ -9,6 +9,8 @@ import { Image, Relative } from "components/Reveal";
 import markupDefinition from "./snippets/markup-definition.html";
 import spaces from "./snippets/spaces.html";
 import htmlStructure from "./snippets/structure.html";
+import listExampleHtml from "./snippets/list-example.html";
+import imgHtml from "./snippets/img.html";
 
 import browsers from "./browsers.png";
 import rip from "./rip.png";
@@ -21,6 +23,7 @@ import metro from "./usage/metro.jpg";
 import htmlCap from "./usage/html-cap.jpg";
 import tag from "./images/tag.jpg";
 import wikiCharset from "./images/wiki-charset.png";
+import attributeImgUrl from "./images/attribute.png";
 import { ReactComponent as VSCodeSvg } from "./images/vscode.svg";
 import { ReactComponent as ChromeSvg } from "./images/chrome.svg";
 import liveReloadUrl from "./images/live-reload.png";
@@ -597,6 +600,60 @@ export default function FirstLesson() {
               тег &lt;p/&gt;, поэтому отступы внутри &lt;p /&gt; осуществляются
               с помощью тега &lt;br /&gt;.
             </p>
+          </section>
+          <section>
+            <p>
+              <b>Вложеность</b> <i>(англ. nesting)</i> - свойство тегов
+              содержать в себе другие теги.
+            </p>
+            <p>
+              Самое важно правило вложенности - первым закрывается самый
+              последний открытый тег.
+            </p>
+            <pre>
+              <code data-line-numbers="1|2">{listExampleHtml}</code>
+            </pre>
+          </section>
+          <section>
+            <p>
+              <b>Атрибуты тега</b> <i>(англ. tag attribute)</i> - дополнительные
+              опции тега.
+            </p>
+            <img className="r-stretch" src={attributeImgUrl} />
+            <p>
+              Атрибут <b>href</b> <i>(англ. Hyper REFerence)</i> задает адрес
+              документа ссылки.
+            </p>
+          </section>
+          <section>
+            <div style={{ height: "80vh" }}>
+              <ParagraphWithSourse source={imgHtml} />
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Чтобы ссылка открылась в новом окне, необходимо указать атрибут{" "}
+                <b>target</b> со значением <b>"_blank"</b>.
+              </li>
+              <li>
+                <b>href</b> заёдается в формате{" "}
+                <a
+                  href="https://developer.mozilla.org/ru/docs/Learn/Understanding_URLs"
+                  target="_blank"
+                >
+                  URL
+                </a>
+                . Адрес <b>hipstacoding.school</b> будет открываться
+                относительно текущей страницы. Правильно будет указать:
+              </li>
+            </ul>
+            <pre>
+              <code>
+                https://hipstacoding.school &lt;!-- или --&gt;
+                //hipstacoding.school
+              </code>
+            </pre>
           </section>
         </section>
       </div>

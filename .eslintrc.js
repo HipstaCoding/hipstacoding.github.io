@@ -26,5 +26,6 @@ module.exports = {
     semi: ["warn", "always"],
     "react/prop-types": "off",
     "react/jsx-no-target-blank": "off",
+    "react/jsx-no-comment-textnodes": "off",
   },
 };
