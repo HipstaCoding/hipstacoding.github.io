@@ -1,5 +1,3 @@
-import React from "react";
-// import OnDeviceScreen from "../components/onDeviceScreen";
 import Layout from "../components/layout";
 import Lewkanfun from "../lewkanfun/App";
 

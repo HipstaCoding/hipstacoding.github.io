@@ -27,5 +27,6 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-no-target-blank": "off",
     "react/jsx-no-comment-textnodes": "off",
+    "react/react-in-jsx-scope": "off",
   },
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import { createRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import macbook from "../images/macbook_bg.png";
 import { useSpring, animated } from "react-spring";
@@ -150,9 +150,9 @@ class SizeCalculator {
 }
 
 const OnDeviceScreen = ({ children }) => {
-  const ref = React.createRef();
-  const [calculator, setCalculator] = React.useState(null);
-  const [isAnimating, setAnimating] = React.useState(true);
+  const ref = createRef();
+  const [calculator, setCalculator] = useState(null);
+  const [isAnimating, setAnimating] = useState(true);
   const total = useWindowSize();
 
   const [style, set, cancel] = useSpring(() => ({
@@ -204,14 +204,14 @@ const OnDeviceScreen = ({ children }) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCalculator(new SizeCalculator(total.width, total.height));
     setTimeout(() => {
       scaleTo(MAX_SCALE, MIN_SCALE);
     }, 500);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCalculator(new SizeCalculator(total.width, total.height));
   }, [total]);
 

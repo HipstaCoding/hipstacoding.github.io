@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import LessonTemplate from "templates/lesson-template";
 import htmlLogo from "./html-logo.png";
@@ -47,7 +47,7 @@ const ImgIcon = styled.img`
 `;
 
 const ParagraphWithSourse = ({ source }) => {
-  const [code, setCode] = React.useState(source);
+  const [code, setCode] = useState(source);
 
   return (
     <>
