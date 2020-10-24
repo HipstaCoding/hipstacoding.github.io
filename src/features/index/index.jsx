@@ -4,6 +4,7 @@ import styled from "styled-components";
 import heroImagePng from "assets/images/hero-image.png";
 import AtomImage from "components/AtomImage";
 import { ReactComponent as ReactLogo } from "assets/icons/react.svg";
+import { ReactComponent as JsLogo } from "assets/icons/js.svg";
 import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
 
 const StyledLogo = styled(Logo)`
@@ -100,8 +101,8 @@ const JsLogoContainer = styled.div`
   padding-right: 25%; */
 `;
 
-const JsLogo = props => {
-  return <JsLogoContainer {...props}>JS</JsLogoContainer>;
+const StyledJsLogo = props => {
+  return <JsLogo width="75px" height="75px" {...props} />;
 };
 
 const StyledReactLogo = props => {
@@ -132,7 +133,7 @@ export default function IndexPageContent() {
         <Banner>
           <LogoImage
             src={heroImagePng}
-            electrons={[JsLogo, StyledReactLogo, StyledHtmlLogo]}
+            electrons={[StyledJsLogo, StyledReactLogo, StyledHtmlLogo]}
           />
           <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
           <CourseSubtitle>
