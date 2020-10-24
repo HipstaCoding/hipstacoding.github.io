@@ -5,9 +5,8 @@ import { screenSizes } from "lib/screenSizes";
 import Burger from "components/common/Burger";
 
 const StyledLogo = styled(Logo)`
-  width: 160px;
+  width: 120px;
   fill: white;
-  padding: 20px;
 `;
 
 const Container = styled.header`
@@ -18,6 +17,7 @@ const Container = styled.header`
   background-color: #1d1f23;
   font-family: "Montserrat", sans-serif;
   display: flex;
+  padding: 20px;
 `;
 
 const LogoContainer = styled.div`

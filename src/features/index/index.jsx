@@ -13,11 +13,19 @@ const HeaderLink = styled.a`
   display: inline-block;
 `;
 
+const Container = styled.main`
+  padding: 20px;
+`
+
 const CourseTitle = styled.h1`
   font-size: 72px;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
   color: white;
+
+  @media ${screenSizes.xs} {
+    font-size: 48px;
+  }
 
   @media ${screenSizes.xl} {
     padding-right: 300px;
@@ -37,39 +45,33 @@ const CourseSubtitle = styled.h6`
 `;
 
 const Banner = styled.div`
-  padding: 50px 0;
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
   position: relative;
   min-height: calc(100vh - 120px);
+
+  @media ${screenSizes.sm} {
+    padding: 50px 0;
+  }
 `;
 
-const LogoImage = styled(AtomImage)`
+const HeroImage = styled(AtomImage)`
   position: absolute;
+  top: 50px;
   right: 0;
   height: calc(100vh - 120px - 100px);
   width: calc(100vh - 120px - 100px);
   max-width: 400px;
   max-height: 400px;
+
+  @media ${screenSizes.xs} {
+    position: relative;
+    top: 0;
+    margin: 50px 0;
+  }
 `;
 
-const JsLogoContainer = styled.div`
-  font-family: "Roboto Mono", monospace;
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  border-radius: 50%;
-  font-size: 54px;
-  padding-right: 0.25em;
-  padding-bottom: 0.25em;
-
-  /* padding-bottom: 25%;
-  padding-right: 25%; */
-`;
 
 const StyledJsLogo = props => {
   return <JsLogo width="75px" height="75px" {...props} />;
@@ -92,18 +94,18 @@ export default function IndexPageContent() {
         <HeaderLink href="#">Мастер классы</HeaderLink>
         <HeaderLink href="#">Контакты</HeaderLink>
       </Header>
-      <main>
+      <Container>
         <Banner>
-          <LogoImage
+          <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
+          <HeroImage
             src={heroImagePng}
             electrons={[StyledJsLogo, StyledReactLogo, StyledHtmlLogo]}
           />
-          <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
           <CourseSubtitle>
             Научим делать сногшибательные сайты и зарабатывать много денег!*
           </CourseSubtitle>
         </Banner>
-      </main>
+      </Container>
     </>
   );
 }
