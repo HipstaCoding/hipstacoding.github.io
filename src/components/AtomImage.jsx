@@ -17,17 +17,17 @@ const electronTransform = (x, y, z, s) => {
   return tranformString;
 };
 
-const createOrbitKeyframes = (x, y, zShift = 0) => keyframes`
-  0% { transform: ${orbitTransform(x, y, 0 + zShift)}; }
-  100% { transform: ${orbitTransform(x, y, 360 + zShift)}; }
+const createOrbitKeyframes = (x, y, z = 0) => keyframes`
+  0% { transform: ${orbitTransform(x, y, 0 + z)}; }
+  100% { transform: ${orbitTransform(x, y, 360 + z)}; }
 `;
 
-const createStableElectronKeyframes = (x, y, zShift = 0) => keyframes`
-  0% { transform: ${electronTransform(x, y, 0 + zShift)}; }
-  25% { transform: ${electronTransform(x, y, -90 + zShift)}; }
-  50% { transform: ${electronTransform(x, y, -180 + zShift)}; }
-  75% { transform: ${electronTransform(x, y, -270 + zShift)}; }
-  100% { transform: ${electronTransform(x, y, -360 + zShift)}; }
+const createStableElectronKeyframes = (x, y, z = 0) => keyframes`
+  0% { transform: ${electronTransform(x, y, 0 + z)}; }
+  25% { transform: ${electronTransform(x, y, -90 + z)}; }
+  50% { transform: ${electronTransform(x, y, -180 + z)}; }
+  75% { transform: ${electronTransform(x, y, -270 + z)}; }
+  100% { transform: ${electronTransform(x, y, -360 + z)}; }
 `;
 
 const Container = styled.div`
@@ -72,9 +72,10 @@ const createElectronContainer = (x, y, zShift) => styled.div`
   animation: ${createStableElectronKeyframes(x, y, zShift)} 6s infinite linear;
 `;
 
+// [x, y, z] -> x - starting X rotation, y - starting Y rotation, z - starting Z rotation in deg
 const coords = [
-  [60, 30, 0],
-  [-60, 30, 0],
+  [75, 45, 0],
+  [-75, 45, 0],
   [75, 0, 90],
 ];
 
@@ -82,11 +83,10 @@ const createElectronComponents = (x, y, zShift) => [
   createElectronOrbit(x, y, zShift),
   createElectronContainer(-x, -y, -zShift),
 ];
+
 const Components = coords.map(e => {
-  console.log("coords", e);
   return createElectronComponents.apply(null, e);
 });
-console.log("Components", Components);
 
 export default function AtomImage({ src, className, electrons }) {
   return (
