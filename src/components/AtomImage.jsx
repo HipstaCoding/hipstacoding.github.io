@@ -1,19 +1,18 @@
 import styled, { keyframes } from "styled-components";
 
-const orbitTransform = (x, y, z, s) => {
+const orbitTransform = (x, y, z) => {
   let tranformString = "translate(-50%,-50%)";
   if (x != null) tranformString += ` rotateX(${x}deg)`;
   if (y != null) tranformString += ` rotateY(${y}deg)`;
   if (z != null) tranformString += ` rotateZ(${z}deg)`;
-  if (s != null) tranformString += ` scale(${s})`;
   return tranformString;
 };
 
-const electronTransform = (x, y, z, s) => {
+const electronTransform = (x, y, z) => {
   let tranformString = "translate(-50%,-50%)";
-  if (z != null) tranformString += ` rotateZ(${z}deg)`;
-  if (y != null) tranformString += ` rotateY(${y}deg)`;
-  if (x != null) tranformString += ` rotateX(${x}deg)`;
+  if (z != null) tranformString += ` rotateZ(${-z}deg)`;
+  if (y != null) tranformString += ` rotateY(${-y}deg)`;
+  if (x != null) tranformString += ` rotateX(${-x}deg)`;
   return tranformString;
 };
 
@@ -24,10 +23,10 @@ const createOrbitKeyframes = (x, y, z = 0) => keyframes`
 
 const createStableElectronKeyframes = (x, y, z = 0) => keyframes`
   0% { transform: ${electronTransform(x, y, 0 + z)}; }
-  25% { transform: ${electronTransform(x, y, -90 + z)}; }
-  50% { transform: ${electronTransform(x, y, -180 + z)}; }
-  75% { transform: ${electronTransform(x, y, -270 + z)}; }
-  100% { transform: ${electronTransform(x, y, -360 + z)}; }
+  25% { transform: ${electronTransform(x, y, 90 + z)}; }
+  50% { transform: ${electronTransform(x, y, 180 + z)}; }
+  75% { transform: ${electronTransform(x, y, 270 + z)}; }
+  100% { transform: ${electronTransform(x, y, 360 + z)}; }
 `;
 
 const Container = styled.div`
@@ -47,7 +46,7 @@ const Img = styled.img`
   height: 100%;
 `;
 
-const createElectronOrbit = (x, y, zShift) => styled.div`
+const ElectronOrbit = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -56,52 +55,66 @@ const createElectronOrbit = (x, y, zShift) => styled.div`
   height: calc(100% + 100px);
   width: calc(100% + 100px);
   transform-style: preserve-3d;
-  transform: ${orbitTransform(x, y, zShift)};
-  animation: ${createOrbitKeyframes(x, y, zShift)} 6s infinite linear;
+  transform: ${props => props.transform};
+  animation: ${props => props.animationName} 6s infinite linear;
   transform-origin: 50% 50%;
   z-index: 0;
 `;
 
-const createElectronContainer = (x, y, zShift) => styled.div`
+const ElectronContainer = styled.div`
   transform-origin: 50% 50%;
   position: absolute;
   border-radius: 50%;
   top: 0;
   left: 50%;
-  transform: ${electronTransform(x, y, zShift)};
-  animation: ${createStableElectronKeyframes(x, y, zShift)} 6s infinite linear;
+  transform: ${props => props.transform};
+  animation: ${props => props.animationName} 6s infinite linear;
 `;
 
-// [x, y, z] -> x - starting X rotation, y - starting Y rotation, z - starting Z rotation in deg
-const coords = [
+const START_POSITION_CORDS_DEG = [
   [75, 45, 0],
   [-75, 45, 0],
-  [75, 0, 90],
+  [60, 0, 90],
 ];
 
-const createElectronComponents = (x, y, zShift) => [
-  createElectronOrbit(x, y, zShift),
-  createElectronContainer(-x, -y, -zShift),
-];
-
-const Components = coords.map(e => {
-  return createElectronComponents.apply(null, e);
+const createElectronComponents = (x, y, z) => ({
+  orbitTransform: orbitTransform(x, y, z),
+  orbitAnimationName: createOrbitKeyframes(x, y, z),
+  electronTransform: electronTransform(x, y, z),
+  electronAnimationName: createStableElectronKeyframes(x, y, z),
 });
+
+const Electrons = ({ electrons }) => {
+  return electrons.map((Electron, i) => {
+    const {
+      orbitTransform,
+      orbitAnimationName,
+      electronTransform,
+      electronAnimationName,
+    } = createElectronComponents.apply(null, START_POSITION_CORDS_DEG[i]);
+
+    return (
+      <ElectronOrbit
+        key={Electron.key}
+        transform={orbitTransform}
+        animationName={orbitAnimationName}
+      >
+        <ElectronContainer
+          transform={electronTransform}
+          animationName={electronAnimationName}
+        >
+          <Electron />
+        </ElectronContainer>
+      </ElectronOrbit>
+    );
+  });
+};
 
 export default function AtomImage({ src, className, electrons }) {
   return (
     <Container className={className}>
       <Img src={src} />
-      {electrons.map((Electron, i) => {
-        const [ElectronOrbit, ElectronContainer] = Components[i];
-        return (
-          <ElectronOrbit key={i}>
-            <ElectronContainer>
-              <Electron />
-            </ElectronContainer>
-          </ElectronOrbit>
-        );
-      })}
+      <Electrons electrons={electrons} />
     </Container>
   );
 }

@@ -75,7 +75,7 @@ const LogoImage = styled(AtomImage)`
 `;
 
 const JsLogoContainer = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   width: 100px;
   height: 100px;
   background-color: yellow;
@@ -86,12 +86,12 @@ const JsLogoContainer = styled.div`
   font-size: 54px;
   padding-right: 0.25em;
   padding-bottom: 0.25em;
-  
+
   /* padding-bottom: 25%;
   padding-right: 25%; */
 `;
 
-const JsLogo = (props) => {
+const JsLogo = props => {
   return <JsLogoContainer {...props}>JS</JsLogoContainer>;
 };
 
