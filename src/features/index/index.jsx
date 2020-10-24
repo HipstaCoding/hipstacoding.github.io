@@ -3,6 +3,8 @@ import { mediaQuery } from "lib/MediaQuery";
 import styled from "styled-components";
 import heroImagePng from "assets/images/hero-image.png";
 import AtomImage from "components/AtomImage";
+import { ReactComponent as ReactLogo } from "assets/icons/react.svg";
+import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
 
 const StyledLogo = styled(Logo)`
   width: 140px;
@@ -95,6 +97,14 @@ const JsLogo = props => {
   return <JsLogoContainer {...props}>JS</JsLogoContainer>;
 };
 
+const StyledReactLogo = props => {
+  return <ReactLogo width="100px" height="100px" {...props} />;
+};
+
+const StyledHtmlLogo = props => {
+  return <HtmlLogo width="100px" height="100px" {...props} />;
+};
+
 export default function IndexPageContent() {
   return (
     <>
@@ -113,7 +123,10 @@ export default function IndexPageContent() {
       </Header>
       <main>
         <Banner>
-          <LogoImage src={heroImagePng} electrons={[JsLogo, JsLogo, JsLogo]} />
+          <LogoImage
+            src={heroImagePng}
+            electrons={[JsLogo, StyledReactLogo, StyledHtmlLogo]}
+          />
           <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
           <CourseSubtitle>
             Научим делать сногшибательные сайты и зарабатывать много денег!*

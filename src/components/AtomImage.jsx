@@ -36,7 +36,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  perspective: 1500px;
+  perspective: 1200px;
 `;
 
 const Img = styled.img`
@@ -56,7 +56,7 @@ const ElectronOrbit = styled.div`
   width: calc(100% + 100px);
   transform-style: preserve-3d;
   transform: ${props => props.transform};
-  animation: ${props => props.animationName} 6s infinite linear;
+  animation: ${props => props.animationName} 4s infinite linear;
   transform-origin: 50% 50%;
   z-index: 0;
 `;
@@ -68,7 +68,7 @@ const ElectronContainer = styled.div`
   top: 0;
   left: 50%;
   transform: ${props => props.transform};
-  animation: ${props => props.animationName} 6s infinite linear;
+  animation: ${props => props.animationName} 4s infinite linear;
 `;
 
 const START_POSITION_CORDS_DEG = [
