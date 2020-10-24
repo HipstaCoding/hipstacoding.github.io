@@ -16,7 +16,15 @@ const Header = styled.header`
   width: 100%;
   background-color: #1d1f23;
   height: 1px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
 `;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const Navigation = styled.nav`
   margin: 0 auto;
@@ -32,14 +40,13 @@ const HeaderLink = styled.a`
   padding: 30px;
   height: 100%;
   color: white;
-  font-family: "Montserrat", sans-serif;
 `;
 
 const CourseTitle = styled.h1`
   font-size: 72px;
-  color: white;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
+  color: white;
 
   ${mediaQuery.query(mediaQuery.sizes.xl)`
     padding-right: 300px;
@@ -110,9 +117,9 @@ export default function IndexPageContent() {
     <>
       <Header>
         <Navigation>
-          <div>
+          <LogoContainer>
             <StyledLogo />
-          </div>
+          </LogoContainer>
           <div>
             <HeaderLink href="#">Курс</HeaderLink>
             <HeaderLink href="#">Цены</HeaderLink>

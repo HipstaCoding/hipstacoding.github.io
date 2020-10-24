@@ -29,6 +29,11 @@ const createStableElectronKeyframes = (x, y, z = 0) => keyframes`
   100% { transform: ${electronTransform(x, y, 360 + z)}; }
 `;
 
+const imageAnimation = keyframes`
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(5%); }
+`
+
 const Container = styled.div`
   height: 100%;
   transform-style: preserve-3d;
@@ -44,6 +49,7 @@ const Img = styled.img`
   top: 0;
   left: 0;
   height: 100%;
+  animation: ${imageAnimation} 2s infinite ease-in-out alternate;
 `;
 
 const ElectronOrbit = styled.div`
