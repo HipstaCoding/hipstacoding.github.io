@@ -3,7 +3,7 @@ import Reveal from "reveal.js";
 import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
 import Highlight from "reveal.js/plugin/highlight/highlight.esm.js";
 import styled from "styled-components";
-import { ReactComponent as Logo } from "../assets/icons/logo.svg";
+import Logo from "components/Logo";
 import { Link } from "gatsby";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";

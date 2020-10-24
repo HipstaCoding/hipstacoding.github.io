@@ -19,6 +19,7 @@ exports.onCreateWebpackConfig = ({ actions, stage, loaders }) => {
         hooks: path.resolve(__dirname, "src/hooks"),
         assets: path.resolve(__dirname, "src/assets"),
         pages: path.resolve(__dirname, "src/pages"),
+        features: path.resolve(__dirname, "src/features"),
       },
     },
     module: {

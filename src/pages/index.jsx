@@ -1,11 +1,11 @@
 import Layout from "../components/layout";
-import Lewkanfun from "../lewkanfun/App";
+import IndexPageContent from "features/index";
 
 const IndexPage = () => {
   return (
     <Layout>
       {/* <OnDeviceScreen> */}
-      <Lewkanfun />
+      <IndexPageContent />
       {/* </OnDeviceScreen> */}
     </Layout>
   );
