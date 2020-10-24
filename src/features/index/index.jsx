@@ -1,46 +1,16 @@
-import { ReactComponent as Logo } from "assets/icons/logo.svg";
-import { mediaQuery } from "lib/MediaQuery";
+import { screenSizes } from "lib/screenSizes";
 import styled from "styled-components";
 import heroImagePng from "assets/images/hero-image.png";
 import AtomImage from "components/AtomImage";
 import { ReactComponent as ReactLogo } from "assets/icons/react.svg";
 import { ReactComponent as JsLogo } from "assets/icons/js.svg";
 import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
-
-const StyledLogo = styled(Logo)`
-  width: 140px;
-  fill: white;
-`;
-
-const Header = styled.header`
-  min-height: 120px;
-  width: 100%;
-  background-color: #1d1f23;
-  height: 1px;
-  font-family: "Montserrat", sans-serif;
-  color: white;
-`;
-
-const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-const Navigation = styled.nav`
-  margin: 0 auto;
-  max-width: 1080px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-`;
+import Header from "components/common/Header";
 
 const HeaderLink = styled.a`
   padding: 30px;
-  height: 100%;
   color: white;
+  display: inline-block;
 `;
 
 const CourseTitle = styled.h1`
@@ -49,9 +19,9 @@ const CourseTitle = styled.h1`
   font-weight: 800;
   color: white;
 
-  ${mediaQuery.query(mediaQuery.sizes.xl)`
+  @media ${screenSizes.xl} {
     padding-right: 300px;
-  `};
+  }
 `;
 
 const CourseSubtitle = styled.h6`
@@ -61,9 +31,9 @@ const CourseSubtitle = styled.h6`
   letter-spacing: 0.05em;
   margin-top: 20px;
 
-  ${mediaQuery.query(mediaQuery.sizes.xl)`
+  @media ${screenSizes.xl} {
     width: 50%;
-  `};
+  }
 `;
 
 const Banner = styled.div`
@@ -117,17 +87,10 @@ export default function IndexPageContent() {
   return (
     <>
       <Header>
-        <Navigation>
-          <LogoContainer>
-            <StyledLogo />
-          </LogoContainer>
-          <div>
-            <HeaderLink href="#">Курс</HeaderLink>
-            <HeaderLink href="#">Цены</HeaderLink>
-            <HeaderLink href="#">Мастер классы</HeaderLink>
-            <HeaderLink href="#">Контакты</HeaderLink>
-          </div>
-        </Navigation>
+        <HeaderLink href="#">Курс</HeaderLink>
+        <HeaderLink href="#">Цены</HeaderLink>
+        <HeaderLink href="#">Мастер классы</HeaderLink>
+        <HeaderLink href="#">Контакты</HeaderLink>
       </Header>
       <main>
         <Banner>
