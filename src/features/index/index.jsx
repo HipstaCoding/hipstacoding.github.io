@@ -6,6 +6,7 @@ import { ReactComponent as ReactLogo } from "assets/icons/react.svg";
 import { ReactComponent as JsLogo } from "assets/icons/js.svg";
 import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
 import Header from "components/common/Header";
+import Button from "components/common/Button";
 
 const HeaderLink = styled.a`
   padding: 30px;
@@ -15,7 +16,7 @@ const HeaderLink = styled.a`
 
 const Container = styled.main`
   padding: 20px;
-`
+`;
 
 const CourseTitle = styled.h1`
   font-size: 72px;
@@ -72,7 +73,6 @@ const HeroImage = styled(AtomImage)`
   }
 `;
 
-
 const StyledJsLogo = props => {
   return <JsLogo width="75px" height="75px" {...props} />;
 };
@@ -84,6 +84,10 @@ const StyledReactLogo = props => {
 const StyledHtmlLogo = props => {
   return <HtmlLogo width="100px" height="100px" {...props} />;
 };
+
+const SubscribeButton = styled(Button)`
+  margin-top: 50px;
+`;
 
 export default function IndexPageContent() {
   return (
@@ -104,6 +108,13 @@ export default function IndexPageContent() {
           <CourseSubtitle>
             Научим делать сногшибательные сайты и зарабатывать много денег!*
           </CourseSubtitle>
+          <SubscribeButton
+            forwardedAs="a"
+            target="_blank"
+            href="https://t.me/hipstacodingbot"
+          >
+            Записаться
+          </SubscribeButton>
         </Banner>
       </Container>
     </>
