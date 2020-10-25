@@ -46,7 +46,6 @@ const Navigation = styled.nav`
 
 const MenuContainer = styled.div`
   overflow: hidden;
-  padding: 2px;
   transition: all 0.3s;
 
   @media ${screenSizes.xs} {

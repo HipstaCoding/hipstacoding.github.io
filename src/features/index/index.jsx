@@ -15,7 +15,9 @@ const HeaderLink = styled.a`
 `;
 
 const Container = styled.main`
-  padding: 20px;
+  @media ${screenSizes.xs} {
+    padding: 20px;
+  }
 `;
 
 const CourseTitle = styled.h1`
@@ -51,6 +53,7 @@ const Banner = styled.div`
   margin: 0 auto;
   position: relative;
   min-height: calc(100vh - 120px);
+  height: 100%;
 
   @media ${screenSizes.sm} {
     padding: 50px 0;
