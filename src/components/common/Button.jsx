@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  ${({ theme }) => theme.fonts.mainFont};
+  ${({ theme }) => theme.fonts.mainFont(25)};
   background-color: ${({ theme }) => theme.colors.controlPrimaryColor};
   color: ${({ theme }) => theme.colors.textColor};
   border-radius: 12px;
@@ -10,7 +10,6 @@ const StyledButton = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
   text-transform: uppercase;
 `;
 

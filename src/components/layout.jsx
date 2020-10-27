@@ -11,9 +11,9 @@ const GlobalStyles = createGlobalStyle`
   html {
     margin: 0;
     padding: 0;
-    background-color: ${({ theme }) => theme.backgroundPrimary};
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     box-sizing: border-box;
-    color: ${({ theme }) => theme.textColor};
+    color: ${({ theme }) => theme.colors.textColor};
   }
 
 
@@ -37,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
+    color: ${({ theme }) => theme.colors.textColor};
   }
 
   button {
