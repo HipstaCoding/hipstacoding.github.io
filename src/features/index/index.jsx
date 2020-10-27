@@ -197,6 +197,10 @@ const FeatureContainer = styled.ul`
   li {
     margin: 30px 0%;
   }
+
+  @media ${mediaQueries.xs} {
+    padding: 20px;
+  }
 `;
 
 const ProfitContainer = styled.section`
