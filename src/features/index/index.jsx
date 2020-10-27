@@ -280,8 +280,10 @@ export default function IndexPageContent() {
               <StageLogo as={StyledReactLogo} />
               <StageDescription>
                 <StageNumber>03</StageNumber>
-                <div>Решаем сложные задачи легко с </div>
-                <HighlightText color="blue">React</HighlightText>
+                <div>
+                  Решаем сложные задачи легко с{" "}
+                  <HighlightText color="blue">React</HighlightText>
+                </div>
                 <div>Кол-во занятий: 10</div>
                 <div>Старт: Февраль 2021</div>
                 Результат:
