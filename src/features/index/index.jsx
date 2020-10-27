@@ -9,6 +9,12 @@ import Header from "components/common/Header";
 import Button from "components/common/Button";
 import Container from "components/common/Container";
 
+const Hr = styled.hr`
+  border-top: 1px solid ${({ theme }) => theme.colors.textColor};
+  width: 100%;
+  margin: 20px 0;
+`;
+
 const HeaderLink = styled.a`
   padding: 30px;
   color: white;
@@ -113,13 +119,14 @@ const StageContainer = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  padding: 100px 30px 30px;
 `;
 
 const StageNumber = styled.span`
   ${({ theme }) => theme.fonts.monoFont(56, 700)};
-  padding: 0 30px 14px;
+  /* padding: 0 30px 14px;
   margin-bottom: 30px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.textColor};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.textColor}; */
 `;
 
 const HighlightText = styled.span`
@@ -142,13 +149,31 @@ const StageLogo = styled.div`
   position: absolute;
   top: 0%;
   left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translate(-50%, -50%);
 `;
 
 const StageDescription = styled.span`
   ${({ theme }) => theme.fonts.mainFont(24, 600)};
-  padding: 0 30px 60px;
   text-align: center;
+`;
+
+const StageStep = styled.p`
+  margin: 0;
+`;
+
+const StageList = styled.ul`
+  margin: 0;
+  padding: 10px 0;
+  list-style-type: none;
+
+  & > li {
+    margin: 10px 0;
+  }
+
+  & > li:before {
+    content: "-";
+    padding: 0 5px;
+  }
 `;
 
 export default function IndexPageContent() {
@@ -184,26 +209,75 @@ export default function IndexPageContent() {
             <StageContainer>
               <StageLogo as={StyledHtmlLogo} />
               <StageNumber>01</StageNumber>
+              <Hr />
               <StageDescription>
                 Верстаем с <HighlightText color="orange">HTML5</HighlightText> и{" "}
                 <HighlightText color="orange">CSS3</HighlightText>
+                <Hr />
+                <StageStep>Кол-во занятий: 10</StageStep>
+                <Hr />
+                <StageStep>Старт: Декабрь 2020</StageStep>
+                <Hr />
+                <StageStep>
+                  Результат:
+                  <StageList>
+                    <li>
+                      Собвственный вебсайт-портфолио на чистом{" "}
+                      <HighlightText color="orange">HTML5</HighlightText> и{" "}
+                      <HighlightText color="orange">CSS3</HighlightText>
+                    </li>
+                    <li>Подработка до 300$</li>
+                  </StageList>
+                </StageStep>
               </StageDescription>
             </StageContainer>
             <StageContainer>
               <StageLogo as={StyledJsLogo} />
               <StageNumber>02</StageNumber>
-
+              <Hr />
               <StageDescription>
                 Учимся кодить на{" "}
                 <HighlightText color="yellow">JavaScript</HighlightText>
+                <Hr />
+                <StageStep>Кол-во занятий: 10</StageStep>
+                <Hr />
+                <StageStep>Старт: Январь 2021</StageStep>
+                <Hr />
+                <StageStep>
+                  Результат:
+                  <StageList>
+                    <li>
+                      Прокачанный вебсайт-портфолио с помощью
+                      <HighlightText color="yellow"> JavaScript</HighlightText>
+                    </li>
+                    <li>Работа ~ 300$ - 500$</li>
+                  </StageList>
+                </StageStep>
               </StageDescription>
             </StageContainer>
             <StageContainer>
               <StageLogo as={StyledReactLogo} />
               <StageNumber>03</StageNumber>
+              <Hr />
               <StageDescription>
                 Решаем сложные задачи легко с{" "}
                 <HighlightText color="blue">React</HighlightText>
+                <Hr />
+                <StageStep>Кол-во занятий: 10</StageStep>
+                <Hr />
+                <StageStep>Старт: Февраль 2021</StageStep>
+                <Hr />
+                <StageStep>
+                  Результат:
+                  <StageList>
+                    <li>
+                      Собственный блог с использованием
+                      <HighlightText color="blue"> React</HighlightText> и его
+                      экосистемы
+                    </li>
+                    <li>Работа 500$+</li>
+                  </StageList>
+                </StageStep>
               </StageDescription>
             </StageContainer>
           </StagesRow>
