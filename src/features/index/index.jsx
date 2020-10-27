@@ -125,10 +125,6 @@ const StageContainer = styled.div`
 
 const StageNumber = styled.div`
   ${({ theme }) => theme.fonts.monoFont(56, 700)};
-
-  /* padding: 0 30px 14px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.textColor}; */
 `;
 
 const HighlightText = styled.span`
@@ -197,6 +193,10 @@ const FeatureContainer = styled.ul`
   background-color: ${({ color, theme }) =>
     transparentize(0.5, theme.colors[color])};
   padding: 30px 60px;
+
+  li {
+    margin: 30px 0%;
+  }
 `;
 
 const ProfitContainer = styled.section`
@@ -231,6 +231,11 @@ const FooterLink = styled.div`
   text-align: right;
 `;
 
+const NoWarranties = styled.div`
+  ${({ theme }) => theme.fonts.mainFont(18)};
+  margin-bottom: 50px;
+`;
+
 export default function IndexPageContent() {
   return (
     <>
@@ -248,7 +253,8 @@ export default function IndexPageContent() {
             electrons={[StyledJsLogo, StyledReactLogo, StyledHtmlLogo]}
           />
           <CourseSubtitle>
-            Научим делать сногшибательные сайты и зарабатывать много денег!*
+            Научим делать сногшибательные сайты и зарабатывать много денег!
+            <a href="#no-warranties">*</a>
           </CourseSubtitle>
           <SubscribeButton
             forwardedAs="a"
@@ -278,7 +284,9 @@ export default function IndexPageContent() {
                     <HighlightText color="orange">HTML5</HighlightText> и{" "}
                     <HighlightText color="orange">CSS3</HighlightText>
                   </li>
-                  <li>Подработка до 300$</li>
+                  <li>
+                    Подработка до 300$<a href="#no-warranties">*</a>
+                  </li>
                 </StageList>
               </StageDescription>
             </StageContainer>
@@ -298,7 +306,9 @@ export default function IndexPageContent() {
                     Прокачанный webсайт-портфолио с помощью
                     <HighlightText color="yellow"> JavaScript</HighlightText>.
                   </li>
-                  <li>Работа ~ 300$ - 500$</li>
+                  <li>
+                    Работа ~ 300$ - 500$<a href="#no-warranties">*</a>
+                  </li>
                 </StageList>
               </StageDescription>
             </StageContainer>
@@ -319,7 +329,9 @@ export default function IndexPageContent() {
                     <HighlightText color="blue"> React</HighlightText> и его
                     экосистемы!
                   </li>
-                  <li>Работа 500$+</li>
+                  <li>
+                    Работа 500$+<a href="#no-warranties">*</a>
+                  </li>
                 </StageList>
               </StageDescription>
             </StageContainer>
@@ -428,10 +440,27 @@ export default function IndexPageContent() {
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={OpenIcon} />
-              <h3></h3>
-              <p>Все материалы доступны в качестве презентаций на сайте</p>
+              <h3>Открытый доступ</h3>
+              <p>
+                Все материалы доступны в качестве{" "}
+                <a target="_blank" href="/html/01-html">
+                  презентаций
+                </a>{" "}
+                на сайте
+              </p>
             </ProfitContent>
           </ProfitList>
+          <NoWarranties id="no-warranties">
+            * Мы не гарантируем вам много денег и классную работу, как и не
+            могут гарантировать любые{" "}
+            <a
+              href="https://ebanoe.it/tag/%d0%b3%d0%be%d0%b2%d0%bd%d0%be%d0%ba%d1%83%d1%80%d1%81%d1%8b/"
+              target="_blank"
+            >
+              другие курсы
+            </a>
+            .
+          </NoWarranties>
         </ProfitContainer>
       </Container>
       <Header>
@@ -454,11 +483,26 @@ export default function IndexPageContent() {
           <a
             target="_blank"
             href="https://www.instagram.com/okeydsgn/"
-            title="smalllikeart"
+            title="Okey Instagram"
           >
             okeydsgn
           </a>{" "}
           from Odessa
+        </FooterLink>
+        <FooterLink>
+          <a target="_blank" href="https://github.com/xlwknx" title="Lewkan">
+            Development{" "}
+          </a>{" "}
+          and courses
+          <a
+            target="_blank"
+            href="https://www.instagram.com/tony_hawks_underground/"
+            title="Lewkan Instagram"
+          >
+            {" "}
+            lewkan
+          </a>{" "}
+          from Kyiv
         </FooterLink>
       </Header>
     </>
