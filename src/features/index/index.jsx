@@ -9,17 +9,17 @@ import Header from "components/common/Header";
 import Button from "components/common/Button";
 import Container from "components/common/Container";
 import { transparentize } from "polished";
+import { ReactComponent as RemoteAccessIcon } from "assets/icons/remote-access.svg";
+import { ReactComponent as BuyIcon } from "assets/icons/buy.svg";
+import { ReactComponent as GitIcon } from "assets/icons/git.svg";
+import { ReactComponent as TeamworkIcon } from "assets/icons/brainstorming.svg";
+import { ReactComponent as AnalyticsIcon } from "assets/icons/analytics.svg";
+import { ReactComponent as OpenIcon } from "assets/icons/open-book.svg";
 
 const HeaderLink = styled.a`
   padding: 30px;
   color: white;
   display: inline-block;
-`;
-
-const Hr = styled.hr`
-  border-top: 1px solid ${({ theme }) => theme.colors.textColor};
-  width: 100%;
-  margin: 20px 0;
 `;
 
 const CourseTitle = styled.h1`
@@ -180,10 +180,6 @@ const StageList = styled.ul`
   }
 `;
 
-const ProfitsContainer = styled.section`
-  margin-top: 50px;
-`;
-
 const FeaturesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
@@ -196,14 +192,43 @@ const FeaturesContainer = styled.div`
 `;
 
 const FeatureContainer = styled.ul`
+  list-style: none;
   border-radius: 25px;
   background-color: ${({ color, theme }) =>
     transparentize(0.5, theme.colors[color])};
   padding: 30px 60px;
+`;
 
-  li {
-    margin: 10px 0;
-  }
+const ProfitContainer = styled.section`
+  margin-top: 50px;
+`;
+
+const ProfitIcon = styled.svg`
+  fill: white;
+  width: 100px;
+  height: auto;
+  margin-bottom: 50px;
+`;
+
+const ProfitList = styled.ul`
+  display: grid;
+  margin: 60px 0;
+  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 50px;
+`;
+
+const ProfitContent = styled.li`
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+`;
+
+const FooterLink = styled.div`
+  text-align: right;
 `;
 
 export default function IndexPageContent() {
@@ -213,6 +238,7 @@ export default function IndexPageContent() {
         <HeaderLink href="#subscribe">Запись</HeaderLink>
         <HeaderLink href="#stages">Этапы</HeaderLink>
         <HeaderLink href="#about">О Курсе</HeaderLink>
+        <HeaderLink href="#profits">Почему мы</HeaderLink>
       </Header>
       <Container as="main">
         <Banner id="subscribe">
@@ -299,7 +325,7 @@ export default function IndexPageContent() {
             </StageContainer>
           </StagesRow>
         </StagesContainer>
-        <ProfitsContainer id="about">
+        <ProfitContainer id="about">
           <StagesTitle>О курсе</StagesTitle>
           <p>
             Front-End разработка - одно из самых перспективных направлений в
@@ -368,35 +394,73 @@ export default function IndexPageContent() {
               </li>
             </FeatureContainer>
           </FeaturesContainer>
-        </ProfitsContainer>
-        {/* <ProfitsContainer>
+        </ProfitContainer>
+        <ProfitContainer id="profits">
           <StagesTitle>Почему мы</StagesTitle>
-          <ul>
-            <li>Уроки как offline так и online</li>
-            <li>Никаких предоплат - оплата отдельно за каждое занятие!</li>
-            <li>
-              Использование социальной сети для разработчиков в которой
-              отображается вся ваша активность - github начиная с первого
-              занятия!
-            </li>
-            <li>Научим вас смотреть чужой код и работать в команде.</li>
-            <li>
-              Дадим советы по тайм менеджменту, продуктивности и научим
-              обучаться самостоятельно.
-            </li>
-            <li>
-              В конце каждого из этапов у вас будет собственный сайт, который
-              поможет в практике и поиске работы.
-            </li>
-            <li>
-              Мы единственные говорим вам правду: мы не гарантируем вам
-              трудоустройство, но сделаем все возможностью, чтобы
-              программирование было для вас интересным, а это главный залог
-              успешности в этой специальности!
-            </li>
-          </ul>
-        </ProfitsContainer> */}
+          <ProfitList>
+            <ProfitContent>
+              <ProfitIcon as={RemoteAccessIcon} />
+              <h3>Гибкость</h3>
+              <p>Уроки как offline так и online</p>
+            </ProfitContent>
+            <ProfitContent>
+              <ProfitIcon as={BuyIcon} />
+              <h3>Никаких предоплат</h3>
+              <p>Оплата по факту в конце урока</p>
+            </ProfitContent>
+            <ProfitContent>
+              <ProfitIcon as={GitIcon} />
+              <h3>Реальные условия</h3>
+              <p>Использование GitHub начиная с занятия</p>
+            </ProfitContent>
+            <ProfitContent>
+              <ProfitIcon as={TeamworkIcon} />
+              <h3>Командная работа</h3>
+              <p>Научим вас смотреть чужой код и работать в команде</p>
+            </ProfitContent>
+            <ProfitContent>
+              <ProfitIcon as={AnalyticsIcon} />
+              <h3>Полезные лайфхакам</h3>
+              <p>
+                Научмм тайменедженту, продуктивности и пользоваться гарячим
+                клавишами
+              </p>
+            </ProfitContent>
+            <ProfitContent>
+              <ProfitIcon as={OpenIcon} />
+              <h3></h3>
+              <p>Все материалы доступны в качестве презентаций на сайте</p>
+            </ProfitContent>
+          </ProfitList>
+        </ProfitContainer>
       </Container>
+      <Header>
+        <FooterLink>
+          Icons made by{" "}
+          <a
+            target="_blank"
+            href="https://www.flaticon.com/authors/smalllikeart"
+            title="smalllikeart"
+          >
+            smalllikeart
+          </a>{" "}
+          from{" "}
+          <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </FooterLink>
+        <FooterLink>
+          Logo and design made by{" "}
+          <a
+            target="_blank"
+            href="https://www.instagram.com/okeydsgn/"
+            title="smalllikeart"
+          >
+            okeydsgn
+          </a>{" "}
+          from Odessa
+        </FooterLink>
+      </Header>
     </>
   );
 }

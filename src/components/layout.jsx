@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import useTabSelect from "hooks/useTabSelection";
 import DARK_THEME from "lib/theme";
+import { lighten } from "polished";
 import "assets/imports.css";
 
 const Container = styled.div`
@@ -54,6 +55,15 @@ const GlobalStyles = createGlobalStyle`
 
   button:active {
     color: initial;
+  }
+
+  a {
+    transition: 0.3s color;
+    color: ${({ theme }) => theme.colors.textSecondaryColor};
+  }
+
+  a:hover {
+    color: ${({ theme }) => lighten(0.1, theme.colors.textSecondaryColor)};
   }
 `;
 
