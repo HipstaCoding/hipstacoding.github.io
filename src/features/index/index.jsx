@@ -490,10 +490,11 @@ export default function IndexPageContent() {
           from Odessa
         </FooterLink>
         <FooterLink>
+          Courses and{" "}
           <a target="_blank" href="https://github.com/xlwknx" title="Lewkan">
-            Development{" "}
+            development{" "}
           </a>{" "}
-          and courses
+          by
           <a
             target="_blank"
             href="https://www.instagram.com/tony_hawks_underground/"
