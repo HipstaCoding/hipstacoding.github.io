@@ -8,9 +8,8 @@ import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
 import Header from "components/common/Header";
 import Button from "components/common/Button";
 import Container from "components/common/Container";
-import Link from "components/common/Link";
 
-const HeaderLink = styled(Link)`
+const HeaderLink = styled.a`
   padding: 30px;
   color: white;
   display: inline-block;

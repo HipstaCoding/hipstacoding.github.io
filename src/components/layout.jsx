@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.textColor};
+    scroll-behavior: smooth;
   }
 
 
