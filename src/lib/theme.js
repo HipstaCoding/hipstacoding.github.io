@@ -10,6 +10,8 @@ export default {
     orange: "#E44D26",
     yellow: "#F7DF1E",
     blue: "#53C1DF",
+    green: "#35CC7F",
+    red: "#e06c75",
   },
   fonts: {
     mainFont: (size, weight = 500) => css`

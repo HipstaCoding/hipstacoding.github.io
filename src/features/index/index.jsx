@@ -8,6 +8,7 @@ import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
 import Header from "components/common/Header";
 import Button from "components/common/Button";
 import Container from "components/common/Container";
+import { transparentize } from "polished";
 
 const HeaderLink = styled.a`
   padding: 30px;
@@ -122,8 +123,9 @@ const StageContainer = styled.div`
   padding: 100px 30px 30px;
 `;
 
-const StageNumber = styled.span`
+const StageNumber = styled.div`
   ${({ theme }) => theme.fonts.monoFont(56, 700)};
+
   /* padding: 0 30px 14px;
   margin-bottom: 30px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.textColor}; */
@@ -155,10 +157,12 @@ const StageLogo = styled.div`
 const StageDescription = styled.span`
   ${({ theme }) => theme.fonts.mainFont(24, 600)};
   text-align: center;
-`;
 
-const StageStep = styled.p`
-  margin: 0;
+  & > div {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.textColor};
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
 `;
 
 const StageList = styled.ul`
@@ -176,15 +180,42 @@ const StageList = styled.ul`
   }
 `;
 
+const ProfitsContainer = styled.section`
+  margin-top: 50px;
+`;
+
+const FeaturesContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 50px;
+  justify-content: center;
+
+  @media ${mediaQueries.xs} {
+    grid-gap: 20px;
+  }
+`;
+
+const FeatureContainer = styled.ul`
+  border-radius: 25px;
+  background-color: ${({ color, theme }) =>
+    transparentize(0.5, theme.colors[color])};
+  padding: 30px 60px;
+
+  li {
+    margin: 10px 0;
+  }
+`;
+
 export default function IndexPageContent() {
   return (
     <>
       <Header>
-        <HeaderLink href="#course">Курс</HeaderLink>
+        <HeaderLink href="#subscribe">Запись</HeaderLink>
         <HeaderLink href="#stages">Этапы</HeaderLink>
+        <HeaderLink href="#about">О Курсе</HeaderLink>
       </Header>
       <Container as="main">
-        <Banner id="course">
+        <Banner id="subscribe">
           <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
           <HeroImage
             src={heroImagePng}
@@ -206,20 +237,18 @@ export default function IndexPageContent() {
           <StagesRow>
             <StageContainer>
               <StageLogo as={StyledHtmlLogo} />
-              <StageNumber>01</StageNumber>
-              <Hr />
               <StageDescription>
-                Верстаем с <HighlightText color="orange">HTML5</HighlightText> и{" "}
-                <HighlightText color="orange">CSS3</HighlightText>
-                <Hr />
-                <StageStep>Кол-во занятий: 10</StageStep>
-                <Hr />
-                <StageStep>Старт: Декабрь 2020</StageStep>
-                <Hr />
+                <StageNumber>01</StageNumber>
+                <div>
+                  Верстаем с <HighlightText color="orange">HTML5</HighlightText>{" "}
+                  и <HighlightText color="orange">CSS3</HighlightText>
+                </div>
+                <div>Кол-во занятий: 10</div>
+                <div>Старт: Декабрь 2020</div>
                 Результат:
                 <StageList>
                   <li>
-                    Собвственный вебсайт-портфолио на чистом{" "}
+                    Собвственный webсайт-портфолио на чистом{" "}
                     <HighlightText color="orange">HTML5</HighlightText> и{" "}
                     <HighlightText color="orange">CSS3</HighlightText>
                   </li>
@@ -229,21 +258,19 @@ export default function IndexPageContent() {
             </StageContainer>
             <StageContainer>
               <StageLogo as={StyledJsLogo} />
-              <StageNumber>02</StageNumber>
-              <Hr />
               <StageDescription>
-                Учимся кодить на{" "}
-                <HighlightText color="yellow">JavaScript</HighlightText>
-                <Hr />
-                <StageStep>Кол-во занятий: 10</StageStep>
-                <Hr />
-                <StageStep>Старт: Январь 2021</StageStep>
-                <Hr />
+                <StageNumber>02</StageNumber>
+                <div>
+                  Учимся кодить на{" "}
+                  <HighlightText color="yellow">JavaScript</HighlightText>
+                </div>
+                <div>Кол-во занятий: 10</div>
+                <div>Старт: Январь 2021</div>
                 Результат:
                 <StageList>
                   <li>
-                    Прокачанный вебсайт-портфолио с помощью
-                    <HighlightText color="yellow"> JavaScript</HighlightText>
+                    Прокачанный webсайт-портфолио с помощью
+                    <HighlightText color="yellow"> JavaScript</HighlightText>.
                   </li>
                   <li>Работа ~ 300$ - 500$</li>
                 </StageList>
@@ -251,22 +278,18 @@ export default function IndexPageContent() {
             </StageContainer>
             <StageContainer>
               <StageLogo as={StyledReactLogo} />
-              <StageNumber>03</StageNumber>
-              <Hr />
               <StageDescription>
-                Решаем сложные задачи легко с{" "}
+                <StageNumber>03</StageNumber>
+                <div>Решаем сложные задачи легко с </div>
                 <HighlightText color="blue">React</HighlightText>
-                <Hr />
-                <StageStep>Кол-во занятий: 10</StageStep>
-                <Hr />
-                <StageStep>Старт: Февраль 2021</StageStep>
-                <Hr />
+                <div>Кол-во занятий: 10</div>
+                <div>Старт: Февраль 2021</div>
                 Результат:
                 <StageList>
                   <li>
                     Собственный блог с использованием
                     <HighlightText color="blue"> React</HighlightText> и его
-                    экосистемы
+                    экосистемы!
                   </li>
                   <li>Работа 500$+</li>
                 </StageList>
@@ -274,6 +297,103 @@ export default function IndexPageContent() {
             </StageContainer>
           </StagesRow>
         </StagesContainer>
+        <ProfitsContainer id="about">
+          <StagesTitle>О курсе</StagesTitle>
+          <p>
+            Front-End разработка - одно из самых перспективных направлений в
+            программировании, а недостаток квалифицированных кадров в отрасли
+            положительно сказывается на заработной плате Front-End специалистов,
+            рыночек порешал, так сказать. С вашими стараниями за три месяца вы
+            можете стать Front-End junior разработчиком, а на финале первого
+            этапа сможете уже искать работу. Финалом каждого из трех этапов
+            будет собственного персонального webсайта! Это не только отличный
+            способ выделяться на фоне остальных кандидатов на должность, но и
+            отличный полигон для демонстрации своих способностей!
+          </p>
+          <FeaturesContainer>
+            <FeatureContainer color="green">
+              <h2>Плюсы Front End</h2>
+              <li>
+                <b>Низкий порог вхождения:</b> HTML учат еще в школе, а
+                JavaScript один из лучших языков для обучения программированию.
+              </li>
+              <li>
+                <b>Мгновенный фидбек:</b> в большинстве случаев вы сразу же
+                видите результат своей работы на экране.
+              </li>
+              <li>
+                <b>Много готовых решений и библиотек: </b> иногда код попросту
+                писать не нужно, а задачу можно выполнить набором готовых
+                решений и поехать домой пораньше.
+              </li>
+              <li>
+                <b>Большой спектр от суперлегких до сверхсложных задач:</b>{" "}
+                можно найти работу на любой вкус и бюджет.
+              </li>
+              <li>
+                <b>Открытость</b>: Свою работу можно показать друзьям под
+                чашечку латте со своего macbook pro в браузере safari.
+              </li>
+              <li>
+                <b>Internet is everywhere:</b> можно разрабатывать под платформы
+                от мобильных устройств до умных телевизоров!
+              </li>
+            </FeatureContainer>
+            <FeatureContainer color="red">
+              <h2>Минусы Front End</h2>
+              <li>
+                <b>Сложная экосистема фреймворков и инструментов</b> и не смотря
+                на то, что разные компании используют разные инструменты, учить
+                их все не нужно. Секрет в том, что нужно понимать как они
+                работают, и мы это будем объяснять.
+              </li>
+              <li>
+                <b>Не все библиотеки работают хорошо и качественно</b>, но мы
+                научим вас в них разбираться, смотреть исходный код, а также
+                избегать их там, где это возможно.
+              </li>
+              <li>
+                <b>Монотонная работа</b> может попасться в виде бесконечной
+                верстки или формошлепства. Большинство курсов затачивает
+                учеников именно под эти задачи. Мы же постараемся научить вас
+                большему используя игры и творческие задачи в процессе обучения.
+              </li>
+              <li>
+                <b>Нужно учиться всегда.</b> Это касается любой отрасли
+                программирования, но Front-End развивается стремительными
+                темпами, поэтому мы научим вас следить за обновлениями и
+                новостями отрасли.
+              </li>
+            </FeatureContainer>
+          </FeaturesContainer>
+        </ProfitsContainer>
+        {/* <ProfitsContainer>
+          <StagesTitle>Почему мы</StagesTitle>
+          <ul>
+            <li>Уроки как offline так и online</li>
+            <li>Никаких предоплат - оплата отдельно за каждое занятие!</li>
+            <li>
+              Использование социальной сети для разработчиков в которой
+              отображается вся ваша активность - github начиная с первого
+              занятия!
+            </li>
+            <li>Научим вас смотреть чужой код и работать в команде.</li>
+            <li>
+              Дадим советы по тайм менеджменту, продуктивности и научим
+              обучаться самостоятельно.
+            </li>
+            <li>
+              В конце каждого из этапов у вас будет собственный сайт, который
+              поможет в практике и поиске работы.
+            </li>
+            <li>
+              Мы единственные говорим вам правду: мы не гарантируем вам
+              трудоустройство, но сделаем все возможностью, чтобы
+              программирование было для вас интересным, а это главный залог
+              успешности в этой специальности!
+            </li>
+          </ul>
+        </ProfitsContainer> */}
       </Container>
     </>
   );

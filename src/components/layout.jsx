@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const GlobalStyles = createGlobalStyle`
   html {
+    ${({ theme }) => theme.fonts.mainFont(24)};
     margin: 0;
     padding: 0;
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
