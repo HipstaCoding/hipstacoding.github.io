@@ -32,7 +32,7 @@ const createStableElectronKeyframes = (x, y, z = 0) => keyframes`
 const imageAnimation = keyframes`
   0% { transform: translateY(0%); }
   100% { transform: translateY(5%); }
-`
+`;
 
 const Container = styled.div`
   height: 100%;
@@ -101,7 +101,7 @@ const Electrons = ({ electrons }) => {
 
     return (
       <ElectronOrbit
-        key={Electron.key}
+        key={i}
         transform={orbitTransform}
         animationName={orbitAnimationName}
       >
