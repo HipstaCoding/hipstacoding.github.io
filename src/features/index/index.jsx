@@ -423,7 +423,7 @@ export default function IndexPageContent() {
             <ProfitContent>
               <ProfitIcon as={GitIcon} />
               <h3>Реальные условия</h3>
-              <p>Использование GitHub начиная с занятия</p>
+              <p>Использование GitHub начиная с первого занятия</p>
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={TeamworkIcon} />
@@ -432,9 +432,9 @@ export default function IndexPageContent() {
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={AnalyticsIcon} />
-              <h3>Полезные лайфхакам</h3>
+              <h3>Полезные лайфхаки</h3>
               <p>
-                Научмм тайменедженту, продуктивности и пользоваться гарячим
+                Научим тайменедженту, продуктивности и пользоваться гарячим
                 клавишами
               </p>
             </ProfitContent>
@@ -443,7 +443,7 @@ export default function IndexPageContent() {
               <h3>Открытый доступ</h3>
               <p>
                 Все материалы доступны в качестве{" "}
-                <a target="_blank" href="/html/01-html">
+                <a target="_blank" href="/lessons/html/01-html">
                   презентаций
                 </a>{" "}
                 на сайте

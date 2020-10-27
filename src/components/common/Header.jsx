@@ -67,7 +67,9 @@ export default function Header({ children }) {
     <NavigationContainer>
       <Navigation>
         <LogoContainer>
-          <StyledLogo />
+          <a href="#">
+            <StyledLogo />
+          </a>
           <StyledBurger open={isOpen} onClick={() => setOpen(!isOpen)} />
         </LogoContainer>
         <MenuContainer show={isOpen}>{children}</MenuContainer>

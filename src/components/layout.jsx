@@ -48,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     background-color: transparent;
   }
-
+  
   button:hover {
     cursor: pointer;
   }
