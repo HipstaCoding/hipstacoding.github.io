@@ -2,9 +2,6 @@ import { mediaQueries } from "lib/screenSizes";
 import styled from "styled-components";
 import heroImagePng from "assets/images/hero-image.png";
 import AtomImage from "components/AtomImage";
-import { ReactComponent as ReactLogo } from "assets/icons/react.svg";
-import { ReactComponent as JsLogo } from "assets/icons/js.svg";
-import { ReactComponent as HtmlLogo } from "assets/icons/html.svg";
 import Header from "components/common/Header";
 import Button from "components/common/Button";
 import Container from "components/common/Container";
@@ -15,6 +12,7 @@ import { ReactComponent as GitIcon } from "assets/icons/git.svg";
 import { ReactComponent as TeamworkIcon } from "assets/icons/brainstorming.svg";
 import { ReactComponent as AnalyticsIcon } from "assets/icons/analytics.svg";
 import { ReactComponent as OpenIcon } from "assets/icons/open-book.svg";
+import { JsLogo, HtmlLogo, ReactLogo } from "components/common/Icons.jsx";
 
 const HeaderLink = styled.a`
   padding: 30px;
@@ -131,17 +129,6 @@ const HighlightText = styled.span`
   color: ${({ theme, color }) => theme.colors[color]};
 `;
 
-const StyledHtmlLogo = props => {
-  return <HtmlLogo width="100px" height="100px" {...props} />;
-};
-
-const StyledJsLogo = props => {
-  return <JsLogo width="75px" height="75px" {...props} />;
-};
-
-const StyledReactLogo = props => {
-  return <ReactLogo width="100px" height="100px" {...props} />;
-};
 
 const StageLogo = styled.div`
   position: absolute;
@@ -254,11 +241,11 @@ export default function IndexPageContent() {
           <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
           <HeroImage
             src={heroImagePng}
-            electrons={[StyledJsLogo, StyledReactLogo, StyledHtmlLogo]}
+            electrons={[JsLogo, ReactLogo, HtmlLogo]}
           />
           <CourseSubtitle>
             Научим делать сногшибательные сайты и{" "}
-            <a target="_blank" href="https://djinni.co/salaries/front-end/">
+            <a target="_blank " href="https://djinni.co/salaries/front-end/">
               зарабатывать
             </a>{" "}
             много денег!
@@ -276,7 +263,7 @@ export default function IndexPageContent() {
           <StagesTitle id="stages">Этапы</StagesTitle>
           <StagesRow>
             <StageContainer>
-              <StageLogo as={StyledHtmlLogo} />
+              <StageLogo as={HtmlLogo} />
               <StageDescription>
                 <StageNumber>01</StageNumber>
                 <div>
@@ -299,7 +286,7 @@ export default function IndexPageContent() {
               </StageDescription>
             </StageContainer>
             <StageContainer>
-              <StageLogo as={StyledJsLogo} />
+              <StageLogo as={JsLogo} />
               <StageDescription>
                 <StageNumber>02</StageNumber>
                 <div>
@@ -321,7 +308,7 @@ export default function IndexPageContent() {
               </StageDescription>
             </StageContainer>
             <StageContainer>
-              <StageLogo as={StyledReactLogo} />
+              <StageLogo as={ReactLogo} />
               <StageDescription>
                 <StageNumber>03</StageNumber>
                 <div>

@@ -16,7 +16,8 @@ const StyledButton = styled.button`
 
   &:hover {
     color: ${({ theme }) => theme.colors.textColor};
-    background-color: ${({ theme }) => lighten(0.1, theme.colors.controlPrimaryColor)};
+    background-color: ${({ theme }) =>
+      lighten(0.1, theme.colors.controlPrimaryColor)};
   }
 `;
 
