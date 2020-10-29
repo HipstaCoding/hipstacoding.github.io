@@ -45,9 +45,6 @@ const Container = styled.div`
 `;
 
 const Img = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 100%;
   will-change: transform;
   animation: ${imageAnimation} 2s infinite ease-in-out alternate;

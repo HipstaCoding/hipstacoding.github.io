@@ -23,6 +23,7 @@ const StyledButton = styled.button`
 
   @media ${mediaQueries.xs} {
     padding: 0 50px;
+    width: 100%;
   }
 `;
 
