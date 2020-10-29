@@ -13,6 +13,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-svgr",
     "gatsby-plugin-sass",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
