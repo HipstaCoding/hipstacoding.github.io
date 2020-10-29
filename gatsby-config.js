@@ -13,6 +13,18 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-svgr",
     "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: process.env.GA_ID,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Defers execution of google analytics script after page load
+        defer: true,
+        // Any additional optional fields
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-manifest",
     //   options: {
