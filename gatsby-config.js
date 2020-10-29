@@ -24,15 +24,9 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        // The property ID; the tracking code won't be generated without it
         trackingId: process.env.GA_ID,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Defers execution of google analytics script after page load
-        defer: true,
-        // Any additional optional fields
       },
     },
     // {
