@@ -2,6 +2,7 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import useTabSelect from "hooks/useTabSelection";
 import DARK_THEME from "lib/theme";
 import { lighten } from "polished";
+import Seo from "components/Seo";
 import "assets/imports.css";
 
 const Container = styled.div`
@@ -71,6 +72,7 @@ const Layout = ({ children }) => {
   useTabSelect();
   return (
     <ThemeProvider theme={DARK_THEME}>
+      <Seo />
       <GlobalStyles />
       <Container>{children}</Container>
     </ThemeProvider>

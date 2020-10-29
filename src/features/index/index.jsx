@@ -78,7 +78,7 @@ const HeroImage = styled(AtomImage)`
   @media ${mediaQueries.xs} {
     position: relative;
     top: 0;
-    margin: 50px auto;
+    margin: 50px -50px;
   }
 `;
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { lighten } from "polished";
+import { mediaQueries } from "lib/screenSizes";
 
 const StyledButton = styled.button`
   ${({ theme }) => theme.fonts.mainFont(25)};
@@ -18,6 +19,10 @@ const StyledButton = styled.button`
     color: ${({ theme }) => theme.colors.textColor};
     background-color: ${({ theme }) =>
       lighten(0.1, theme.colors.controlPrimaryColor)};
+  }
+
+  @media ${mediaQueries.xs} {
+    padding: 0 50px;
   }
 `;
 
