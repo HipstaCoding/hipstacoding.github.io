@@ -44,7 +44,7 @@ const CourseTitle = styled.h1`
   }
 `;
 
-const CourseSubtitle = styled.h6`
+const CourseSubtitle = styled.h2`
   font-size: 27px;
   font-family: "Montserrat", sans-serif;
   color: white;
@@ -90,7 +90,7 @@ const StagesContainer = styled.section`
   margin-top: 150px;
 `;
 
-const StagesTitle = styled.h2`
+const StagesTitle = styled.h3`
   ${({ theme }) => theme.fonts.mainFont(64, 800)};
   color: ${({ theme }) => theme.colors.textSecondaryColor};
 `;
@@ -348,7 +348,7 @@ export default function IndexPageContent() {
           </p>
           <FeaturesContainer>
             <FeatureContainer color="green">
-              <h2>Плюсы Front End</h2>
+              <h3>Плюсы Front End</h3>
               <li>
                 <b>Низкий порог вхождения:</b> HTML учат еще в школе, а
                 JavaScript один из лучших языков для обучения программированию.
@@ -376,7 +376,7 @@ export default function IndexPageContent() {
               </li>
             </FeatureContainer>
             <FeatureContainer color="red">
-              <h2>Минусы Front End</h2>
+              <h3>Минусы Front End</h3>
               <li>
                 <b>Сложная экосистема фреймворков и инструментов</b> и не смотря
                 на то, что разные компании используют разные инструменты, учить
@@ -408,27 +408,27 @@ export default function IndexPageContent() {
           <ProfitList>
             <ProfitContent>
               <ProfitIcon as={RemoteAccessIcon} />
-              <h3>Гибкость</h3>
+              <h4>Гибкость</h4>
               <p>Уроки как offline так и online</p>
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={BuyIcon} />
-              <h3>Никаких предоплат</h3>
+              <h4>Никаких предоплат</h4>
               <p>Оплата по факту в конце урока</p>
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={GitIcon} />
-              <h3>Реальные условия</h3>
+              <h4>Реальные условия</h4>
               <p>Использование GitHub начиная с первого занятия</p>
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={TeamworkIcon} />
-              <h3>Командная работа</h3>
+              <h4>Командная работа</h4>
               <p>Научим вас смотреть чужой код и работать в команде</p>
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={AnalyticsIcon} />
-              <h3>Полезные лайфхаки</h3>
+              <h4>Полезные лайфхаки</h4>
               <p>
                 Научим тайменедженту, продуктивности и пользоваться гарячими
                 клавишами
@@ -436,7 +436,7 @@ export default function IndexPageContent() {
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={OpenIcon} />
-              <h3>Открытый доступ</h3>
+              <h4>Открытый доступ</h4>
               <p>
                 Все материалы доступны в качестве{" "}
                 <a target="_blank" href="/lessons/html/01-html">

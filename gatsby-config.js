@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: "Hipsta Coding School",
+    siteUrl: "https://hipstacoding.school/",
+    description: "Hipsta Coding School - прогрессивные курсы креативного программирования. Идет набор на курс ''",
+  },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",

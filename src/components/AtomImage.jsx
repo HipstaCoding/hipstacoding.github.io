@@ -49,6 +49,7 @@ const Img = styled.img`
   top: 0;
   left: 0;
   height: 100%;
+  will-change: transform;
   animation: ${imageAnimation} 2s infinite ease-in-out alternate;
 `;
 
@@ -60,6 +61,7 @@ const ElectronOrbit = styled.div`
   border-radius: 50%;
   height: calc(100% + 100px);
   width: calc(100% + 100px);
+  will-change: transform;
   transform-style: preserve-3d;
   transform: ${props => props.transform};
   animation: ${props => props.animationName} 4s infinite linear;
@@ -73,6 +75,7 @@ const ElectronContainer = styled.div`
   border-radius: 50%;
   top: 0;
   left: 50%;
+  will-change: transform;
   transform: ${props => props.transform};
   animation: ${props => props.animationName} 4s infinite linear;
 `;
