@@ -257,7 +257,11 @@ export default function IndexPageContent() {
             electrons={[StyledJsLogo, StyledReactLogo, StyledHtmlLogo]}
           />
           <CourseSubtitle>
-            Научим делать сногшибательные сайты и зарабатывать много денег!
+            Научим делать сногшибательные сайты и{" "}
+            <a target="_blank" href="https://djinni.co/salaries/front-end/">
+              зарабатывать
+            </a>{" "}
+            много денег!
             <a href="#no-warranties">*</a>
           </CourseSubtitle>
           <SubscribeButton
