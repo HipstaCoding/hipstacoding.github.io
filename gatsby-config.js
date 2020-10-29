@@ -9,6 +9,15 @@ module.exports = {
     description,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_ID,
+        // this option places the tracking script into the head of the DOM
+        head: true,
+        // other options
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     {
@@ -23,12 +32,6 @@ module.exports = {
     "gatsby-plugin-svgr",
     "gatsby-plugin-sass",
     "gatsby-plugin-sitemap",
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        trackingId: process.env.GA_ID,
-      },
-    },
     // {
     //   resolve: "gatsby-plugin-manifest",
     //   options: {
