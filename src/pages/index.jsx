@@ -52,7 +52,7 @@ const CourseSubtitle = styled.h2`
   letter-spacing: 0.05em;
   margin-top: 20px;
 
-  @media ${mediaQueries.md} {
+  @media ${mediaQueries.sm} {
     width: 50%;
   }
 `;
