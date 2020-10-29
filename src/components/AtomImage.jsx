@@ -45,6 +45,7 @@ const Container = styled.div`
 `;
 
 const Img = styled.img`
+  width: auto;
   height: 100%;
   will-change: transform;
   animation: ${imageAnimation} 2s infinite ease-in-out alternate;
@@ -116,10 +117,10 @@ const Electrons = ({ electrons }) => {
   });
 };
 
-export default function AtomImage({ src, className, electrons }) {
+export default function AtomImage({ src, className, electrons, ...props }) {
   return (
     <Container className={className}>
-      <Img src={src} />
+      <Img {...props} src={src} />
       <Electrons electrons={electrons} />
     </Container>
   );

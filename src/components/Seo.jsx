@@ -8,7 +8,9 @@ export default function Seo() {
 
   return (
     <Helmet>
+      <html lang="ru" />
       <title>{title}</title>
+      <meta charSet="utf-8" />
       <meta property="og:title" content={title} />
       <meta name="description" content={description} />
       <meta property="og:description" content={description} />

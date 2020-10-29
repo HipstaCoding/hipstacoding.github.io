@@ -67,7 +67,7 @@ export default function Header({ children }) {
     <NavigationContainer>
       <Navigation>
         <LogoContainer>
-          <a href="#">
+          <a href="#" title="Нажмешь на лого, полетишь вверх">
             <StyledLogo />
           </a>
           <StyledBurger open={isOpen} onClick={() => setOpen(!isOpen)} />

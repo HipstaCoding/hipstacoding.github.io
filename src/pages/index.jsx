@@ -235,17 +235,28 @@ export default function IndexPage() {
   return (
     <Layout>
       <Header>
-        <HeaderLink href="#subscribe">Запись</HeaderLink>
-        <HeaderLink href="#stages">Этапы</HeaderLink>
-        <HeaderLink href="#about">О Курсе</HeaderLink>
-        <HeaderLink href="#profits">Почему мы</HeaderLink>
+        <HeaderLink href="#subscribe" title="Запишись плиз">
+          Запись
+        </HeaderLink>
+        <HeaderLink href="#stages" title="Все будет, но не сразу">
+          Этапы
+        </HeaderLink>
+        <HeaderLink href="#about" title="Front-End крутой">
+          О Курсе
+        </HeaderLink>
+        <HeaderLink href="#profits" title="А почему не мы?">
+          Почему мы
+        </HeaderLink>
       </Header>
       <Container as="main">
         <Banner id="subscribe">
           <CourseTitle>КУРС FRONT-END РАЗРАБОТКИ С&nbsp;НУЛЯ.</CourseTitle>
           <HeroImage
+            alt="Чувак с ноутбуком летает и вокруг внего вращаются html, js и react"
             src={heroImagePng}
             electrons={[JsLogo, ReactLogo, HtmlLogo]}
+            width="380"
+            height="400"
           />
           <CourseSubtitle>
             Научим делать сногшибательные сайты и{" "}
@@ -259,6 +270,7 @@ export default function IndexPage() {
             forwardedAs="a"
             target="_blank"
             href="https://t.me/hipstacodingbot"
+            aria-label="subscribe"
           >
             Записаться
           </SubscribeButton>
