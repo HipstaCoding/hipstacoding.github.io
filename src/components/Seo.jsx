@@ -12,9 +12,11 @@ export default function Seo() {
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta property="og:title" content={title} />
+      <meta property="og:site_name" content={title} />
       <meta name="description" content={description} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta property="image" content={image} />
       <meta property="og:url" content={siteUrl} />
       <meta property="keywords" content={keywords.join(" ")} />
     </Helmet>
