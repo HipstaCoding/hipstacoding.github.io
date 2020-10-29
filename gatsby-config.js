@@ -1,8 +1,12 @@
+const title = "Hipsta Coding School";
+const description =
+  "Hipsta Coding School - прогрессивные курсы креативного программирования. Идет набор на курс ''";
+
 module.exports = {
   siteMetadata: {
-    title: "Hipsta Coding School",
+    title,
     siteUrl: "https://hipstacoding.school/",
-    description: "Hipsta Coding School - прогрессивные курсы креативного программирования. Идет набор на курс ''",
+    description,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -34,13 +38,13 @@ module.exports = {
     // {
     //   resolve: "gatsby-plugin-manifest",
     //   options: {
-    //     name: "gatsby-starter-default",
-    //     short_name: "starter",
+    //     name: title,
+    //     short_name: "hipstacoding.school",
     //     start_url: "/",
-    //     background_color: "#663399",
-    //     theme_color: "#663399",
+    //     background_color: "#292D34",
     //     display: "minimal-ui",
-    //     icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
+    //     icon: "src/assets/images/hipsta-logo-favicon.png", // This path is relative to the root of  the site.
+    //     theme_color_in_head: false,
     //   },
     // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
