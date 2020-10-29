@@ -7,7 +7,7 @@ module.exports = {
     title,
     siteUrl: "https://hipstacoding.school/",
     description,
-    image: "/hipsta-logo.jpg",
+    image: "https://hipstacoding.school/hipsta-logo.jpg",
     keywords: [
       "courses",
       "курсы",
