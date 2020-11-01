@@ -428,7 +428,7 @@ export default function IndexPage() {
             <ProfitContent>
               <ProfitIcon as={RemoteAccessIcon} />
               <h4>Гибкость</h4>
-              <p>Уроки как offline так и online</p>
+              <p>Уроки как online так и offline в г. Киев</p>
             </ProfitContent>
             <ProfitContent>
               <ProfitIcon as={BuyIcon} />
