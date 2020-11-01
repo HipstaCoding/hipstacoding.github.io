@@ -33,12 +33,14 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
+        // your google analytics tracking id
         trackingId: process.env.GA_ID,
-        // this option places the tracking script into the head of the DOM
-        head: true,
-        // other options
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true,
       },
     },
     "gatsby-plugin-react-helmet",
