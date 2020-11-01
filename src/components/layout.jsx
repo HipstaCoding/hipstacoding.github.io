@@ -3,6 +3,7 @@ import useTabSelect from "hooks/useTabSelection";
 import DARK_THEME from "lib/theme";
 import { lighten } from "polished";
 import Seo from "components/Seo";
+import { useEffect } from "react";
 import "assets/imports.css";
 
 const Container = styled.div`
@@ -17,10 +18,8 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.textColor};
-    scroll-behavior: smooth;
   }
-
-
+  
   body:not([tab-user]) button:focus,
   body:not([tab-user]) input:focus,
   body:not([tab-user]) select:focus,
@@ -70,6 +69,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Layout = ({ children }) => {
   useTabSelect();
+
   return (
     <ThemeProvider theme={DARK_THEME}>
       <Seo />
