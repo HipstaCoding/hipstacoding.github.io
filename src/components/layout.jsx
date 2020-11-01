@@ -3,7 +3,6 @@ import useTabSelect from "hooks/useTabSelection";
 import DARK_THEME from "lib/theme";
 import { lighten } from "polished";
 import Seo from "components/Seo";
-import { useEffect } from "react";
 import "assets/imports.css";
 
 const Container = styled.div`
