@@ -291,7 +291,7 @@ export default function IndexPage() {
                 Результат:
                 <StageList>
                   <li>
-                    Собвственный webсайт-портфолио на чистом{" "}
+                    Собственный webсайт-портфолио на чистом{" "}
                     <HighlightText color="orange">HTML5</HighlightText> и{" "}
                     <HighlightText color="orange">CSS3</HighlightText>
                   </li>
