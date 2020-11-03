@@ -23,7 +23,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-export default function Editor({ value, onChange, ...props }) {
+export default function CodeEditor({ value, onChange, ...props }) {
   const code = hljs.highlight("xml", value).value + "\n";
 
   return (

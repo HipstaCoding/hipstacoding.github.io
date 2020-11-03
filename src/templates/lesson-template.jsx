@@ -8,7 +8,7 @@ import { Link } from "gatsby";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
 import { MDXProvider } from "@mdx-js/react";
-import components from "components/mdx";
+import components from "components/lessons/mdx";
 
 import "reveal.js/dist/reveal.css";
 import "../lib/reveal-theme/atom-one-dark.css";

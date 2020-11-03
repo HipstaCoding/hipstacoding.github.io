@@ -1,17 +1,17 @@
-import { useState } from "react";
-import styled from "styled-components";
 import LessonTemplate from "templates/lesson-template";
 import htmlLogo from "./html-logo.png";
-import Editor from "components/editor";
 import Hotkey from "components/Hotkey";
-import { Image, Relative } from "components/Reveal";
-
+import {
+  Image,
+  Relative,
+  HorizontalCodeEditor,
+  ImgIcon,
+} from "components/lessons/reveal";
 import markupDefinition from "./snippets/markup-definition.html";
 import spaces from "./snippets/spaces.html";
 import htmlStructure from "./snippets/structure.html";
 import listExampleHtml from "./snippets/list-example.html";
 import imgHtml from "./snippets/img.html";
-
 import browsers from "./browsers.png";
 import rip from "./rip.png";
 import bug from "./bug.jpg";
@@ -24,38 +24,9 @@ import htmlCap from "./usage/html-cap.jpg";
 import tag from "./images/tag.jpg";
 import wikiCharset from "./images/wiki-charset.png";
 import attributeImgUrl from "./images/attribute.png";
+import liveReloadUrl from "./images/live-reload.png";
 import { ReactComponent as VSCodeSvg } from "./images/vscode.svg";
 import { ReactComponent as ChromeSvg } from "./images/chrome.svg";
-import liveReloadUrl from "./images/live-reload.png";
-
-const VSCode = styled(VSCodeSvg)`
-  height: 54px;
-  display: inline-block;
-  vertical-align: top;
-`;
-
-const Chrome = styled(ChromeSvg)`
-  height: 54px;
-  display: inline-block;
-  vertical-align: top;
-`;
-
-const ImgIcon = styled.img`
-  height: 54px;
-  display: inline-block;
-  margin: 0 5px !important;
-`;
-
-const ParagraphWithSourse = ({ source }) => {
-  const [code, setCode] = useState(source);
-
-  return (
-    <>
-      <Editor value={code} onChange={setCode} />
-      <p dangerouslySetInnerHTML={{ __html: code }} />
-    </>
-  );
-};
 
 export default function FirstLesson() {
   return (
@@ -86,38 +57,36 @@ export default function FirstLesson() {
         <section>
           <b>Браузер</b> <i>(от англ. Browser - обозреватель)</i> - программа,
           через которую вы заходите в интернет.
-          <p>
-            <Relative>
-              <Image height="15vh" src={browsers} />
-              <Image
-                height="15vh"
-                position="absolute"
-                left="20px"
-                src={rip}
-                className="fragment"
-                data-fragment-index={1}
-              />
-              <div
-                className="fragment"
-                data-fragment-index={2}
-                style={{
-                  position: "absolute",
-                  width: "40%",
-                  border: "2px solid red",
-                  height: "100%",
-                  right: 0,
-                  top: 0,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  color: "black",
-                  fontSize: "3rem",
-                }}
-              >
-                <span style={{ transform: "rotate(30deg)" }}>Еще живы 😭</span>
-              </div>
-            </Relative>
-          </p>
+          <Relative>
+            <Image height="15vh" src={browsers} />
+            <Image
+              height="15vh"
+              position="absolute"
+              left="20px"
+              src={rip}
+              className="fragment"
+              data-fragment-index={1}
+            />
+            <div
+              className="fragment"
+              data-fragment-index={2}
+              style={{
+                position: "absolute",
+                width: "40%",
+                border: "2px solid red",
+                height: "100%",
+                right: 0,
+                top: 0,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "black",
+                fontSize: "3rem",
+              }}
+            >
+              <span style={{ transform: "rotate(30deg)" }}>Еще живы 😭</span>
+            </div>
+          </Relative>
           <p>
             <span className="fragment fade-in-then-out" data-fragment-index={1}>
               Хорошие новости
@@ -160,7 +129,7 @@ export default function FirstLesson() {
           текст по ссылке.
         </section>
         <section>
-          <ParagraphWithSourse source={markupDefinition} />
+          <HorizontalCodeEditor source={markupDefinition} />
         </section>
         <section>
           <b>Тег</b> <i>(англ. HTML Tag)</i> - единица языка HTML. Тегами
@@ -233,8 +202,8 @@ export default function FirstLesson() {
               Google Chrome
             </a>{" "}
             ©.
-            <p>Для начала нужно просто их установить.</p>
           </p>
+          <p>Для начала нужно просто их установить.</p>
         </section>
       </section>
       <section>
@@ -256,48 +225,50 @@ export default function FirstLesson() {
                 <th>🔥 Hotkey / Icon</th>
               </tr>
             </thead>
-            <tr>
-              <td>Создаем папку my-website</td>
-              <td>
-                <Hotkey mac={["ctrl", "shift", "N"]} />
-              </td>
-            </tr>
-            <tr>
-              <td>Открываем VSCode</td>
-              <td>
-                <VSCode />
-              </td>
-            </tr>
-            <tr>
-              <td>Открываем папку в VSCode</td>
-              <td>
-                <Hotkey mac={["ctrl", "O"]} />
-              </td>
-            </tr>
-            <tr>
-              <td>Создаем новый файл</td>
-              <td>
-                <Hotkey mac={["ctrl", "N"]} />
-              </td>
-            </tr>
-            <tr>
-              <td>Сохраняем пустой файл</td>
-              <td>
-                <Hotkey mac={["ctrl", "S"]} />
-              </td>
-            </tr>
-            <tr>
-              <td>Называем файл index.html</td>
-              <td>
-                <Hotkey mac={["enter"]} />
-              </td>
-            </tr>
-            <tr>
-              <td>Немножко магии</td>
-              <td>
-                <Hotkey mac={["!", "tab"]} />
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Создаем папку my-website</td>
+                <td>
+                  <Hotkey mac={["ctrl", "shift", "N"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Открываем VSCode</td>
+                <td>
+                  <ImgIcon as={VSCodeSvg} />
+                </td>
+              </tr>
+              <tr>
+                <td>Открываем папку в VSCode</td>
+                <td>
+                  <Hotkey mac={["ctrl", "O"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Создаем новый файл</td>
+                <td>
+                  <Hotkey mac={["ctrl", "N"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Сохраняем пустой файл</td>
+                <td>
+                  <Hotkey mac={["ctrl", "S"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Называем файл index.html</td>
+                <td>
+                  <Hotkey mac={["enter"]} />
+                </td>
+              </tr>
+              <tr>
+                <td>Немножко магии</td>
+                <td>
+                  <Hotkey mac={["!", "tab"]} />
+                </td>
+              </tr>
+            </tbody>
           </table>
         </section>
         <section>
@@ -321,12 +292,12 @@ export default function FirstLesson() {
             перезагружать страницу каждый раз, когда мы ее сохраняем.
           </p>
           <p>
-            <VSCode />: <Hotkey mac={["ctrl", "shift", "P"]} /> -&gt;
-            LiveReload: Enable/Disable server
+            <ImgIcon as={VSCodeSvg} />: <Hotkey mac={["ctrl", "shift", "P"]} />{" "}
+            -&gt; LiveReload: Enable/Disable server
           </p>
           <p style={{ display: "inline-flex" }}>
-            <Chrome />: Нажать на кнопку <ImgIcon src={liveReloadUrl} /> в
-            панеле разширений
+            <ImgIcon as={ChromeSvg} />: Нажать на кнопку{" "}
+            <ImgIcon src={liveReloadUrl} /> в панеле разширений
           </p>
         </section>
       </section>
@@ -363,83 +334,82 @@ export default function FirstLesson() {
             <b>&lt;head /&gt;</b> - тег, содержащий служебную информацию для
             браузера.
           </p>
-          <p className="fragment">
-            <ul>
-              <li>
-                Элементы, которые могут использоваться внутри{" "}
-                <code>&lt;head&gt;</code>:
-                <ul style={{ columns: "2" }}>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/title"
-                      title="HTML-элемент заголовка (<title>) определяет заголовок документа, который отображается в заголовке окна браузера или на вкладке страницы. Он содержит только текст, а теги внутри элемента игнорируются."
-                    >
-                      <code>&lt;title&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/base"
-                      title="HTML элемент&nbsp;<base>&nbsp;определяет&nbsp;основной адрес (URL), используемый для всех относительных адресов (URLs) в документе. Может быть только один&nbsp;<base>&nbsp;элемент в одном документе.&nbsp;
+
+          <ul className="fragment">
+            <li>
+              Элементы, которые могут использоваться внутри{" "}
+              <code>&lt;head&gt;</code>:
+              <ul style={{ columns: "2" }}>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/title"
+                    title="HTML-элемент заголовка (<title>) определяет заголовок документа, который отображается в заголовке окна браузера или на вкладке страницы. Он содержит только текст, а теги внутри элемента игнорируются."
+                  >
+                    <code>&lt;title&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/base"
+                    title="HTML элемент&nbsp;<base>&nbsp;определяет&nbsp;основной адрес (URL), используемый для всех относительных адресов (URLs) в документе. Может быть только один&nbsp;<base>&nbsp;элемент в одном документе.&nbsp;
  Основной адрес (URL) документа можно запросить скриптом используя&nbsp;document.baseURI."
-                    >
-                      <code>&lt;base&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="new"
-                      href="/ru/docs/Web/HTML/Element/link"
-                      rel="nofollow"
-                      title="Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!"
-                    >
-                      <code>&lt;link&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/style"
-                      title="HTML-элемент <style> содержит стилевую информацию для документа или его части. По умолчанию стилевые инструкции внутри этого элемента считаются написанными на CSS."
-                    >
-                      <code>&lt;style&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/meta"
-                      title="HTML элемент <meta> представляет такие метаданные, которые не могут быть представлены другими HTML-метатегами, такими как <base>, <link>, <script>, <style> или <title>."
-                    >
-                      <code>&lt;meta&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/script"
-                      title="HTML Элемент&nbsp;<script> "
-                    >
-                      <code>&lt;script&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/noscript"
-                      title="Элемент&nbsp;HTML <noscript>&nbsp;определяет секцию html кода, которая будет вставлена, если в&nbsp;браузере пользователя нет либо отключена поддержка&nbsp;JavaScript'а."
-                    >
-                      <code>&lt;noscript&gt;</code>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/ru/docs/Web/HTML/Element/template"
-                      title="HTML элемент контент шаблона  <template> - это механизм для отложенного создания клиентского контента, который не отображается во время загрузки, но может быть инициализирован при помощи JavaScript."
-                    >
-                      <code>&lt;template&gt;</code>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </p>
+                  >
+                    <code>&lt;base&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="new"
+                    href="/ru/docs/Web/HTML/Element/link"
+                    rel="nofollow"
+                    title="Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!"
+                  >
+                    <code>&lt;link&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/style"
+                    title="HTML-элемент <style> содержит стилевую информацию для документа или его части. По умолчанию стилевые инструкции внутри этого элемента считаются написанными на CSS."
+                  >
+                    <code>&lt;style&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/meta"
+                    title="HTML элемент <meta> представляет такие метаданные, которые не могут быть представлены другими HTML-метатегами, такими как <base>, <link>, <script>, <style> или <title>."
+                  >
+                    <code>&lt;meta&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/script"
+                    title="HTML Элемент&nbsp;<script> "
+                  >
+                    <code>&lt;script&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/noscript"
+                    title="Элемент&nbsp;HTML <noscript>&nbsp;определяет секцию html кода, которая будет вставлена, если в&nbsp;браузере пользователя нет либо отключена поддержка&nbsp;JavaScript'а."
+                  >
+                    <code>&lt;noscript&gt;</code>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/ru/docs/Web/HTML/Element/template"
+                    title="HTML элемент контент шаблона  <template> - это механизм для отложенного создания клиентского контента, который не отображается во время загрузки, но может быть инициализирован при помощи JavaScript."
+                  >
+                    <code>&lt;template&gt;</code>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </section>
         <section>
           <p>
@@ -502,7 +472,7 @@ export default function FirstLesson() {
           <h1>Текст в HTML</h1>
         </section>
         <section>
-          <ParagraphWithSourse source={spaces} />
+          <HorizontalCodeEditor source={spaces} />
         </section>
         <section>
           <p>Самые умные из вас уже наверное подумали:</p>
@@ -611,7 +581,7 @@ export default function FirstLesson() {
         </section>
         <section>
           <div style={{ height: "80vh" }}>
-            <ParagraphWithSourse source={imgHtml} />
+            <HorizontalCodeEditor source={imgHtml} />
           </div>
         </section>
         <section>
