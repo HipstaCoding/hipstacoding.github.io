@@ -7,6 +7,8 @@ import Logo from "components/Logo";
 import { Link } from "gatsby";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
+import { MDXProvider } from "@mdx-js/react";
+import components from "components/mdx";
 
 import "reveal.js/dist/reveal.css";
 import "../lib/reveal-theme/atom-one-dark.css";
@@ -40,14 +42,14 @@ const LessonTemplate = ({ children }) => {
     deck.initialize();
   }, []);
   return (
-    <div>
+    <MDXProvider components={components}>
       <RevealViewport id="reveal" className="reveal">
         <div className="slides">{children}</div>
       </RevealViewport>
       <Link to="/">
         <StyledLogo />
       </Link>
-    </div>
+    </MDXProvider>
   );
 };
 
