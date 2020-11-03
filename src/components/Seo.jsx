@@ -11,7 +11,7 @@ export default function Seo() {
       <html lang="ru" prefix="og: https://ogp.me/ns#" />
       <title>{title}</title>
       <meta charSet="utf-8" />
-			<meta property="og:type" content="website" />
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta name="title" content={title} />
       <meta property="og:site_name" content={title} />
@@ -21,7 +21,7 @@ export default function Seo() {
       <meta property="image" content={image} />
       <meta property="og:url" content={siteUrl} />
       <meta property="keywords" content={keywords.join(" ")} />
-			<meta property="twitter:card" content="summary_large_image"></meta>
+      <meta property="twitter:card" content="summary_large_image"></meta>
     </Helmet>
   );
 }

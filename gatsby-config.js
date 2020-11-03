@@ -1,3 +1,4 @@
+const path = require("path");
 const title = "Hipsta Coding School";
 const description =
   "Hipsta Coding School - прогрессивные курсы креативного программирования. КУРС FRONT-END (HTML5+CSS3, JAVASCRIPT, REACT) РАЗРАБОТКИ С НУЛЯ.";
@@ -44,8 +45,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: path.join(__dirname, "src/pages"),
+        ignore: ["**/slides/**/*"],
+        // See pattern syntax recognized by micromatch
+        // https://www.npmjs.com/package/micromatch#matching-features
+      },
+    },
+    {
       resolve: "gatsby-plugin-mdx",
-      options: {},
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
@@ -53,7 +62,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, "src/images"),
       },
     },
     "gatsby-transformer-sharp",
