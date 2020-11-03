@@ -42,7 +42,7 @@ const LessonTemplate = ({ children }) => {
   return (
     <div>
       <RevealViewport id="reveal" className="reveal">
-        {children}
+        <div className="slides">{children}</div>
       </RevealViewport>
       <Link to="/">
         <StyledLogo />
