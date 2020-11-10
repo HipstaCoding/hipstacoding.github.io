@@ -5,8 +5,8 @@ import { ReactComponent as HtmlLogoSvg } from "assets/icons/html.svg";
 
 const StyledHtmlLogoSvg = styled(HtmlLogoSvg)`
   fill: ${({ theme }) => theme.colors.orange};
-  width: 75px;
-  height: 75px;
+  width: auto;
+  height: 100%;
 `;
 
 const StyledHtmlLogoContainer = styled.figure`
@@ -14,8 +14,9 @@ const StyledHtmlLogoContainer = styled.figure`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 20px;
   margin: 0;
+  font-size: ${props => `calc(${props.height} / 5)`};
+  height: ${props => props.height || "100px"};
 `;
 
 export const HtmlLogo = props => (

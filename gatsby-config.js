@@ -33,6 +33,26 @@ module.exports = {
     ],
   },
   plugins: [
+    "gatsby-transformer-sharp",
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
+    `gatsby-plugin-split-css`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/templates/lesson-template.jsx"),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
@@ -44,29 +64,23 @@ module.exports = {
         anonymize: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: path.join(__dirname, "src/pages"),
-        ignore: ["**/slides/**/*"],
-        // See pattern syntax recognized by micromatch
-        // https://www.npmjs.com/package/micromatch#matching-features
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-    },
+    // {
+    //   resolve: `gatsby-plugin-page-creator`,
+    //   options: {
+    //     path: path.join(__dirname, "src/pages"),
+    //     ignore: ["**/slides/**/*"],
+    //     // See pattern syntax recognized by micromatch
+    //     // https://www.npmjs.com/package/micromatch#matching-features
+    //   },
+    // },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "images",
-        path: path.join(__dirname, "src/images"),
+        path: `${__dirname}/src/pages`,
       },
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
     "gatsby-plugin-svgr",
     "gatsby-plugin-sass",
     "gatsby-plugin-sitemap",

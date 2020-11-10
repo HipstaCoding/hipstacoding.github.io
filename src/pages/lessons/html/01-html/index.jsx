@@ -1,5 +1,4 @@
 import LessonTemplate from "templates/lesson-template";
-import htmlLogo from "./html-logo.png";
 import Hotkey from "components/Hotkey";
 import {
   Image,
@@ -7,6 +6,7 @@ import {
   HorizontalCodeEditor,
   ImgIcon,
 } from "components/lessons/reveal";
+import backgroundHtml from "./images/html_background.png";
 import markupDefinition from "./snippets/markup-definition.html";
 import spaces from "./snippets/spaces.html";
 import htmlStructure from "./snippets/structure.html";
@@ -20,21 +20,25 @@ import silpo from "./usage/silpo.jpg";
 import ibox from "./usage/ibox.webp";
 import kfc from "./usage/kfc.jpg";
 import metro from "./usage/metro.jpg";
-import htmlCap from "./usage/html-cap.jpg";
 import tag from "./images/tag.jpg";
 import wikiCharset from "./images/wiki-charset.png";
 import attributeImgUrl from "./images/attribute.png";
 import liveReloadUrl from "./images/live-reload.png";
 import { ReactComponent as VSCodeSvg } from "./images/vscode.svg";
 import { ReactComponent as ChromeSvg } from "./images/chrome.svg";
+import { HtmlLogo } from "components/common/Icons.jsx";
 
 export default function FirstLesson() {
   return (
     <LessonTemplate>
-      <section>
+      <section
+        data-background={backgroundHtml}
+        data-background-position="top left"
+        data-background-opacity={0.1}
+      >
         <h3>Урок 1. </h3>
         <h1>Героическое вступление в</h1>
-        <Image height="30vh" src={htmlLogo} />
+        <HtmlLogo height="30vh" />
       </section>
       <section>
         <section>
@@ -42,13 +46,13 @@ export default function FirstLesson() {
           <h2 className="fragment">Всем*</h2>
           <h6 className="fragment">*Кто как-то связан с программированием</h6>
         </section>
-        <section>Где используется HTML в повседневной жизни:</section>
-        <section data-background-image={internet} />
-        <section data-background-image={silpo} />
-        <section data-background-image={ibox} />
-        <section data-background-image={kfc} />
-        <section data-background-image={metro} />
-        <section data-background-image={htmlCap} />
+        <section className="r-stack">
+          <img className="fragment r-stretch" src={internet} />
+          <img className="fragment r-stretch" src={silpo} />
+          <img className="fragment r-stretch" src={ibox} />
+          <img className="fragment r-stretch" src={kfc} />
+          <img className="fragment r-stretch" src={metro} />
+        </section>
       </section>
       <section>
         <section>
