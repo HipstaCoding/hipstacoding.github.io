@@ -21,14 +21,6 @@ export const ImgIcon = styled.img`
   margin: 0 5px !important;
 `;
 
-export const StackItemContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
-`;
-
-export const Stack = styled.div`
-  position: relative;
-`;
-
 export const HorizontalCodeEditor = ({ source }) => {
   const [code, setCode] = useState(source);
 
