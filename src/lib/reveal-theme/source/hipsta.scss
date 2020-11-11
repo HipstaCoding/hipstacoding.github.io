@@ -58,4 +58,13 @@ $heading4Size: 1.0em;
 
 .reveal code {
   font-family: 'Consolas', monospace;
+  color: #e06c75;
+}
+
+.reveal ol,
+.reveal ul {
+	display: inline-block;
+
+	text-align: left;
+	margin: 1em 0 1em 1em;
 }

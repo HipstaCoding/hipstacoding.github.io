@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 export default {
   colors: {
-    backgroundPrimary: "#292D34",
+    backgroundPrimary: "#282c34",
     backgroundSecondary: "#383D46",
     textColor: "#F2F7FD",
     textSecondaryColor: "#C57BDD",

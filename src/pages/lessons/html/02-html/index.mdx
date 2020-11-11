@@ -1,4 +1,7 @@
+import altTextPng from "./images/alt-text.png";
+import imgResizePng from "./images/image-size.png";
 import background from "./images/background.jpg";
+import { StackItemContainer } from "components/lessons/reveal";
 
 <section
   data-background={background}
@@ -8,7 +11,16 @@ import background from "./images/background.jpg";
 >
 
 
+<section>
+
+
+## Урок 2.
+
 # Картинки и таблицы
+
+</section>
+<section>
+
 
 ## А так же:
 
@@ -18,26 +30,141 @@ import background from "./images/background.jpg";
 - Пишем HTML в 10 раз быстрее с Emmet
 
 </section>
-
-
+</section>
 <section>
-<section>
+<section data-auto-animate>
 
 
 ## Картинки
 
-```html
+```html [1-7]
 <img
-  src="./path/to/image.jpg"
-  srcset="./path/to/image@2x.jpg"
+  alt="image description"
   width="1024"
   height="720"
-  alt="image description"
+  src="./path/to/image.jpg"
+  srcset="./path/to/image@2x.jpg"
 />
 ```
 
-  </section>
-  <section>
+</section>
+<section data-auto-animate>
+
+
+## Альтернативный текст
+
+```html [2]
+<img
+  alt="image description"
+  width="1024"
+  height="720"
+  src="./path/to/image.jpg"
+  srcset="./path/to/image@2x.jpg"
+/>
+```
+
+</section>
+
+
+<section>
+  <img
+    alt="Фотография о любви к редизайну front-end разработчиков и дизайнеров к пользователям"
+    src={altTextPng}
+    width="612"
+    height="556"
+  />
+</section>
+
+<section>
+
+
+Хоть аттрибут **`alt`** опционален, важно добовлять его для сценариев:
+
+- картинка не загрузилась
+- некорректный путь
+- включена экономия трафика
+- человек использует програмное чтение с экрана
+- поисковый робот индексирует страницу
+
+</section>
+<section>
+
+
+## Изначальные размеры
+
+```html [3,4]
+<img
+  alt="Описание картинки"
+  width="1024"
+  height="720"
+  src="./path/to/image.jpg"
+  srcset="./path/to/image@2x.jpg"
+/>
+```
+
+</section>
+<section>
+
+
+Картинку нужно заранее уменьшить до максимального отображаемого размера и при необходимости сжать.
+Аттрибуты `width` и `height` должны соотвествовать размеру изображения (например, открыть в браузере).
+
+</section>
+<section>
+
+
+<div className="r-stack">
+
+<StackItemContainer data-fragment-index={1} class="fragment fade-out">
+
+#### **Лайфхак**
+
+### Как узнать размер картинки?
+
+</StackItemContainer>
+
+<StackItemContainer data-fragment-index={1} class="fragment fade-in-then-out">
+
+Установить расширение [Image Size Info](https://chrome.google.com/webstore/detail/image-size-info/oihdhfbfoagfkpcncinlbhfdgpegcigf)
+
+![Установить плагин](./images/install-plugin.png)
+</StackItemContainer>
+
+<StackItemContainer class="fragment fade-in-then-out">
+Открыть расрешения Image Size Info
+
+![Управление расширениями](./images/manage-extensions.png)
+</StackItemContainer>
+
+<StackItemContainer class="fragment fade-in-then-out">
+Разрешить использовать локальные файлы
+
+![Allow access to file URLs](./images/allow-local-url.png)
+</StackItemContainer>
+
+<StackItemContainer class="fragment fade-in-then-out">
+
+Поменять формат отображения на 
+
+```
+width=\"{W}\" height=\"{H}\"
+```
+
+
+![Change format](./images/add-custom-template.png)
+</StackItemContainer>
+
+<StackItemContainer style={{ minWidth: "806px" }} class="fragment fade-in-then-out">
+
+`ПКМ` -> View Info
+
+![View info](./images/view-info.png)
+</StackItemContainer>
+
+
+</div>
+</section>
+<section>
 
 
 ## Пути в HTML
@@ -123,5 +250,17 @@ import background from "./images/background.jpg";
 </ul>
 
 </section>
+</section>
+
+
+<section>
+<section>
+
+
+##
+
+</section>
+
+
 </section>
 

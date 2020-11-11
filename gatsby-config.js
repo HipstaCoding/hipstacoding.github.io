@@ -35,7 +35,13 @@ module.exports = {
   plugins: [
     "gatsby-transformer-sharp",
     `gatsby-plugin-sharp`,
-    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-remark-images`,
+      options: {
+        maxWidth: 1200,
+        backgroundColor: "transparent",
+      },
+    },
     `gatsby-plugin-split-css`,
     {
       resolve: `gatsby-plugin-mdx`,
@@ -48,6 +54,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
+              backgroundColor: "transparent",
             },
           },
         ],
@@ -90,7 +97,7 @@ module.exports = {
     //     name: title,
     //     short_name: "hipstacoding.school",
     //     start_url: "/",
-    //     background_color: "#292D34",
+    //     background_color: "#282c34",
     //     display: "minimal-ui",
     //     icon: "src/assets/images/hipsta-logo-favicon.png", // This path is relative to the root of  the site.
     //     theme_color_in_head: false,
