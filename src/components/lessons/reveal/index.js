@@ -27,7 +27,7 @@ export const StackItemContainer = styled.div`
 
 export const Stack = styled.div`
   position: relative;
-`
+`;
 
 export const HorizontalCodeEditor = ({ source }) => {
   const [code, setCode] = useState(source);

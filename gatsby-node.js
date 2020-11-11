@@ -54,8 +54,6 @@ exports.onCreateWebpackConfig = ({ actions, stage, loaders }) => {
 };
 
 exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
-
   if (page.path.includes("/lessons/")) {
     const nodeHtmlToImage = require("node-html-to-image");
     const imgPath = path.join(
@@ -65,17 +63,17 @@ exports.onCreatePage = async ({ page, actions }) => {
       "images/background.jpg"
     );
 
-    const styles = fs.readFileSync(
-      "./src/lib/reveal-theme/atom-one-dark.css",
-      "utf8"
-    );
-    const sourceCode = fs.readFileSync(page.componentPath, "utf8");
+    try {
+      const styles = fs.readFileSync(
+        "./src/lib/reveal-theme/atom-one-dark.css",
+        "utf8"
+      );
+      const sourceCode = fs.readFileSync(page.componentPath, "utf8");
 
-    const highlightedCode = hljs.highlight("markdown", sourceCode).value + "\n";
+      const trimCode = sourceCode.split("\n").slice(0, 50).join("\n");
+      const highlightedCode = hljs.highlight("markdown", trimCode).value + "\n";
 
-    await nodeHtmlToImage({
-      output: imgPath,
-      html: `
+      const html = `
 <html>
   <head>
     <style>
@@ -90,16 +88,15 @@ exports.onCreatePage = async ({ page, actions }) => {
   <body>
     <pre class="hljs"><code>${highlightedCode}</code></pre>
   </body>
-</html>`,
-    });
-    deletePage(page);
+</html>`;
 
-    createPage({
-      ...page,
-      context: {
-        ...page.context,
-        background: imgPath,
-      },
-    });
+      await nodeHtmlToImage({
+        output: imgPath,
+        html,
+      });
+      console.log("Background Image Creation Success!", imgPath);
+    } catch (err) {
+      console.log("Background Image Creation Error!", err);
+    }
   }
 };
