@@ -42,6 +42,7 @@ const LessonTemplate = ({ children }) => {
     });
     deck.initialize();
   }, []);
+
   return (
     <Layout>
       <MDXProvider components={components}>
