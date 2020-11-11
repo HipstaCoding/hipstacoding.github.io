@@ -5,6 +5,7 @@ import {
   Relative,
   HorizontalCodeEditor,
   ImgIcon,
+  StackItemContainer,
 } from "components/lessons/reveal";
 import backgroundHtml from "./images/html_background.png";
 import markupDefinition from "./snippets/markup-definition.html";
@@ -42,16 +43,30 @@ export default function FirstLesson() {
       </section>
       <section>
         <section>
-          <h1>Кому нужен HTML?</h1>
-          <h2 className="fragment">Всем*</h2>
-          <h6 className="fragment">*Кто как-то связан с программированием</h6>
-        </section>
-        <section className="r-stack">
-          <img className="fragment r-stretch" src={internet} />
-          <img className="fragment r-stretch" src={silpo} />
-          <img className="fragment r-stretch" src={ibox} />
-          <img className="fragment r-stretch" src={kfc} />
-          <img className="fragment r-stretch" src={metro} />
+          <div className="r-stack">
+            <div>
+              <h1>Кому нужен HTML?</h1>
+              <h2 className="fragment">Всем*</h2>
+              <h6 className="fragment">
+                *Кто как-то связан с программированием
+              </h6>
+            </div>
+            <StackItemContainer className="fragment fade-in-then-out">
+              <img src={internet} />
+            </StackItemContainer>
+            <StackItemContainer className="fragment fade-in-then-out">
+              <img src={silpo} />
+            </StackItemContainer>
+            <StackItemContainer className="fragment fade-in-then-out" >
+              <img src={ibox} />
+            </StackItemContainer>
+            <StackItemContainer className="fragment fade-in-then-out">
+              <img src={kfc} />
+            </StackItemContainer>
+            <StackItemContainer className="fragment fade-in-then-out">
+              <img src={metro} />
+            </StackItemContainer>
+          </div>
         </section>
       </section>
       <section>
