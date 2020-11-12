@@ -62,7 +62,7 @@ export default function FirstLesson() {
             <div className="fragment fade-in-then-out">
               <img src={kfc} />
             </div>
-            <div className="fragment fade-in-then-out">
+            <div className="fragment fade-in">
               <img src={metro} />
             </div>
           </div>
