@@ -39,7 +39,6 @@ import background from "./images/background.jpg";
   width="1024"
   height="720"
   src="./path/to/image.jpg"
-  srcset="./path/to/image@2x.jpg"
 />
 ```
 
@@ -56,7 +55,6 @@ import background from "./images/background.jpg";
   width="1024"
   height="720"
   src="./path/to/image.jpg"
-  srcset="./path/to/image@2x.jpg"
 />
 ```
 
@@ -96,7 +94,6 @@ import background from "./images/background.jpg";
   width="1024"
   height="720"
   src="./path/to/image.jpg"
-  srcset="./path/to/image@2x.jpg"
 />
 ```
 
@@ -166,7 +163,7 @@ width=\"{W}\" height=\"{H}\"
 </div>
 
 
-<div style={{ minWidth: "806px" }} class="fragment fade-in-then-out">
+<div class="fragment fade-in-then-out full-screen">
 
 
 `ПКМ` -> View Info
@@ -193,48 +190,35 @@ Voila, теперь мы всегда можем копировать разме
 
 ## Пути в HTML
 
-- Абсолютный (полный) путь
-- Относительный (направленный) путь
-
+```html [5]
+<img
+  alt="Описание картинки"
+  width="1024"
+  height="720"
+  src="./path/to/image.jpg"
+/>
+```
 </section>
 <section>
 
+#### Термин
 
-**Абсолютный путь** (_англ. Absolute path_) - путь, который указывает полный адрес к файлу.
-Это можно сравнить с вашим полным домашним адресом, который содержит страну, город, дом, квартиру и
-почтовый индекс.
+### URL 
 
-</section>
-<section>
-
-
-**Относительный путь** (_англ. relative path_) - путь, относительно текущего каталога (т.е папки).
-Это можно сравнить с навигацией по маршруту - чтобы найти пункт назначения, вам нужно вы идете
-относительно своего положения: поворачиваете налево, идете к конкретной улице и тд.
-
-В случае с путями в файловой структуре вы выходите из текущей папки, заходите в нужную папку и ищете
-нужный файл.
-
-</section>
-<section>
-
-
-## Что такое URL?
+### (_англ. Uniform Resource Locator_)
 
 <div className="fragment">
-
 
 Если кратко - это вот этот вот адрес:
 ![url](./images/url.png)
 
 </div>
 
-
 </section>
 <section>
 
 
-**URL** (_англ. Uniform Resource Locator_) - это адрес, который выдан уникальному ресурсу в интернете.
+**URL**  - это адрес, который выдан уникальному ресурсу в интернете.
 Такими ресурсами могут быть HTML-страница, CSS-файл, изображение и т.д.
 
 </section>
@@ -254,7 +238,7 @@ Voila, теперь мы всегда можем копировать разме
     :80
   </span>
   <span className="fragment highlight-current-blue" data-fragment-index={4}>
-    /lessons/html/02-html/index.html
+    /images/memes/redesign.png
   </span>
 </pre>
 
@@ -269,9 +253,71 @@ Voila, теперь мы всегда можем копировать разме
     порт
   </li>
   <li className="fragment highlight-current-blue" data-fragment-index={4}>
-    путь к файлу
+    абсолютный путь
   </li>
 </ul>
+
+</section>
+<section>
+
+
+**Абсолютный путь** (_англ. Absolute path_) - путь, который указывает полный адрес к файлу.
+Это можно сравнить с вашим полным домашним адресом, который содержит страну, город, дом, квартиру и
+почтовый индекс.
+
+</section>
+<section>
+
+#### Задача 2.1
+
+### Абсолютный путь
+
+#### Написать полный код <img /> тега используя абсолютный путь, если url картинки равно:
+
+```text
+https://hipstacoding.school/images/memes/redesign.png
+```
+
+</section>
+<section>
+
+<HorizontalCodeEditor placeholder="Пиши код тут" />
+
+</section>
+<section>
+
+**Относительный путь** (_англ. relative path_) - путь, относительно текущей папки.
+Это можно сравнить с навигацией по маршруту - чтобы найти пункт назначения, вы идете
+относительно своего положения: поворачиваете налево, идете к конкретной улице и тд.
+
+
+</section>
+<section>
+
+![relative file explanation](./images/relative-path.png)
+
+```
+file1.html path: "../assets/images/image.png"
+file2.html path: "./assets/images/image.png"
+// так тоже можно, но не желательно
+file2.html path: "assets/images/image.png"
+```
+
+</section>
+<section>
+
+#### Задача 2.2
+
+### Относительный путь
+
+#### Написать код <img /> тега используя относительный путь, если файловая структура:
+
+![Unit 2.2 picture](./images/unit-2.png)
+
+</section>
+<section>
+
+<HorizontalCodeEditor placeholder="Пиши код тут" />
 
 </section>
 </section>

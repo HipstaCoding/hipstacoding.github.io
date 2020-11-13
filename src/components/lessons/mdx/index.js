@@ -1,5 +1,6 @@
 import copyWithout from "../../../lib/utils/object";
 import MdxWrapper from "./MdxWrapper";
+import { HorizontalCodeEditor } from "components/lessons/reveal";
 
 const HIGHLIGHT_REGEX = /^\[(.+)\]$/;
 
@@ -20,4 +21,5 @@ export default {
   wrapper: MdxWrapper,
   code: Code,
   a: A,
+  HorizontalCodeEditor,
 };

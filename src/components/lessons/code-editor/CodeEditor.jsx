@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import hljs from "highlight.js/lib/core";
+import { useRef, useEffect, useState } from "react";
 
 const Textarea = styled.textarea`
   position: absolute;
@@ -13,18 +14,56 @@ const Textarea = styled.textarea`
   font-family: "Consolas", monospace;
   padding: 15px 20px;
   overflow: hidden;
+  overflow-x: auto;
   outline: none;
   border: none;
   resize: none;
   caret-color: #383a42;
+  white-space: nowrap;
 `;
 
 const Container = styled.div`
   position: relative;
 `;
 
-export default function CodeEditor({ value, onChange, ...props }) {
+export default function CodeEditor({
+  value = "",
+  placeholder,
+  onChange,
+  ...props
+}) {
+  const [selected, setSelected] = useState(value.length);
   const code = hljs.highlight("xml", value).value + "\n";
+  const textareaRef = useRef();
+  const codeRef = useRef();
+
+  useEffect(() => {
+    setSelected(selected);
+  }, [value]);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.setSelectionRange(selected, selected);
+    }
+  }, [selected]);
+
+  const onTabClick = e => {
+    if (e.keyCode === 9 /* Tab */) {
+      e.preventDefault();
+      if (onChange) {
+        const start = textareaRef.current.selectionStart;
+        const end = textareaRef.current.selectionEnd;
+        // set textarea value to: text before caret + tab + text after caret
+        const newValue =
+          value.substring(0, start) + "  " + value.substring(end);
+        onChange(newValue);
+        setSelected(start + 2);
+      }
+    }
+  };
+
+  const onCodeScroll = e =>
+    codeRef.current.scrollTo(e.target.scrollLeft, e.target.scrollTop);
 
   return (
     <Container>
@@ -32,9 +71,17 @@ export default function CodeEditor({ value, onChange, ...props }) {
         <code
           data-noescape
           {...props}
+          ref={codeRef}
           dangerouslySetInnerHTML={{ __html: code }}
         ></code>
-        <Textarea value={value} onChange={e => onChange(e.target.value)} />
+        <Textarea
+          onKeyDown={onTabClick}
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          ref={textareaRef}
+          onScroll={onCodeScroll}
+          placeholder={placeholder}
+        />
       </pre>
     </Container>
   );

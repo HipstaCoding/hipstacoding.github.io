@@ -1,6 +1,4 @@
-import { useState } from "react";
 import styled from "styled-components";
-import CodeEditor from "../code-editor/CodeEditor";
 
 export const Image = styled.img`
   width: auto;
@@ -21,13 +19,4 @@ export const ImgIcon = styled.img`
   margin: 0 5px !important;
 `;
 
-export const HorizontalCodeEditor = ({ source }) => {
-  const [code, setCode] = useState(source);
-
-  return (
-    <>
-      <CodeEditor value={code} onChange={setCode} />
-      <p dangerouslySetInnerHTML={{ __html: code }} />
-    </>
-  );
-};
+export { default as HorizontalCodeEditor } from "./HorizontalCodeEditor";
