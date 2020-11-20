@@ -12,7 +12,7 @@ const Code = props => {
     return <code {...propsCopy} data-line-numbers={htmlLineNumbers} />;
   }
 
-  return <code {...props} />;
+  return <code data-line-numbers {...props} />;
 };
 
 const A = props => <a {...props} target="blank" />;
@@ -22,4 +22,5 @@ export default {
   code: Code,
   a: A,
   HorizontalCodeEditor,
+  Code,
 };
