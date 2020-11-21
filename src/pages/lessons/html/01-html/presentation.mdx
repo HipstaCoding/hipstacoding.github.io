@@ -1,5 +1,15 @@
 import background from "./images/background.jpg";
 import { HtmlLogo } from "components/common/Icons.jsx";
+import Hotkey from "components/Hotkey";
+import {
+  Image,
+  Relative,
+  HorizontalCodeEditor,
+  ImgIcon,
+} from "components/lessons/reveal";
+import browsers from "./images/browsers.png";
+import rip from "./images/rip.png";
+import markupDefinition from "./snippets/markup-definition.html";
 
 <section
   data-background={background}
@@ -18,7 +28,6 @@ import { HtmlLogo } from "components/common/Icons.jsx";
 </section>
 <section>
 
-
 ## А так же:
 
 - История HTML и зачем он нужен
@@ -31,7 +40,6 @@ import { HtmlLogo } from "components/common/Icons.jsx";
 </section>
 <section>
 <section>
-
 
 ### Часть 0.
 
@@ -56,7 +64,7 @@ import { HtmlLogo } from "components/common/Icons.jsx";
 
 Обе программы поддерживают плагины от сторонних разработчиков
 
-Чтобы вручную не перезагружать страницу, мы будем использовать плагин LiveReload © для 
+Чтобы вручную не перезагружать страницу, мы будем использовать плагин LiveReload © для
 [Visual Studio Code ©](https://marketplace.visualstudio.com/items?itemName=ziishaned.livereload) и
 [Google Chrome ©](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=ru).
 
@@ -118,7 +126,7 @@ import { HtmlLogo } from "components/common/Icons.jsx";
 <span className="fragment fade-in">
 
 - Британец Тимоти Джон Бернерс-Ли в Женевском ЦЕРНе изобрел первый в мире браузер, который назывался **World Wide Web** (сокращенно **WWW**).
-  
+
 </span>
 
 </span>
@@ -142,6 +150,7 @@ import { HtmlLogo } from "components/common/Icons.jsx";
   <li className="fragment">
 
 В этом году появляется первый в мире [интернет сайт](http://info.cern.ch/hypertext/WWW/TheProject.html).
+
   </li>
 </ul>
 
@@ -149,6 +158,7 @@ import { HtmlLogo } from "components/common/Icons.jsx";
 <section>
 
 ### Первая браузерная война
+
 #### 1995-1999
 
 Netscape vs Internet Explorer
@@ -175,13 +185,14 @@ Netscape vs Internet Explorer
 <section>
 
 ### Вторая браузерная война или "Браузерный зоопарк"
+
 #### 2005-2015
 
 Internet explorer vs:
 
 - Netscape, который стал Mozilla Firefox
 - Apple Safari
-- Opera Mini 
+- Opera Mini
 - Google Chrome
 
 </section>
@@ -197,6 +208,7 @@ Internet explorer vs:
 #### Front-End Разработчики
 
 Fron-End'еры должны знать HTML и CSS досконально. Разработка на Front-End выглядит следующим образом:
+
 - Строится структура документа из HTML.
 - Добавляется оформление с помощью CSS.
 - Для интерактивных компонентов пишется код на JavaScript.
@@ -236,7 +248,7 @@ HTML все еще самый лучший простой, а порой и ед
 
 #### Где можно увидеть HTML
 
-<div class="fragment fade-in-then-out" style={{ width: "60%" }}>
+<div class="fragment fade-in-then-out" style={{ width: "50%" }}>
 
 ![Internet picture](./usage/internet.webp)
 
@@ -246,24 +258,152 @@ HTML все еще самый лучший простой, а порой и ед
 ![Router admin panel](./usage/router.png)
 
 </div>
-<div class="fragment fade-in-then-out" style={{ width: "100%" }}>
+<div class="fragment fade-in-then-out" style={{ width: "80%" }}>
 
 ![Silpo](./usage/silpo.jpg)
 
 </div>
-<div class="fragment fade-in-then-out" style={{ width: "100%" }}>
+<div class="fragment fade-in-then-out" style={{ width: "80%" }}>
 
 ![Kyiv underground](./usage/metro.jpg)
 
 </div>
-<div class="fragment fade-in-then-out" style={{ width: "100%" }}>
+<div class="fragment fade-in-then-out" style={{ width: "80%" }}>
 
 ![Ibox and ATMs](./usage/ibox.jpg)
 
 </div>
-<div class="fragment fade-in-then-out" style={{ width: "100%" }}>
+<div class="fragment fade-in-then-out" style={{ width: "80%" }}>
 
 ![Ibox and ATMs](./usage/kfc.jpg)
+
+</div>
+</div>
+
+</section>
+</section>
+<section>
+<section>
+
+## Базовые понятия
+
+</section>
+<section>
+
+### Браузер
+
+_(от англ. Browser - обозреватель)_ - программа,
+через которую вы заходите в интернет.
+
+<Relative>
+  <Image height="20vh" src={browsers} />
+  <Image
+    height="20vh"
+    position="absolute"
+    left="20px"
+    src={rip}
+    className="fragment"
+    data-fragment-index={1}
+  />
+  <div
+    className="fragment"
+    data-fragment-index={2}
+    style={{
+      position: "absolute",
+      width: "40%",
+      border: "2px solid red",
+      height: "100%",
+      right: 0,
+      top: 0,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: "2rem",
+    }}
+  >
+    <span style={{ transform: "rotate(30deg)" }}>Еще живы 😭</span>
+  </div>
+</Relative>
+
+<p>
+<span className="fragment fade-in-then-out" data-fragment-index={1}>
+  Хорошие новости
+</span>
+
+<span className="fragment fade-in-then-out" data-fragment-index={2}>
+  Плохие новости
+</span>
+</p>
+
+</section>
+<section>
+
+### HTML
+
+_(от англ. HyperText Markup Language — «язык гипертекстовой
+разметки»)_ — стандартизированный язык разметки веб-страниц во Всемирной паутине.
+
+© Wikipedia
+
+<p className="fragment">
+
+_Ну и, я и сам могу это в википедии прочитать, что это вообще значит, умник?_
+
+</p>
+
+</section>
+<section>
+
+### Гипертекст
+
+_(англ. HyperText)_ - текст, отличающийся от обычного тем, что содержит [гиперссылки](https://www.w3.org/WhatIs.html) (далее просто ссылки), т.е можно из одного текста перейти в другой.
+
+</section>
+<section>
+
+### Язык разметки
+
+<HorizontalCodeEditor source={markupDefinition} />
+
+</section>
+<section>
+
+<div className="r-stack">
+
+<span>
+
+### HTML Tag
+
+Единица языка HTML. Тегами
+обозначается структура HTML документа, определяется его служебная
+информация и контент.
+
+</span>
+<div className="fragment" style={{ width: "80%" }}>
+
+![HTML Tag tattoo](./images/tag.jpg)
+
+</div>
+</div>
+
+</section>
+<section>
+
+<div className="r-stack">
+
+<span>
+
+### Баг
+
+*(англ. software bug)* - оышибка допущенная в коде программы, повлекшая за собой неожиданный результат. Определенние появилось во времена, когда вычислительные машины занимали целые
+команаты.
+
+Баги возникают как и по вине разработчика так и в следствии ошибок в инструментах разработки.
+
+</span>
+<div className="fragment" style={{ width: "80%" }}>
+
+![Bug in computer](./images/bug.jpg)
 
 </div>
 </div>

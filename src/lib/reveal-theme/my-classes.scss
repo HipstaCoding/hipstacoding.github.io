@@ -1,11 +1,12 @@
 .reveal .full-screen {
-  min-width: 100%;
+  // min-width: 100%;
 
   .gatsby-resp-image-wrapper {
-    max-width: 80%!important;
+    // max-width: 80%!important;
   }
 }
 
-.reveal .r-stack>* {
-  max-height: 60vh;
+.reveal .r-stack img {
+  max-width: 100%;
+  max-height: 100%;
 }
