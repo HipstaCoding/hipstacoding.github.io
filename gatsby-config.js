@@ -1,4 +1,3 @@
-const path = require("path");
 const title = "Hipsta Coding School";
 const description =
   "Hipsta Coding School - прогрессивные курсы креативного программирования. КУРС FRONT-END (HTML5+CSS3, JAVASCRIPT, REACT) РАЗРАБОТКИ С НУЛЯ.";

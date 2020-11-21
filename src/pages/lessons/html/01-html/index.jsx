@@ -16,7 +16,7 @@ import browsers from "./browsers.png";
 import rip from "./rip.png";
 import bug from "./bug.jpg";
 import internet from "./usage/internet.jpg";
-import router from "./images/router.gif";
+import router from "./usage/router.gif";
 import silpo from "./usage/silpo.jpg";
 import ibox from "./usage/ibox.webp";
 import kfc from "./usage/kfc.jpg";

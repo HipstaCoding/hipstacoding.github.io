@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from "../components/layout";
 import { mediaQueries } from "lib/screenSizes";
 import styled from "styled-components";
