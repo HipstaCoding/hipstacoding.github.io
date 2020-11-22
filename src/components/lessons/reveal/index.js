@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { pickLine } from "./utils";
+import Code from "./RevealCode";
 
 export const Image = styled.img`
   width: auto;
@@ -18,5 +20,29 @@ export const ImgIcon = styled.img`
   vertical-align: top;
   margin: 0 5px !important;
 `;
+
+export const Fragment = ({ className = "fragment", children, ...props }) => {
+  if (className) className += " fragment";
+  return <children.type {...children.props} {...props} className={className} />;
+};
+
+export const AnimatedCode = ({
+  children,
+  language,
+  lines,
+  numbers = true,
+  className = "",
+  ...props
+}) => {
+  if (language) className += `language-${language}`;
+  if (lines) children = pickLine(children, lines);
+  return (
+    <pre {...props}>
+      <Code className={className} data-line-numbers={numbers}>
+        {children}
+      </Code>
+    </pre>
+  );
+};
 
 export { default as HorizontalCodeEditor } from "./HorizontalCodeEditor";

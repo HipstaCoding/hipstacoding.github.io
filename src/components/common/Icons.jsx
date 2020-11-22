@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { ReactComponent as ReactLogoSvg } from "assets/icons/react.svg";
 import { ReactComponent as JsLogoSvg } from "assets/icons/js.svg";
 import { ReactComponent as HtmlLogoSvg } from "assets/icons/html.svg";
+import { ReactComponent as VSCodeSvg } from "assets/icons/vscode.svg";
+import { ReactComponent as ChromeSvg } from "assets/icons/chrome.svg";
+import { ImgIcon } from "components/lessons/reveal";
 
 const StyledHtmlLogoSvg = styled(HtmlLogoSvg)`
   fill: ${({ theme }) => theme.colors.orange};
@@ -37,3 +40,6 @@ export const ReactLogo = styled(ReactLogoSvg)`
   width: 100px;
   height: 100px;
 `;
+
+export const VSCodeLogo = props => <ImgIcon {...props} as={VSCodeSvg} />;
+export const ChromeLogo = props => <ImgIcon {...props} as={ChromeSvg} />;

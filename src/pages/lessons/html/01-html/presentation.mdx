@@ -1,5 +1,5 @@
 import background from "./images/background.jpg";
-import { HtmlLogo } from "components/common/Icons.jsx";
+import { HtmlLogo, VSCodeLogo, ChromeLogo } from "components/common/Icons";
 import Hotkey from "components/Hotkey";
 import {
   Image,
@@ -9,7 +9,10 @@ import {
 } from "components/lessons/reveal";
 import browsers from "./images/browsers.png";
 import rip from "./images/rip.png";
+import liveReloadUrl from "./images/live-reload.png";
 import markupDefinition from "./snippets/markup-definition.html";
+import htmlStructure from "./snippets/structure.html";
+import { pickLine } from "components/lessons/reveal/utils";
 
 <section
   data-background={background}
@@ -285,7 +288,7 @@ HTML все еще самый лучший простой, а порой и ед
 <section>
 <section>
 
-## Базовые понятия
+## Основные понятия
 
 </section>
 <section>
@@ -395,7 +398,7 @@ _(англ. HyperText)_ - текст, отличающийся от обычно
 
 ### Баг
 
-*(англ. software bug)* - оышибка допущенная в коде программы, повлекшая за собой неожиданный результат. Определенние появилось во времена, когда вычислительные машины занимали целые
+_(англ. software bug)_ - оышибка допущенная в коде программы, повлекшая за собой неожиданный результат. Определенние появилось во времена, когда вычислительные машины занимали целые
 команаты.
 
 Баги возникают как и по вине разработчика так и в следствии ошибок в инструментах разработки.
@@ -409,4 +412,156 @@ _(англ. HyperText)_ - текст, отличающийся от обычно
 </div>
 
 </section>
+</section>
+<section>
+<section>
+
+## Начинаем работу с HTML
+
+</section>
+<section>
+
+Если сильно упростить - то интернет это набор HTML файлов, которые
+лежат на специальных компьюетрах, называемыми серверами.
+
+{" "}
+
+<p className="fragment">Давай-те же создадим вам первый HTML файл!</p>
+
+</section>
+<section>
+
+<table>
+  <thead>
+    <tr>
+      <th>Действие</th>
+      <th>🔥 Hotkey / Icon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Создаем папку my-website</td>
+      <td>
+        <Hotkey mac={["ctrl", "shift", "N"]} />
+      </td>
+    </tr>
+    <tr>
+      <td>Открываем VSCode</td>
+      <td>
+        <VSCodeLogo />
+      </td>
+    </tr>
+    <tr>
+      <td>Открываем папку в VSCode</td>
+      <td>
+        <Hotkey mac={["ctrl", "O"]} />
+      </td>
+    </tr>
+    <tr>
+      <td>Создаем новый файл</td>
+      <td>
+        <Hotkey mac={["ctrl", "N"]} />
+      </td>
+    </tr>
+    <tr>
+      <td>Сохраняем пустой файл</td>
+      <td>
+        <Hotkey mac={["ctrl", "S"]} />
+      </td>
+    </tr>
+    <tr>
+      <td>Называем файл index.html</td>
+      <td>
+        <Hotkey mac={["enter"]} />
+      </td>
+    </tr>
+    <tr>
+      <td>Немножко магии</td>
+      <td>
+        <Hotkey mac={["!", "tab"]} />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+<section>
+
+В интернете так принято, что первая страница, которая открывается
+пользователю называется `index.html`.
+
+[google.com](https://www.google.com/) === [google.com.ua/index.html](https://www.google.com/index.html)
+
+</section>
+<section>
+
+Для удобной разработки нужно запустить LiveReload плагин, который будет
+перезагружать страницу каждый раз, когда мы ее сохраняем.
+
+<VSCodeLogo />: <Hotkey mac={["ctrl", "shift", "P"]} /> -> LiveReload:
+Enable/Disable server
+
+<span style={{ display: "inline-flex" }}>
+  <ChromeLogo />: Нажать на кнопку <ImgIcon src={liveReloadUrl} /> в панеле
+  разширений
+</span>
+
+</section>
+</section>
+<section>
+<section>
+
+### Структура HTML
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation">{htmlStructure}</AnimatedCode>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation" lines={[1]}>
+  {htmlStructure}
+</AnimatedCode>
+
+говорит интерпретатору что далее в документе будет использован язык HTML версии 5.
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation">{htmlStructure}</AnimatedCode>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode language="html" data-id="code-animation" lines={[2, 13]}>
+  {htmlStructure}
+</AnimatedCode>
+
+Тег, открывающий html документ. Является обязательным корневым тегом. Атрибут _lang_ определяет язык документа и является обязательным.
+
+<Fragment>
+
+Атрибут lang принимает значения в формате [BCP47](https://r12a.github.io/app-subtags/). Звучит страшно, но на деле это в основном "en", но если нужен какой-то другой язык его можно найти или проверить по ссылке.
+
+</Fragment>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation" numbers="3-9">
+  {htmlStructure}
+</AnimatedCode>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode language="html" lines={[3, 9]} data-id="code-animation">{htmlStructure}</AnimatedCode>
+
+Тег, содержащий служебную информацию для браузера. Вот [список тегов](https://developer.mozilla.org/ru/docs/Web/HTML/Element/head#%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B8%D1%82%D0%B5_%D1%82%D0%B0%D0%BA%D0%B6%D0%B5), которые он может содержать.
+
+
+</section>
+
 </section>

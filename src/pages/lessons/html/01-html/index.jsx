@@ -25,8 +25,8 @@ import tag from "./images/tag.jpg";
 import wikiCharset from "./images/wiki-charset.png";
 import attributeImgUrl from "./images/attribute.png";
 import liveReloadUrl from "./images/live-reload.png";
-import { ReactComponent as VSCodeSvg } from "./images/vscode.svg";
-import { ReactComponent as ChromeSvg } from "./images/chrome.svg";
+import { ReactComponent as VSCodeSvg } from "assets/icons/vscode.svg";
+import { ReactComponent as ChromeSvg } from "assets/icons/chrome.svg";
 import { HtmlLogo } from "components/common/Icons.jsx";
 
 export default function FirstLesson() {
