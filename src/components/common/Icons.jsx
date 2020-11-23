@@ -51,5 +51,5 @@ export default {
   JsLogo,
   ReactLogo,
   VSCodeLogo,
-  ChromeLogo
-}
+  ChromeLogo,
+};
