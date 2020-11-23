@@ -1,18 +1,15 @@
 import background from "./images/background.jpg";
-import { HtmlLogo, VSCodeLogo, ChromeLogo } from "components/common/Icons";
 import Hotkey from "components/Hotkey";
-import {
-  Image,
-  Relative,
-  HorizontalCodeEditor,
-  ImgIcon,
-} from "components/lessons/reveal";
 import browsers from "./images/browsers.png";
 import rip from "./images/rip.png";
 import liveReloadUrl from "./images/live-reload.png";
 import markupDefinition from "./snippets/markup-definition.html";
 import htmlStructure from "./snippets/structure.html";
 import { pickLine } from "components/lessons/reveal/utils";
+import spaces from "./snippets/spaces.html";
+import ul from "./snippets/ul.html";
+import ol from "./snippets/ol.html";
+import listExampleHtml from "./snippets/list-example.html";
 
 <section
   data-background={background}
@@ -557,11 +554,272 @@ Enable/Disable server
 </section>
 <section data-auto-animate>
 
-<AnimatedCode language="html" lines={[3, 9]} data-id="code-animation">{htmlStructure}</AnimatedCode>
+<AnimatedCode language="html" lines={[3, 9]} data-id="code-animation">
+  {htmlStructure}
+</AnimatedCode>
 
 Тег, содержащий служебную информацию для браузера. Вот [список тегов](https://developer.mozilla.org/ru/docs/Web/HTML/Element/head#%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B8%D1%82%D0%B5_%D1%82%D0%B0%D0%BA%D0%B6%D0%B5), которые он может содержать.
 
+</section>
+<section>
+
+```html
+<meta />
+```
+
+Тег, описывающий метаданные.
+
+[Метаданные](https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%9C%D0%B5%D1%82%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5) - это данные, что описывают другие данные. Мета теги очень сильно зависят от атрибутов, которые в них объявленны.
 
 </section>
+<section data-auto-animate>
 
+<AnimatedCode data-id="code-animation" numbers="4">
+  {htmlStructure}
+</AnimatedCode>
+
+</section>
+<section data-auto-animate>
+
+<div className="r-stack">
+<div data-fragment-index={1} className="fragment fade-out">
+<AnimatedCode data-id="code-animation" language="html" lines={[4]}>
+  {htmlStructure}
+</AnimatedCode>
+
+Тег задающий кодировку.
+
+</div>
+<div data-fragment-index={1} className="fragment fade-in-then-out" style={{ width: "100%" }}>
+
+![Кракозябры](./images/wiki-charset.png)
+
+</div>
+<div className="fragment" style={{ width: "100%" }}>
+
+Кракозябры в 99.9% случаев свидетельствуют о проблемах с кодировкой.
+
+Если кракозябры в браузере - значит был некорректно указан метатег с
+атрибутом `charset`.
+
+Если кракозябры в файле - то или файл был сохранен с неверной
+кодировкой или читается с неверной кодировкой.
+
+</div>
+</div>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation" numbers="5-7">
+  {htmlStructure}
+</AnimatedCode>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation" language="html" lines={[5, 6, 7]}>
+  {htmlStructure}
+</AnimatedCode>
+
+Метатег, отвечающий за корректное отображение на мобильных
+телефонах.
+Фактически он говорит, что ширина области отображения (viewport) должна равняться ширине девайса, а изначальный масштаб (inital scale) не будет изменен (не отдален и не приближен, а равен 1).
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation" numbers="8">
+  {htmlStructure}
+</AnimatedCode>
+
+</section>
+<section data-auto-animate>
+
+<AnimatedCode data-id="code-animation" lines={[8]}>
+  {htmlStructure}
+</AnimatedCode>
+
+Название вкладки. Является очень важным с точки зрения поисковой оптимизации.
+
+</section>
+<section data-auto-animate>
+<AnimatedCode data-id="code-animation" numbers="10-12">
+  {htmlStructure}
+</AnimatedCode>
+</section>
+<section data-auto-animate>
+<AnimatedCode data-id="code-animation" lines={[10, 11, 12]}>
+  {htmlStructure}
+</AnimatedCode>
+
+Тег тела документа. Содержит визуальную часть HTML документа. На странице может быть только один `<body />` тег.
+
+</section>
+</section>
+<section>
+<section>
+
+## Текст в HTML
+
+</section>
+<section>
+  <HorizontalCodeEditor source={spaces} />
+</section>
+<section>
+  <table>
+    <thead style={{ verticalAlign: "top" }}>
+      <tr>
+        <th>описание</th>
+        <th>символ</th>
+        <th>код c буквами</th>
+        <th>код с цифрами</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a
+            href="https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D1%80%D0%B0%D0%B7%D1%80%D1%8B%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB"
+            target="_blank"
+          >
+            Неразрывный пробел
+          </a>
+        </td>
+        <td>&nbsp;</td>
+        <td>&amp;nbsp;</td>
+        <td>&amp;#160;</td>
+      </tr>
+      <tr>
+        <td>Пробел</td>
+        <td>&#32;</td>
+        <td>нету 😔</td>
+        <td>&amp;#32;</td>
+      </tr>
+      <tr>
+        <td>Амперсант</td>
+        <td>&amp;</td>
+        <td>&amp;amp;</td>
+        <td>&amp;#38;</td>
+      </tr>
+      <tr>
+        <td>
+          Меньше <i>(less then)</i>
+        </td>
+        <td>&lt;</td>
+        <td>&amp;lt;</td>
+        <td>&amp;#60;</td>
+      </tr>
+      <tr>
+        <td>
+          Меньше <i>(greater then)</i>
+        </td>
+        <td>&gt;</td>
+        <td>&amp;gt;</td>
+        <td>&amp;#62;</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+
+Полный список [HTML спецсимволов](https://www.freeformatter.com/html-entities.html)
+
+</section>
+<section>
+
+Отступы осуществляются с помощью тега `<p />`, который назван в честь слова "параграф"
+
+Спецификация HTML запрещает вкладывать тег `<p />` в другой тег `<p />`, поэтому отступы внутри `<p />` осуществляются с помощью тега `<br />`.
+
+</section>
+</section>
+<section>
+<section>
+
+## Заголовки в HTML
+
+```
+<h1>Заголовок 1 уровня</h1>
+<h2>Заголовок 2 уровня</h2>
+<h3>Заголовок 3 уровня</h3>
+<h4>Заголовок 4 уровня</h4>
+<h5>Заголовок 5 уровня</h5>
+<h6>Заголовок 6 уровня</h6>
+```
+
+</section>
+<section>
+
+#### Свойство HTML №0
+
+### В HTML есть много негласных правил
+
+Например, ничего не мешает написать несколько h1 заголовков на странице, но считается что он должен быть один.
+
+</section>
+</section>
+<section>
+<section>
+
+## Отступы в HTML
+
+```html
+<p>
+  Отступы в HTML осуществляются с помощью тега <p />
+</p>
+<p>
+  Отступы внутри тега <p /> создаются с помощью тега <br />.
+</p>
+```
+
+</section>
+<section>
+
+#### Свойство HTML №1
+
+### Парность тегов
+
+- Парнные теги могут содержать в себе текст (такие как тег `<p></p>`)
+- Не парные теги не могут содержать в себе текст (такие как тег `<br />`)
+
+</section>
+</section>
+<section>
+<section>
+
+## Cписки в HTML
+
+</section>
+<section>
+
+<HorizontalCodeEditor source={ul} />
+
+</section>
+<section>
+
+<HorizontalCodeEditor source={ol} />
+
+</section>
+<section>
+
+#### Свойство HTML №2
+
+### Вложенность тегов
+
+**Вложеность** _(англ. nesting)_ - свойство тегов содержать в себе другие теги.
+
+Самое важно правило вложенности - первым закрывается самый последний открытый тег.
+
+<pre>
+  <code data-line-numbers="1|2">{listExampleHtml}</code>
+</pre>
+
+</section>
+</section>
+<section>
+
+<section>
+
+</section>
 </section>

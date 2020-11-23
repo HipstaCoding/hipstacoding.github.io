@@ -43,3 +43,13 @@ export const ReactLogo = styled(ReactLogoSvg)`
 
 export const VSCodeLogo = props => <ImgIcon {...props} as={VSCodeSvg} />;
 export const ChromeLogo = props => <ImgIcon {...props} as={ChromeSvg} />;
+
+export default {
+  StyledHtmlLogoSvg,
+  StyledHtmlLogoContainer,
+  HtmlLogo,
+  JsLogo,
+  ReactLogo,
+  VSCodeLogo,
+  ChromeLogo
+}
