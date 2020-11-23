@@ -1,8 +1,10 @@
 language: node_js
+cache:
+  yarn: true
 node_js:
   - 14
 script:
-  - npm run build
+  - yarn run build
 deploy:
   provider: pages
   skip_cleanup: true
