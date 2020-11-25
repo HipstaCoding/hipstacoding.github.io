@@ -1,5 +1,7 @@
 import tableHtml from "./snippets/table.html";
+import tableAdvHtml from "./snippets/table-advanced.html";
 import background from "./images/background.jpg";
+import allFolksSvg from "./images/Thats_all_folks.svg";
 
 <section
   data-background={background}
@@ -47,6 +49,7 @@ import background from "./images/background.jpg";
 <section data-auto-animate>
 <section data-auto-animate>
 
+### Картинки
 
 ## Альтернативный текст
 
@@ -86,6 +89,7 @@ import background from "./images/background.jpg";
 <section>
 <section>
 
+### Картинки
 
 ## Изначальные размеры
 
@@ -188,7 +192,7 @@ Voila, теперь мы всегда можем копировать разме
 <section>
 <section>
 
-
+### Картинки
 ## Пути в HTML
 
 ```html [5]
@@ -327,19 +331,211 @@ file2.html path: "assets/images/image.png"
 
 ## Таблицы
 
-<pre><Code>{tableHtml}</Code></pre>
+
+`<table />` - Родительский тег
+
+`<tr />` - Строка (**T**able **R**ow)
+
+`<td />` - Ячейка (**T**able **D**ata cell)
 
 </section>
 <section>
 
-![HTML Table example](./images/basic-table.png)
+<HorizontalCodeEditor source={tableHtml} />
+
+</section>
+<section>
+
+![HTML Table example](./images/table-simple.png)
 
 </section>
 </section>
 <section>
 <section>
 
-
+## Заголовки в таблицах
 
 </section>
+<section>
+
+<HorizontalCodeEditor source={tableAdvHtml} />
+
+</section>
+<section>
+
+![HTML Table example](./images/table-advanced.png)
+
+</section>
+</section>
+<section>
+<section>
+
+#### Домашнее задание 2
+## Фотогалерея
+
+</section>
+<section>
+
+### Задача
+
+Добавить 5+ фотографий или видео, которые вы хотите видеть на своем сайте, например:
+
+- Скриншоты или фотографии ваших работ
+- Видео с youtube или загруженное на github
+- Фотографии с instagram
+
+</section>
+<section>
+
+### Сложный вариант
+
+Подписать каждую фотографию или видео с помощью заголовочной ячейки.
+
+</section>
+</section>
+<section>
+<section>
+
+## Проверяем друг друга
+
+</section>
+<section>
+
+##### Заходим в настройки во вкладку "Manage Access"
+
+![invite collegue](./images/collaboration/1-invite.png)
+
+</section>
+<section>
+
+##### Добавляем меня (xlwknx) и своего напарника
+
+![invite collegue](./images/collaboration/2-invite.png)
+
+</section>
+<section>
+
+##### Напарник должен принять приглашение
+
+![invite collegue](./images/collaboration/3-invite.png)
+
+</section>
+<section>
+
+##### Начинаем загружать домашнее задание 
+
+![begin upload](./images/collaboration/4-upload-files.png)
+
+</section>
+<section>
+
+##### На этот раз мы заливаем сразу в main а создаем новую ветку
+
+<ImgContainer width="80%">
+
+![create branch](./images/collaboration/5-create-branch.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### Добавляем описание, скриншоты и проверяющих (xlwknx и ваш напарник)
+
+<ImgContainer width="80%">
+
+![create pull request](./images/collaboration/6-create-pull-request.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### Добавляем описание, скриншоты и проверяющих (xlwknx и ваш напарник)
+
+<ImgContainer width="80%">
+
+![create pull request](./images/collaboration/6-create-pull-request.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### Напарник видит ваш pull-request
+
+<ImgContainer width="80%">
+
+![start review](./images/collaboration/7-review.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### Напарник ищет ошибки в изменения, если находит нажимает на строку с ошибкой и пишет комментарий
+
+<ImgContainer width="80%">
+
+![review process](./images/collaboration/8-review.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### После всех проверок напарник завершает review
+
+<ImgContainer width="80%">
+
+![finish review](./images/collaboration/9-review.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### Вы получили review от напарника, ваши действия:
+
+- Исправить код, если ошибка есть
+- Убедить, что ошибки вы не совершали
+- Ни в коем случае не оскорблять друг друга
+- Делая ревью вы пытаетесь помочь друг другу!
+
+</section>
+<section>
+
+##### После исправления всех ошибок вы запрашиваете ревью еще раз, напарник принимает его:
+
+<ImgContainer width="80%">
+
+![approve pull request](./images/collaboration/10-review-approve.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### После того, как вы получили approve можно залить ваши изменения в главную ветку (merge to main branch)
+
+<ImgContainer width="80%">
+
+![merge branch](./images/collaboration/11-merge.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### В конце можно удалить промежуточную ветку, так как она больше не нужна!
+
+<ImgContainer width="80%">
+
+![delete branch](./images/collaboration/12-delete.png)
+
+</ImgContainer>
+</section>
+<section>
+
+##### В конце можно удалить промежуточную ветку, так как она больше не нужна!
+
+<ImgContainer width="80%">
+
+![delete branch](./images/collaboration/12-delete.png)
+
+</ImgContainer>
+</section>
+<section data-background={allFolksSvg} />
 </section>

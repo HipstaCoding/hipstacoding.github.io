@@ -13,8 +13,7 @@ const Textarea = styled.textarea`
   font: inherit;
   font-family: "Consolas", monospace;
   padding: 15px 20px;
-  overflow: hidden;
-  overflow-x: auto;
+  overflow: auto;
   outline: none;
   border: none;
   resize: none;

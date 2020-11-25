@@ -17,7 +17,7 @@ export default function HorizontalCodeEditor({ source, ...props }) {
   const resultPlaceholder = "* Результат появится тут *";
 
   return (
-    <EditorContainer className="r-stretch">
+    <EditorContainer className="r-stretch editor">
       <CodeEditor {...props} value={code} onChange={setCode} />
       <ResultContainer
         dangerouslySetInnerHTML={{ __html: code || resultPlaceholder }}
