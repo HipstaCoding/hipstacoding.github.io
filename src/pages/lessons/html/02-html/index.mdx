@@ -4,6 +4,8 @@ import tableColSpanHtml from "./snippets/table-colspan.html";
 import tableRowSpanHtml from "./snippets/table-rowspan.html";
 import background from "./images/background.jpg";
 import allFolksSvg from "./images/Thats_all_folks.svg";
+import audioHtml from "./snippets/audio.html";
+import videoHtml from "./snippets/video.html";
 
 <section
   data-background={background}
@@ -100,7 +102,7 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 <section>
 
 Картинку нужно заранее уменьшить до максимального отображаемого размера и при необходимости сжать.
-Аттрибуты `width` и `height` должны соотвествовать размеру изображения. 
+Аттрибуты `width` и `height` должны соотвествовать размеру изображения.
 
 </section>
 <section>
@@ -389,7 +391,7 @@ file2.html path: "assets/images/image.png"
 </section>
 <section>
 
-#### Объединение рядков 
+#### Объединение рядков
 
 <HorizontalCodeEditor source={tableRowSpanHtml} />
 
@@ -411,6 +413,74 @@ file2.html path: "assets/images/image.png"
 ![HTML Table example](./images/table-advanced.png)
 
 </section>
+</section>
+<section>
+<section>
+
+## Audio
+
+<HorizontalCodeEditor source={audioHtml} />
+
+</section>
+<section>
+
+Более подробно можно прочитать про этот тег в
+[документации Mozilla](https://developer.mozilla.org/ru/docs/Web/HTML/Element/audio).
+
+</section>
+</section>
+<section>
+<section>
+
+## Video
+
+<HorizontalCodeEditor source={videoHtml} />
+
+</section>
+<section>
+
+Более подробно можно прочитать про этот тег в
+[документации Mozilla](https://developer.mozilla.org/ru/docs/Web/HTML/Element/video).
+
+</section>
+</section>
+<section>
+<section>
+
+## Встраиваемый контент
+### Embedded content
+
+</section>
+<section>
+
+### Некоторые сайты позволяют встраивать свой контент
+
+<ImgContainer width="80%">
+
+![Youtube embedded video](./images/youtube-1.png)
+
+</ImgContainer>
+
+</section>
+<section>
+
+### Достаточно скопировать тег и вставить его себе на сайт
+
+<ImgContainer width="80%">
+
+![Youtube embedded video](./images/youtube-2.png)
+
+</ImgContainer>
+
+</section>
+<section>
+
+```html
+<iframe src="https://hipstacoding.school" />
+```
+
+</section>
+<section data-background-iframe="https://hipstacoding.school" />
 </section>
 <section>
 <section>
