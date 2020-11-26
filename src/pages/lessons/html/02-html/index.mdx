@@ -1,5 +1,7 @@
 import tableHtml from "./snippets/table.html";
 import tableAdvHtml from "./snippets/table-advanced.html";
+import tableColSpanHtml from "./snippets/table-colspan.html";
+import tableRowSpanHtml from "./snippets/table-rowspan.html";
 import background from "./images/background.jpg";
 import allFolksSvg from "./images/Thats_all_folks.svg";
 
@@ -10,9 +12,7 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
   data-background-opacity={0.1}
 >
 
-
 <section>
-
 
 ## Урок 2.
 
@@ -20,7 +20,6 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 
 </section>
 <section>
-
 
 ## А так же:
 
@@ -32,7 +31,6 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 </section>
 </section>
 <section data-auto-animate>
-
 
 ## Картинки
 
@@ -64,17 +62,13 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 
 </section>
 
-
 <section>
-
 
 ![Фотография о любви к редизайну front-end разработчиков и дизайнеров к пользователям](./images/alt-text.png)
 
 </section>
 
-
 <section>
-
 
 Хоть аттрибут **`alt`** опционален, важно добовлять его для сценариев:
 
@@ -105,19 +99,15 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 </section>
 <section>
 
-
 Картинку нужно заранее уменьшить до максимального отображаемого размера и при необходимости сжать.
 Аттрибуты `width` и `height` должны соотвествовать размеру изображения (например, открыть в браузере).
 
 </section>
 <section>
 
-
 <div className="r-stack">
 
-
 <div data-fragment-index={1} class="fragment fade-out">
-
 
 #### **Лайфхак**
 
@@ -125,9 +115,7 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 
 </div>
 
-
 <div data-fragment-index={1} class="fragment fade-in-then-out">
-
 
 Установить расширение [Image Size Info](https://chrome.google.com/webstore/detail/image-size-info/oihdhfbfoagfkpcncinlbhfdgpegcigf)
 
@@ -135,27 +123,21 @@ import allFolksSvg from "./images/Thats_all_folks.svg";
 
 </div>
 
-
 <div class="fragment fade-in-then-out">
 Открыть расрешения Image Size Info
-
 
 ![Управление расширениями](./images/manage-extensions.png)
 
 </div>
 
-
 <div class="fragment fade-in-then-out">
 Разрешить использовать локальные файлы
-
 
 ![Allow access to file URLs](./images/allow-local-url.png)
 
 </div>
 
-
 <div class="fragment fade-in-then-out">
-
 
 Поменять формат отображения на
 
@@ -167,9 +149,7 @@ width=\"{W}\" height=\"{H}\"
 
 </div>
 
-
 <div class="fragment fade-in-then-out full-screen">
-
 
 `ПКМ` -> View Info
 
@@ -178,13 +158,11 @@ width=\"{W}\" height=\"{H}\"
 </div>
 <div class="fragment fade-in">
 
-
 Voila, теперь мы всегда можем копировать размеры в аттрибуты
 
 ![View sizes](./images/view-info-final.png)
 
 </div>
-
 
 </div>
 </section>
@@ -193,6 +171,7 @@ Voila, теперь мы всегда можем копировать разме
 <section>
 
 ### Картинки
+
 ## Пути в HTML
 
 ```html [5]
@@ -203,12 +182,13 @@ Voila, теперь мы всегда можем копировать разме
   src="./path/to/image.jpg"
 />
 ```
+
 </section>
 <section>
 
-#### Термин
+#### Термин 2.1
 
-### URL 
+### URL
 
 ### (_англ. Uniform Resource Locator_)
 
@@ -222,13 +202,11 @@ Voila, теперь мы всегда можем копировать разме
 </section>
 <section>
 
-
-**URL**  - это адрес, который выдан уникальному ресурсу в интернете.
+**URL** - это адрес, который выдан уникальному ресурсу в интернете.
 Такими ресурсами могут быть HTML-страница, CSS-файл, изображение и т.д.
 
 </section>
 <section>
-
 
 ### Структура URL
 
@@ -240,7 +218,7 @@ Voila, теперь мы всегда можем копировать разме
     hipstacoding.school
   </span>
   <span className="fragment highlight-current-blue" data-fragment-index={3}>
-    :80
+    :442
   </span>
   <span className="fragment highlight-current-blue" data-fragment-index={4}>
     /images/memes/redesign.png
@@ -265,8 +243,24 @@ Voila, теперь мы всегда можем копировать разме
 </section>
 <section>
 
+#### Термин 2.2
 
-**Абсолютный путь** (_англ. Absolute path_) - путь, который указывает полный адрес к файлу.
+### Корень, корневая папка
+
+#### (_англ. Root, root folder, root directory_)
+
+Папка с которой начинается абсолютный путь.
+
+</section>
+<section>
+
+#### Термин 2.3
+
+### **Абсолютный путь**
+
+#### (_англ. Absolute path_)
+
+Путь, который указывает полный адрес к файлу.
 Это можно сравнить с вашим полным домашним адресом, который содержит страну, город, дом, квартиру и
 почтовый индекс.
 
@@ -291,15 +285,24 @@ https://hipstacoding.school/images/memes/redesign.png
 </section>
 <section>
 
-**Относительный путь** (_англ. relative path_) - путь, относительно текущей папки.
+#### Термин 2.4
+
+### **Относительный путь**
+
+#### (_англ. relative path_)
+
+Путь, относительно текущей папки.
 Это можно сравнить с навигацией по маршруту - чтобы найти пункт назначения, вы идете
 относительно своего положения: поворачиваете налево, идете к конкретной улице и тд.
-
 
 </section>
 <section>
 
+<ImgContainer width="60%">
+
 ![relative file explanation](./images/relative-path.png)
+
+</ImgContainer>
 
 ```
 file1.html path: "../assets/images/image.png"
@@ -325,12 +328,33 @@ file2.html path: "assets/images/image.png"
 <HorizontalCodeEditor placeholder="Пиши код тут" />
 
 </section>
+<section>
+
+#### Какой путь использовать?
+
+Если кратко - какой ближе.
+
+<table>
+  <tr>
+    <th>Абсолютный</th>
+    <th>Относительный</th>
+  </tr>
+  <tr>
+    <td>Лежат в разных папках</td>
+    <td>Лежат в одной папке</td>
+  </tr>
+  <tr>
+    <td>Будете перемещать один файл</td>
+    <td>Будете перемещать папку</td>
+  </tr>
+</table>
+
+</section>
 </section>
 <section>
 <section>
 
 ## Таблицы
-
 
 `<table />` - Родительский тег
 
@@ -347,6 +371,27 @@ file2.html path: "assets/images/image.png"
 <section>
 
 ![HTML Table example](./images/table-simple.png)
+
+</section>
+</section>
+<section>
+<section>
+
+## Объединение ячеек
+
+</section>
+<section>
+
+#### Объединение столбцов
+
+<HorizontalCodeEditor source={tableColSpanHtml} />
+
+</section>
+<section>
+
+#### Объединение рядков 
+
+<HorizontalCodeEditor source={tableRowSpanHtml} />
 
 </section>
 </section>
@@ -371,7 +416,8 @@ file2.html path: "assets/images/image.png"
 <section>
 
 #### Домашнее задание 2
-## Фотогалерея
+
+## Галерея
 
 </section>
 <section>
@@ -422,7 +468,7 @@ file2.html path: "assets/images/image.png"
 </section>
 <section>
 
-##### Начинаем загружать домашнее задание 
+##### Начинаем загружать домашнее задание
 
 ![begin upload](./images/collaboration/4-upload-files.png)
 
