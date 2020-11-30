@@ -10,7 +10,9 @@ const Code = props => {
     return <code {...propsCopy} data-line-numbers={htmlLineNumbers} />;
   }
 
-  return <code data-line-numbers data-trim {...props} />;
+  const propsCopy = copyWithout(props, ["metastring"]);
+
+  return <code data-line-numbers data-trim {...propsCopy} />;
 };
 
 export default Code;
