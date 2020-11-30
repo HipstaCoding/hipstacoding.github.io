@@ -441,18 +441,125 @@ h1 {
 ## Цвета в CSS 
 
 </section>
-<section>
+<section data-auto-animate>
 
-```css
+### Варианты значений свойства color:
+
+```css data-id="css-colors"
 p {
   color: white;
   color: #000;
   color: #000000;
   color: rgb(0, 0, 0);
   color: rgba(0, 0, 0, 0);
+  color: hsl(0, 0%, 0%);
+  color: hsla(0, 0%, 0%);
 }
 ```
 
 </section>
-</section>
+<section data-auto-animate>
 
+### То же самое для `background-color` и других свойст, принимающих цвет как значение:
+
+```css data-id="css-colors"
+p {
+  background-color: white;
+  background-color: #000;
+  background-color: #000000;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: hsl(0, 0%, 0%);
+  background-color: hsla(0, 0%, 0%);
+}
+```
+
+</section>
+<section data-auto-animate>
+
+### Реально используются:
+
+```css data-id="css-colors"
+p {
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0);
+}
+```
+
+</section>
+<section data-auto-animate>
+
+### Так же существуюет "прозрачный" цвет. 
+
+```css data-id="css-colors"
+p {
+  color: transparent;
+}
+```
+
+[Список всех](https://developer.mozilla.org/ru/docs/Web/CSS/color_value) вариантов цветов и их
+использование
+
+</section>
+<section>
+
+### Полезные инструменты для работы с цветом:
+
+1. [Встроенный](https://mspoweruser.com/visual-studio-code-now-really-useful-color-picker-built/#:~:text=Visual%20Studio%20Code%20now%20includes,picker%20to%20find%20a%20color.) Color Picker в VSCode.
+2. [ColorPick Eyedropper](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg) для Chrome.
+
+</section>
+</section>
+<section>
+<section>
+
+## Стилизация текста
+
+</section>
+<section>
+
+### Свойства для шрифта, которые можно применить к любому селектору
+
+```css
+p {
+  font-family: arial; /* Arial, sans-serif | Verdana, sans-serif | "Trebuchet MS", Verdana, sans-serif */
+  font-size: 16px; /* 1em | 1rem  */
+  font-weight: normal; /* bold | bolder | lighter | 100 - 900 */
+  font-style: normal; /* italics | oblique */
+  font-variant: normal; /* ни разу не использовал */
+  font-stretch: normal; /* 50% или куча слов, которые обозначают эти проценты */
+  line-height: 1.6;
+}
+```
+
+</section>
+<section>
+
+### И если вы садист-извращенец, то можно впихнуть это в одну строку...
+
+```css
+p {
+  font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;
+}
+```
+
+</section>
+<section>
+
+### Есть еще такие свойства:
+
+```css
+p {
+  text-transform: none; /* uppercase | lowercase | capitalize | full-width */
+  text-decoration: none; /* underline | overline | line-through */
+  text-align: left; /* center | right | justify */
+  letter-spacing: 4px;
+  word-spacing: 4px;
+  word-break: normal; /* break-all | keep-all */
+  overflow-wrap: normal; /* break-word | anywhere */
+}
+```
+
+...и еще [очень много](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Other_properties_worth_looking_at) других
+</section>
+</section>
