@@ -41,6 +41,23 @@ export const ReactLogo = styled(ReactLogoSvg)`
   height: 100px;
 `;
 
+const CssLogoContainer = styled.div`
+  border: 2px solid ${({ theme }) => theme.colors.textColor};
+  width: 230px;
+  height: 230px;
+  font-size: 50px;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+export const CssLogo = props => (
+  <CssLogoContainer {...props}>
+    CSS <br /> is awesome
+  </CssLogoContainer>
+);
+
 export const VSCodeLogo = props => <ImgIcon {...props} as={VSCodeSvg} />;
 export const ChromeLogo = props => <ImgIcon {...props} as={ChromeSvg} />;
 
@@ -52,4 +69,5 @@ export default {
   ReactLogo,
   VSCodeLogo,
   ChromeLogo,
+  CssLogo,
 };
