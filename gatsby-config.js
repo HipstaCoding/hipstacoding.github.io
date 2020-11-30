@@ -87,7 +87,15 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
-    "gatsby-plugin-svgr",
+    {
+      resolve: "gatsby-plugin-svgr",
+      options: {
+        svgo: true,
+        svgoConfig: {
+          removeViewBox: false, // remove viewBox when possible (default)
+        },
+      },
+    },
     "gatsby-plugin-sass",
     "gatsby-plugin-sitemap",
     // {

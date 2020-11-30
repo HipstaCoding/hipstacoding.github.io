@@ -4,6 +4,7 @@ import { ReactComponent as JsLogoSvg } from "assets/icons/js.svg";
 import { ReactComponent as HtmlLogoSvg } from "assets/icons/html.svg";
 import { ReactComponent as VSCodeSvg } from "assets/icons/vscode.svg";
 import { ReactComponent as ChromeSvg } from "assets/icons/chrome.svg";
+import { ReactComponent as EmmetSvg } from "assets/icons/emmet.svg";
 import { ImgIcon } from "components/lessons/reveal";
 
 const StyledHtmlLogoSvg = styled(HtmlLogoSvg)`
@@ -60,6 +61,7 @@ export const CssLogo = props => (
 
 export const VSCodeLogo = props => <ImgIcon {...props} as={VSCodeSvg} />;
 export const ChromeLogo = props => <ImgIcon {...props} as={ChromeSvg} />;
+export const EmmetLogo = props => <ImgIcon {...props} as={EmmetSvg} />;
 
 export default {
   StyledHtmlLogoSvg,
@@ -70,4 +72,5 @@ export default {
   VSCodeLogo,
   ChromeLogo,
   CssLogo,
+  EmmetLogo,
 };

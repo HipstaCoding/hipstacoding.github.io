@@ -1,4 +1,5 @@
 import background from "./images/background.jpg";
+import styleAttribute from "./snippets/style-attribute.html";
 
 <section
   data-background={background}
@@ -121,6 +122,21 @@ import background from "./images/background.jpg";
 </section>
 <section data-auto-animate>
 
+### Термины
+
+```css data-id="css-1"
+/* start of css rule */
+selector {
+  property: value;
+}
+/* end of css rule */
+```
+
+</section>
+<section data-auto-animate>
+
+### Реальный синтаксис
+
 ```css data-id="css-1"
 p {
   color: yellow;
@@ -129,6 +145,8 @@ p {
 
 </section>
 <section data-auto-animate>
+
+### Несколько свойств (property)
 
 ```css data-id="css-1"
 p {
@@ -139,6 +157,8 @@ p {
 
 </section>
 <section data-auto-animate>
+
+### Несколько правил (css rules)
 
 ```css data-id="css-1"
 p {
@@ -150,8 +170,74 @@ h1 {
   font-size: 72px;
 }
 ```
+</section>
+</section>
+<section>
+<section>
+
+## Подключение стилей
+
+</section>
+<section>
+
+#### Задача 3.1
+### Подключаем 
+
+</section>
+<section>
+
+### Tag `<link />`
+
+```html
+<link rel="stylesheet" href="style.css" />
+```
+
+<EmmetLogo /> -> link:css
+
+</section>
+<section>
+
+### Tag `<style />`
+
+```
+<head>
+  <style type="text/css">
+    p {
+      color: yellow;
+    }
+  </style>
+</head>
+```
+
+</section>
+<section>
+
+### Attribute `style`
+
+<HorizontalCodeEditor source={styleAttribute}  />
+
+</section>
+<section>
+
+### `@import` in CSS
+
+index.html:
+```html
+<link rel="stylesheet" href="style.css" />
+```
+
+main.css:
+```css
+@import './paragraph.css'
+```
+
+paragraph.css
+```css
+p {
+  color: yellow;
+}
+```
 
 </section>
 </section>
-
 
