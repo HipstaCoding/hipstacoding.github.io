@@ -209,7 +209,6 @@ p {
 </section>
 <section data-auto-animate>
 
-
 ### Несколько свойств (property)
 
 ```css data-id="css-1"
@@ -222,7 +221,6 @@ p {
 </section>
 <section data-auto-animate>
 
-
 ### Несколько правил (css rules)
 
 ```css data-id="css-1"
@@ -233,6 +231,17 @@ p {
 
 h1 {
   font-size: 72px;
+}
+```
+
+</section>
+<section data-auto-animate>
+
+### Two tags one rule
+
+```css data-id="css-1"
+p, h1 {
+  color: red;
 }
 ```
 
@@ -257,10 +266,7 @@ h1 {
 ## Подключение стилей
 
 </section>
-
-
 <section>
-
 
 ### Tag `<link />`
 
@@ -280,7 +286,7 @@ h1 {
 
 ### Подключаем свои стили
 
-Создаем новый файл (<VSCodeLogo />: <Hotkey mac={["ctrl", "N"]} />, <Hotkey mac={["ctrl", "S"]} />) 
+Создаем новый файл (<VSCodeLogo />: <Hotkey mac={["ctrl", "N"]} />, <Hotkey mac={["ctrl", "S"]} />)
 и называем его `style.css`.
 
 Подключаем его в `index.html` с помощью тега линк (<EmmetLogo />: `link:css`)
@@ -406,7 +412,6 @@ h1 {
 </section>
 <section>
 
-
 ### HTML class attribute
 
 ```html
@@ -471,7 +476,6 @@ h1 {
 </section>
 <section>
 <section>
-
 
 ## Цвета в CSS
 
@@ -553,7 +557,6 @@ p {
 <section>
 <section>
 
-
 ## Стилизация текста
 
 </section>
@@ -576,7 +579,6 @@ p {
 
 </section>
 <section>
-
 
 ### И если вы садист-извращенец, то можно впихнуть это в одну строку...
 
@@ -611,6 +613,48 @@ p {
 <section>
 <section>
 
+## Что значить "Каскадность" в CSS
+
+</section>
+<section>
+
+![CSS inheritance](./images/inheritance.jpg)
+
+</section>
+<section data-auto-animate>
+
+#### Свойство CSS #1
+### Наследование
+
+```css data-id="css-2"
+html {
+	color: black;
+}
+
+.class {
+  color: red;
+}
+```
+
+</section>
+<section data-auto-animate>
+
+### Наследование
+
+```css data-id="css-2"
+html {
+	color: red;
+}
+
+p {
+	color: blue;
+}
+```
+
+</section>
+</section>
+<section>
+<section>
 
 ## Размеры в CSS
 
