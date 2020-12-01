@@ -36,6 +36,7 @@ import styleAttribute from "./snippets/style-attribute.html";
 2. [@import vs &lt;link&gt;](https://stackoverflow.com/questions/7199364/import-vs-link)
 3. [CSS - Wikipedia](https://ru.wikipedia.org/wiki/CSS)
 4. [CSS Colors](https://developer.mozilla.org/ru/docs/Web/CSS/color_value)
+5. [CSS Значения и единицы](https://developer.mozilla.org/ru/docs/Learn/CSS/Building_blocks/Values_and_units)
 
 </section>
 </section>
@@ -561,5 +562,69 @@ p {
 ```
 
 ...и еще [очень много](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Other_properties_worth_looking_at) других
+</section>
+</section>
+<section>
+<section>
+
+## Размеры в CSS
+
+</section>
+<section>
+
+### px - старые добрые пиксели 
+
+- Легко, удобно
+- Дробятся (1.5px)
+
+</section>
+<section>
+
+### % - старые, добрые проценты
+
+- Легко, удобно
+- Относительно размера родителя, [но не всегда](https://learn.javascript.ru/css-units#protsenty)
+- Не для шрифтов
+
+</section>
+<section>
+
+### em - старые, добрые проценты но для шрифтов
+#### (ephemeral unit)
+
+- Увеличился родительский шрифт, увеличилась и эта штука
+- Для шрифтов
+
+</section>
+<section>
+
+### rem - внебрачное детище px и em 
+
+- Относительные, как и em
+- Не понятные, не удобные
+- "Хипстерские" в плохом смысле этого слова
+- Относительны "базовому" шрифту браузера
+
+</section>
+</section>
+<section>
+<section>
+
+## Стили для базовых тегов
+
+</section>
+<section>
+
+### Стилизация списков `<ul>` и `<ol>`
+
+```css
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  column-count: 2;
+}
+```
+
 </section>
 </section>
