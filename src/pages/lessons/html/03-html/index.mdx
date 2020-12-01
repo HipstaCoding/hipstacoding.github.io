@@ -100,15 +100,11 @@ import styleAttribute from "./snippets/style-attribute.html";
   </a>
   ). Также может применяться к любым <a href="/wiki/XML" title="XML">
     XML-документам
-  </a>, например, к{" "}
-  <a href="/wiki/SVG" title="SVG">
+  </a>, например, к <a href="/wiki/SVG" title="SVG">
     SVG
-  </a>{" "}
-  или{" "}
-  <a href="/wiki/XUL" title="XUL">
+  </a> или <a href="/wiki/XUL" title="XUL">
     XUL
-  </a>
-  .
+  </a>.
 </p>
 
 </section>
@@ -274,7 +270,7 @@ h1 {
 <link rel="stylesheet" href="style.css" />
 ```
 
-<EmmetLogo /> -> link:css
+<EmmetLogo />: link:css
 
 </section>
 <section>
@@ -282,7 +278,19 @@ h1 {
 
 #### Задача 3.1
 
-### Подключаем стили
+### Подключаем свои стили
+
+Создаем новый файл (<VSCodeLogo />: <Hotkey mac={["ctrl", "N"]} />, <Hotkey mac={["ctrl", "S"]} />) 
+и называем его `style.css`.
+
+Подключаем его в `index.html` с помощью тега линк (<EmmetLogo />: `link:css`)
+
+</section>
+<section>
+
+#### Задача 3.2
+
+### Подключаем сторонние стили
 
 [Normalize.css](https://necolas.github.io/normalize.css/) — это CSS-файл от стороннего разработчика,
 который делает так, чтобы все браузеры отображали HTML элементы одинаково.
@@ -344,6 +352,30 @@ p {
   color: yellow;
 }
 ```
+
+</section>
+</section>
+<section>
+<section>
+
+
+#### Лайфхак 4.1
+
+### Split editing in VSCode
+
+</section>
+<section>
+
+
+<VSCodeLogo />: <Hotkey mac={["ctrl", "/"]} />
+
+<ImgContainer width="80%">
+
+
+![Split editing](./images/vscode-split.png)
+
+</ImgContainer>
+
 
 </section>
 </section>
@@ -417,6 +449,7 @@ h1 {
 </section>
 <section>
 
+
 <iframe
   height="600px"
   style="width: 100%; height: 60vh"
@@ -439,10 +472,12 @@ h1 {
 <section>
 <section>
 
-## Цвета в CSS 
+
+## Цвета в CSS
 
 </section>
 <section data-auto-animate>
+
 
 ### Варианты значений свойства color:
 
@@ -461,6 +496,7 @@ p {
 </section>
 <section data-auto-animate>
 
+
 ### То же самое для `background-color` и других свойст, принимающих цвет как значение:
 
 ```css data-id="css-colors"
@@ -478,6 +514,7 @@ p {
 </section>
 <section data-auto-animate>
 
+
 ### Реально используются:
 
 ```css data-id="css-colors"
@@ -490,7 +527,8 @@ p {
 </section>
 <section data-auto-animate>
 
-### Так же существуюет "прозрачный" цвет. 
+
+### Так же существуюет "прозрачный" цвет.
 
 ```css data-id="css-colors"
 p {
@@ -504,6 +542,7 @@ p {
 </section>
 <section>
 
+
 ### Полезные инструменты для работы с цветом:
 
 1. [Встроенный](https://mspoweruser.com/visual-studio-code-now-really-useful-color-picker-built/#:~:text=Visual%20Studio%20Code%20now%20includes,picker%20to%20find%20a%20color.) Color Picker в VSCode.
@@ -514,10 +553,12 @@ p {
 <section>
 <section>
 
+
 ## Стилизация текста
 
 </section>
 <section>
+
 
 ### Свойства для шрифта, которые можно применить к любому селектору
 
@@ -536,6 +577,7 @@ p {
 </section>
 <section>
 
+
 ### И если вы садист-извращенец, то можно впихнуть это в одну строку...
 
 ```css
@@ -546,6 +588,7 @@ p {
 
 </section>
 <section>
+
 
 ### Есть еще такие свойства:
 
@@ -562,23 +605,27 @@ p {
 ```
 
 ...и еще [очень много](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Other_properties_worth_looking_at) других
+
 </section>
 </section>
 <section>
 <section>
+
 
 ## Размеры в CSS
 
 </section>
 <section>
 
-### px - старые добрые пиксели 
+
+### px - старые добрые пиксели
 
 - Легко, удобно
 - Дробятся (1.5px)
 
 </section>
 <section>
+
 
 ### % - старые, добрые проценты
 
@@ -589,7 +636,9 @@ p {
 </section>
 <section>
 
+
 ### em - старые, добрые проценты но для шрифтов
+
 #### (ephemeral unit)
 
 - Увеличился родительский шрифт, увеличилась и эта штука
@@ -598,7 +647,8 @@ p {
 </section>
 <section>
 
-### rem - внебрачное детище px и em 
+
+### rem - внебрачное детище px и em
 
 - Относительные, как и em
 - Не понятные, не удобные
@@ -610,10 +660,12 @@ p {
 <section>
 <section>
 
+
 ## Стили для базовых тегов
 
 </section>
 <section>
+
 
 ### Стилизация списков `<ul>` и `<ol>`
 
@@ -628,3 +680,56 @@ ul {
 
 </section>
 </section>
+<section>
+<section>
+
+
+### Домашнее задание 3
+
+## Красиво оформленное резюме
+
+</section>
+<section>
+
+
+### Выбираем любимый цвев и генерируем схему
+
+Выбираем любимый цвет и на основе этого цвета генерируем палитру.
+Сервисы в помощь:
+
+- [Сoolors](https://coolors.co/) - the super fast color schemes generator!
+- [Adobe Color Wheel](https://color.adobe.com/create/color-wheel)
+- [Colormind](http://colormind.io/) - AI color generator
+
+</section>
+<section>
+
+
+### Выбираем любимые шрифты и полключаем через `<link>`
+
+Заходим на [fonts.google.com](https://fonts.google.com/) и выбираем шрифты, которые будем использовать.
+
+Для главного шрифта необходимый минимум:
+
+- regular (400)
+- medium (500)
+- bold (700)
+- курсивы, если используются
+
+</section>
+<section>
+
+
+### Начинаем творить:
+
+1. Поключить `normalize.css`
+2. Добавить оглавение с якорями
+3. Поменять цвет фона
+4. Поменять цвет основного шрифта
+5. Выстроить размеры заголовков
+6. Использовать минимум 1 класс
+7. Использовать минимум 1 id
+
+</section>
+</section>
+
