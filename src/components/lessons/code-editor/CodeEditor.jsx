@@ -18,7 +18,7 @@ const Textarea = styled.textarea`
   border: none;
   resize: none;
   caret-color: #383a42;
-  white-space: pre-wrap;
+  white-space: pre;
 `;
 
 const Container = styled.div`
