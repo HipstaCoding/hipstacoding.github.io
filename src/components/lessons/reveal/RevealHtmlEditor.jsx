@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import CodeEditor from "../code-editor/CodeEditor";
+import RevealCodeEditor from "./RevealCodeEditor";
 
 const EditorContainer = styled.div`
   display: flex;
@@ -12,13 +12,13 @@ const ResultContainer = styled.div`
   flex: 1 1 auto;
 `;
 
-export default function HorizontalCodeEditor({ source, ...props }) {
+export default function RevealHtmlEditor({ source, ...props }) {
   const [code, setCode] = useState(source);
   const resultPlaceholder = "* Результат появится тут *";
 
   return (
     <EditorContainer className="r-stretch editor">
-      <CodeEditor {...props} value={code} onChange={setCode} />
+      <RevealCodeEditor {...props} value={code} onChange={setCode} />
       <ResultContainer
         dangerouslySetInnerHTML={{ __html: code || resultPlaceholder }}
       />

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { pickLine } from "./utils";
 import Code from "./RevealCode";
-import HorizontalCodeEditor from "./HorizontalCodeEditor";
+import RevealHtmlEditor from "./RevealHtmlEditor";
 
 export const Image = styled.img`
   width: auto;
@@ -51,8 +51,6 @@ export const AnimatedCode = ({
   );
 };
 
-export { default as HorizontalCodeEditor } from "./HorizontalCodeEditor";
-
 export default {
   Image,
   Relative,
@@ -60,5 +58,5 @@ export default {
   ImgContainer,
   Fragment,
   AnimatedCode,
-  HorizontalCodeEditor,
+  RevealHtmlEditor,
 };

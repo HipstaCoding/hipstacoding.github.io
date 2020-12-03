@@ -53,8 +53,9 @@ export default function CodeEditor({
         const start = textareaRef.current.selectionStart;
         const end = textareaRef.current.selectionEnd;
         // set textarea value to: text before caret + tab + text after caret
-        const newValue =
-          value.substring(0, start) + "  " + value.substring(end);
+        const newValue = `${value.substring(0, start)}  ${value.substring(
+          end
+        )}`;
         onChange(newValue);
         setSelected(start + 2);
       }
@@ -65,11 +66,10 @@ export default function CodeEditor({
     codeRef.current.scrollTo(e.target.scrollLeft, e.target.scrollTop);
 
   return (
-    <Container>
+    <Container {...props}>
       <pre>
         <code
           data-noescape
-          {...props}
           ref={codeRef}
           dangerouslySetInnerHTML={{ __html: code }}
         ></code>

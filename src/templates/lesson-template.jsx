@@ -8,10 +8,6 @@ import components from "components/lessons/mdx";
 import Layout from "../components/layout";
 import RevealProvider from "components/lessons/reveal/RevealProvider.jsx";
 
-import "reveal.js/dist/reveal.css";
-import "../lib/reveal-theme/atom-one-light.css";
-import "../lib/reveal-theme/source/hipsta.scss";
-
 hljs.registerLanguage("xml", xml);
 
 const StyledLogo = styled(Logo)`

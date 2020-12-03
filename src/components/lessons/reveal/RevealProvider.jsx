@@ -7,7 +7,7 @@ import "reveal.js/dist/reveal.css";
 import "lib/reveal-theme/atom-one-light.css";
 import "lib/reveal-theme/source/hipsta.scss";
 
-const { Provider } = createContext(null);
+export const RevealContext = createContext(null);
 
 export default function RevealProvider(props) {
   const [revealInstance, setRevealInstance] = useState(null);
@@ -21,8 +21,8 @@ export default function RevealProvider(props) {
       plugins: [Markdown, Highlight],
     });
     deck.initialize();
-    setRevealInstance(revealInstance);
+    setRevealInstance(deck);
   }, []);
 
-  return <Provider {...props} value={revealInstance} />;
+  return <RevealContext.Provider {...props} value={revealInstance} />;
 }
