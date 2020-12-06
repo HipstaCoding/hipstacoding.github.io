@@ -22,22 +22,123 @@ import flexBoxWebp from "./images/flexbox.webp";
 ## Источники
 
 1. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
+2. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
+3. [[CSS Tricks]](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
+4. [[CSS Trick]](https://css-tricks.com/box-sizing/)
+
+</section>
+<section>
+
+1. [Конструктор Grid](https://grid.layoutit.com/)
+
+</section>
+</section>
+<section>
+<section>
+
+## Блоковая модель
+#### Box model
+
+</section>
+<section>
+
+### HTML страницу можно поделить блоки
+
+<ImgContainer width="70%">
+
+![HTML Block Structure](./images/block-structure.png)
+
+###### *Image from Google Developers*
+
+</ImgContainer>
+
+</section>
+<section>
+
+### Box model
+
+<div class="r-stack">
+
+```css
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 200px;
+  padding: 20px;
+  border: 2px solid black;
+}
+```
+
+<ImgContainer width="100%" class="fragment">
+
+![box model](./images/box-model.png)
+
+</ImgContainer>
+
+</div>
+
+</section>
+<section>
+
+### Облегчаем себе жизнь
+
+```css
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+
+</section>
+<section>
+
+### Что это?
+
+<div class="r-stack">
+
+До появления свойства `box-sizing: border-box` ширина любого контейнера не учитывала отступы и рамки.
+Ты пишешь такой `width: 100%` и думаешь что твой блок будет занимать 100% от ширины родителя, а он:
+
+<ImgContainer width="80%" className="fragment">
+
+!["Не, нихуя" мемчик](./images/not-quite.jpg)
+
+</ImgContainer>
+</div>
+</section>
+<section>
+
+<iframe src="https://codesandbox.io/embed/html-examples-273kz?fontsize=15&hidenavigation=1&initialpath=%2Fhtml-04%2Fbox-sizing%2Findex.html&moduleview=0&theme=dark&hidedevtools=1&module=/html-04/box-sizing/index.html,/html-04/box-sizing/style.css&view=split&expanddevtools=0&forcerefresh=1"
+  style="width:100%; height:600px; border:0; border-radius: 4px; overflow:hidden;"
+  title="html-examples"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 </section>
 
 </section>
 <section>
 <section>
-<iframe src="https://codesandbox.io/embed/dawn-darkness-upfr0?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:600px; border:0; border-radius: 4px; overflow:hidden;"
-     title="dawn-darkness-upfr0"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+
+<iframe src="https://codesandbox.io/embed/html-examples-273kz?fontsize=15&hidenavigation=1&initialpath=%2Fflex%2Findex.html&moduleview=0&theme=dark&hidedevtools=1&module=/flex/index.html,/flex/style.css&view=split&expanddevtools=0&forcerefresh=1"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="html-examples"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 </section>
 <section>
 
+[Try it on
+CodeSandbox](embedded-codesandbox://04-html/)
 
+</section>
+<section>
 
 </section>
 
