@@ -4,6 +4,7 @@ import Hotkey from "components/Hotkey";
 import Code from "../reveal/RevealCode";
 import Pre from "../reveal/RevealPre";
 import icons from "components/common/Icons";
+import CodeSandbox from "components/common/CodeSandbox";
 
 const A = props => <a {...props} target="blank" />;
 
@@ -14,6 +15,7 @@ export default {
   pre: Pre,
   Code,
   Hotkey,
+  CodeSandbox,
   ...revealComponents,
   ...icons,
 };

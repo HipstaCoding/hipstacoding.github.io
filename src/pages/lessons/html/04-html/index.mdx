@@ -1,5 +1,7 @@
 import background from "./images/background.jpg";
 import flexBoxWebp from "./images/flexbox.webp";
+const STAGE = "html";
+const LESSON = "html-04";
 
 <section
   data-background={background}
@@ -36,23 +38,44 @@ import flexBoxWebp from "./images/flexbox.webp";
 <section>
 <section>
 
-## Блоковая модель
-#### Box model
+## Контейнеры в HTML
 
-</section>
-<section>
+<ImgContainer width="90%">
 
-### HTML страницу можно поделить блоки
-
-<ImgContainer width="70%">
-
-![HTML Block Structure](./images/block-structure.png)
-
-###### *Image from Google Developers*
+![HTML Block Structure](./images/semantic-elements.png)
 
 </ImgContainer>
 
 </section>
+<section>
+
+## Типы контейнеров
+
+- Классический пустой контейнер `<div>`
+- Семантический контейнер со смыслом (см. [список](https://www.w3schools.com/html/html5_semantic_elements.asp))
+
+</section>
+<section>
+
+### Свойства контейнеров
+
+1. По умолчанию имеют CSS свойство `display: block`;
+2. Могут иметь атрибуты `id` и `class`;
+3. Занимают всю ширину родителя по умолчанию (т, е: `width: auto`);
+4. Увиличиваются в зависимости от контента (т.е: `height: auto`)
+5. Начинаются под предыдущим элементом
+
+</section>
+</section>
+
+<section>
+<section>
+
+## Блоковая модель
+#### Box model
+
+</section>
+
 <section>
 
 ### Box model
@@ -111,12 +134,7 @@ html {
 </section>
 <section>
 
-<iframe src="https://codesandbox.io/embed/html-examples-273kz?fontsize=15&hidenavigation=1&initialpath=%2Fhtml-04%2Fbox-sizing%2Findex.html&moduleview=0&theme=dark&hidedevtools=1&module=/html-04/box-sizing/index.html,/html-04/box-sizing/style.css&view=split&expanddevtools=0&forcerefresh=1"
-  style="width:100%; height:600px; border:0; border-radius: 4px; overflow:hidden;"
-  title="html-examples"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<CodeSandbox lesson={LESSON} files={["style.css", "index.html"]} example="box-sizing" stage={STAGE} />
 
 </section>
 
@@ -124,24 +142,27 @@ html {
 <section>
 <section>
 
-<iframe src="https://codesandbox.io/embed/html-examples-273kz?fontsize=15&hidenavigation=1&initialpath=%2Fflex%2Findex.html&moduleview=0&theme=dark&hidedevtools=1&module=/flex/index.html,/flex/style.css&view=split&expanddevtools=0&forcerefresh=1"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="html-examples"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+## Ширина и высота блока
+#### width and height
 
 </section>
 <section>
 
-[Try it on
-CodeSandbox](embedded-codesandbox://04-html/)
+### Основные значения width and height
+
+- Стандартное (`auto`)
+- Фиксированные (`px`, `em`, `rem`)
+- Относительные
+  - Родителя (`%`) 
+  - Экрана (`vw`, `vh`)
+- [И другие](https://developer.mozilla.org/ru/docs/Learn/CSS/Building_blocks/Values_and_units#%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D0%B4%D0%BB%D0%B8%D0%BD%D1%8B_%D0%B8_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%BD%D1%82%D1%8B)
 
 </section>
 <section>
 
-</section>
+### Фиксированная ширина и высота
 
+</section>
 </section>
 <section>
 <section data-background-image={flexBoxWebp}>
