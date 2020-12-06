@@ -1,5 +1,7 @@
 import background from "./images/background.jpg";
 import flexBoxWebp from "./images/flexbox.webp";
+import marginPaddingPng from "./images/margin-padding.png";
+import windowsXpPng from "./images/window-xp-background.png";
 const STAGE = "html";
 const LESSON = "html-04";
 
@@ -72,6 +74,7 @@ const LESSON = "html-04";
 <section>
 
 ## Блоковая модель
+
 #### Box model
 
 </section>
@@ -110,7 +113,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 ```
@@ -134,15 +139,105 @@ html {
 </section>
 <section>
 
-<CodeSandbox lesson={LESSON} files={["style.css", "index.html"]} example="box-sizing" stage={STAGE} />
+<CodeSandbox
+  lesson={LESSON}
+  files={["style.css", "index.html"]}
+  example="box-sizing"
+  stage={STAGE}
+/>
 
 </section>
 
+</section>
+<section>
+<section>
+
+## Внешние и внутренние отступы
+
+#### margin and padding
+
+</section>
+<section data-background={marginPaddingPng}>
+
+</section>
+<section data-auto-animate>
+
+#### 1. Короткая и длинные записи
+
+```css data-id="margin-1"
+.box {
+  margin: 12px 3px 6px 9px;
+  /* same as: */
+  margin-top: 12px;
+  margin-right: 3px;
+  margin-bottom: 6px;
+  margin-left: 9px;
+}
+```
+
+</section>
+<section data-auto-animate>
+
+#### 2. Тройная запись
+
+```css data-id="margin-1"
+.box {
+  margin: 12px 3px 9px;
+  /* same as: */
+  margin-top: 12px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 9px;
+}
+```
+
+</section>
+<section data-auto-animate>
+
+#### 3. Двойная запись
+
+```css data-id="margin-1"
+.box {
+  margin: 12px 3px;
+  /* same as: */
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+```
+
+</section>
+<section data-auto-animate>
+
+#### 4. "На все четыре стороны"
+
+```css data-id="margin-1"
+.box {
+  margin: 12px;
+  /* same as: */
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+```
+
+</section>
+<section data-auto-animate>
+
+### "Особенности" margin
+
+- Может иметь значение `auto`.
+- ["Схлопывание" (collapse) отступов](https://dev.to/camfilho/margin-collapse-explained-by-images-361e).
+
+</section>
 </section>
 <section>
 <section>
 
 ## Ширина и высота блока
+
 #### width and height
 
 </section>
@@ -153,7 +248,7 @@ html {
 - Стандартное (`auto`)
 - Фиксированные (`px`, `em`, `rem`)
 - Относительные
-  - Родителя (`%`) 
+  - Родителя (`%`)
   - Экрана (`vw`, `vh`)
 - [И другие](https://developer.mozilla.org/ru/docs/Learn/CSS/Building_blocks/Values_and_units#%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D0%B4%D0%BB%D0%B8%D0%BD%D1%8B_%D0%B8_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%BD%D1%82%D1%8B)
 
@@ -161,6 +256,215 @@ html {
 <section>
 
 ### Фиксированная ширина и высота
+
+<CodeSandbox
+  lesson={LESSON}
+  files={["style.css", "index.html"]}
+  example="css-awesome"
+  stage={STAGE}
+/>
+
+</section>
+</section>
+<section>
+
+#### 4.1 Pattern
+
+## "Responsive container"
+
+<CodeSandbox
+  lesson={LESSON}
+  height={500}
+  files={["style.css", "index.html"]}
+  example="container-pattern"
+  stage={STAGE}
+/>
+
+</section>
+<section>
+<section>
+
+### Границы и обводки
+
+#### `border` and `outline`
+
+</section>
+<section>
+
+### border
+
+```css
+.rectangle {
+  border: 1px solid black;
+  /* same as: */
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+```
+
+</section>
+</section>
+<section>
+<section>
+
+## Фоны
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="auto auto"
+  data-background-position="0% 0%"
+  data-background-repeat="repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="auto auto"
+  data-background-position="0% 0%"
+  data-background-repeat="repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="auto auto"
+  data-background-position="0% 0%"
+  data-background-repeat="no-repeat"
+  data-background-color="green"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: no-repeat;
+  background-color: green;
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="auto auto"
+  data-background-position="center"
+  data-background-repeat="no-repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="auto auto"
+  data-background-position="center top"
+  data-background-repeat="no-repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="auto auto"
+  data-background-position="right 35% bottom 45%"
+  data-background-repeat="no-repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: no-repeat;
+  background-position: right 35% bottom 45%;
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="contain"
+  data-background-repeat="no-repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="contain"
+  data-background-repeat="repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: repeat;
+  background-size: contain;
+}
+```
+
+</section>
+<section
+  data-auto-animate
+  data-background={windowsXpPng}
+  data-background-size="cover"
+  data-background-repeat="no-repeat"
+  data-background-transition="slide"
+>
+
+```css data-id="background-1"
+.box {
+  background-image: url(./images/безмятежность.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
 
 </section>
 </section>
@@ -171,4 +475,3 @@ html {
 
 </section>
 </section>
-
