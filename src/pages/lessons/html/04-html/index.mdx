@@ -2,6 +2,7 @@ import background from "./images/background.jpg";
 import flexBoxWebp from "./images/flexbox.webp";
 import marginPaddingPng from "./images/margin-padding.png";
 import windowsXpPng from "./images/window-xp-background.png";
+import gridJpg from "./images/grid.jpeg";
 
 export const STAGE = "html";
 export const LESSON = "html-04";
@@ -28,9 +29,10 @@ export const LESSON = "html-04";
 
 1. [[CSS Tricks] Box sizing](https://css-tricks.com/box-sizing/)
 2. [[Learn JS] Все значения свойства display](https://learn.javascript.ru/display)
-3. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
-4. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
-5. [[CSS Tricks] CSS Grids without media queries](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
+3. [[CSS Tricks] A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+4. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
+5. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
+6. [[CSS Tricks] CSS Grids without media queries](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
 
 </section>
 <section>
@@ -53,7 +55,7 @@ export const LESSON = "html-04";
 </section>
 <section>
 
-## Типы контейнеров
+## HTML теги контейнеров
 
 - Классический пустой контейнер `<div>`
 - Семантический контейнер со смыслом (см. [список](https://www.w3schools.com/html/html5_semantic_elements.asp))
@@ -310,7 +312,189 @@ html {
 <section>
 <section>
 
-## Фоны
+#### CSS Property
+## `display`
+
+</section>
+<section>
+
+### `display: block;`
+
+- Стандартное значение всех блочных элементов
+- Блок стремится расшириться на всю доступную ширину
+- Блочные элементы располагаются один над другим, вертикально (если нет особых свойств позиционирования, например float).
+
+</section>
+<section>
+
+
+#### CSS Property
+### `float`
+
+- Раньше использовался для верстки всего сайта, сейчас по прямому назначению - для обтекания текста
+- Блок выпадает из потока ([см. clearfix](https://www.w3schools.com/howto/howto_css_clearfix.asp))
+- Игнорирует `display` и превращает элемент в `block`
+
+</section>
+<section>
+
+<CodeSandbox
+  lesson={LESSON}
+  height={600}
+  files={["style.css", "index.html"]}
+  example="float"
+  stage={STAGE}
+/>
+
+</section>
+<section>
+
+### `display: inline`
+
+- Стандартное свойство для всех строчных элементов
+- Элементы располагаются на той же строке, последовательно.
+- Ширина и высота элемента определяются по содержимому. Поменять их нельзя.
+
+</section>
+<section>
+
+### `display: inline-block;`
+
+- Как и инлайн-элемент:
+  - Располагается в строке.
+  - Размер устанавливается по содержимому.
+  - Наследует свойство `vertical-align`, о котором хорошо написано [здесь](https://htmlacademy.ru/blog/boost/frontend/the-vertical-align-property)
+- Во всём остальном – это блок, то есть:
+  - Элемент всегда прямоугольный.
+  - Работают свойства `width`/`height`.
+
+</section>
+<section>
+
+### Применение `display: inline-block;`
+
+- Встраивание блочных елементов в текст
+- [До flexbox] Расположение блочных елементов в ряд (например иконок)
+- [До flexbox] Вертикальное выравнивание по центру
+
+</section>
+<section>
+
+### `display: table;`, `display: table-cell;`, `display: table-row`; 
+
+```css
+table    { display: table; }
+tr       { display: table-row; }
+thead    { display: table-header-group; }
+tbody    { display: table-row-group; }
+tfoot    { display: table-footer-group; }
+col      { display: table-column; }
+colgroup { display: table-column-group; }
+td, th   { display: table-cell; }
+caption  { display: table-caption; }
+```
+
+</section>
+<section>
+
+### `display: none;` 
+
+- Нужно **удалить** тег со страницы
+- Используется с помощью JS  
+
+</section>
+</section>
+<section>
+<section data-background-image={flexBoxWebp}>
+
+## Flexbox
+### `display: flex;`
+
+</section>
+<section>
+
+#### Flex container basic properties:
+
+```css
+.container {
+  display: flex;
+  flex-direction: row; /* row | row-reverse | column |
+    column-reverse;  */
+  justify-content: flex-start; /* | flex-end | center |
+    space-between | space-around | space-evenly |
+    start | end | left | right ... + safe | unsafe */
+  align-items: stretch /* flex-start | flex-end |
+    center | baseline | first baseline | last baseline |
+    start | end | self-start | self-end + ... safe | unsafe */;
+}
+```
+#### Flex child basic properties:
+
+```css
+.child {
+  flex-grow: 0; /* 1, ..., n */
+  flex-shrink: 1; /* 2, ..., n */
+  flex-basis: auto; /* 0, 200px, 50% */
+}
+```
+
+</section>
+<section>
+
+<CodeSandbox
+  lesson={LESSON}
+  height={600}
+  files={["style.css", "index.html"]}
+  example="flexbox"
+  stage={STAGE}
+/>
+
+</section>
+<section>
+
+<CodeSandbox
+  lesson={LESSON}
+  height={600}
+  files={["style.css", "index.html"]}
+  example="flexbox-layout"
+  stage={STAGE}
+/>
+
+</section>
+</section>
+<section>
+<section data-background={gridJpg}>
+
+## CSS Grids
+### `display: grid;`
+
+</section>
+<section>
+
+<CodeSandbox
+  lesson={LESSON}
+  height={600}
+  files={["style.css", "index.html"]}
+  example="grid-layout"
+  stage={STAGE}
+/>
+
+</section>
+</section>
+<section>
+<section>
+
+#### CSS Property
+## background
+
+```css
+.container {
+  background-image: url(/path/to/file.png);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+}
+```
 
 </section>
 <section
@@ -467,108 +651,6 @@ html {
   background-size: cover;
 }
 ```
-
-</section>
-</section>
-<section>
-<section>
-
-#### CSS Property
-## `display`
-
-</section>
-<section>
-
-### `display: block;`
-
-- Стандартное значение всех блочных элементов
-- Блок стремится расшириться на всю доступную ширину
-- Блочные элементы располагаются один над другим, вертикально (если нет особых свойств позиционирования, например float).
-
-</section>
-<section>
-
-
-#### CSS Property
-### `float`
-
-- Раньше использовался для верстки всего сайта, сейчас по прямому назначению - для обтекания текста
-- Блок выпадает из потока ([см. clearfix](https://www.w3schools.com/howto/howto_css_clearfix.asp))
-- Игнорирует `display` и превращает элемент в `block`
-
-</section>
-<section>
-
-<CodeSandbox
-  lesson={LESSON}
-  height={600}
-  files={["style.css", "index.html"]}
-  example="float"
-  stage={STAGE}
-/>
-
-</section>
-<section>
-
-### `display: inline`
-
-- Стандартное свойство для всех строчных элементов
-- Элементы располагаются на той же строке, последовательно.
-- Ширина и высота элемента определяются по содержимому. Поменять их нельзя.
-
-</section>
-<section>
-
-### `display: inline-block;`
-
-- Как и инлайн-элемент:
-  - Располагается в строке.
-  - Размер устанавливается по содержимому.
-  - Наследует свойство `vertical-align`, о котором хорошо написано [здесь](https://htmlacademy.ru/blog/boost/frontend/the-vertical-align-property)
-- Во всём остальном – это блок, то есть:
-  - Элемент всегда прямоугольный.
-  - Работают свойства `width`/`height`.
-
-</section>
-<section>
-
-### Применение `display: inline-block;`
-
-- Встраивание блочных елементов в текст
-- [До flexbox] Расположение блочных елементов в ряд (например иконок)
-- [До flexbox] Вертикальное выравнивание по центру
-
-</section>
-<section>
-
-### `display: table;`, `display: table-cell;`, `display: table-row`; 
-
-```css
-table    { display: table; }
-tr       { display: table-row; }
-thead    { display: table-header-group; }
-tbody    { display: table-row-group; }
-tfoot    { display: table-footer-group; }
-col      { display: table-column; }
-colgroup { display: table-column-group; }
-td, th   { display: table-cell; }
-caption  { display: table-caption; }
-```
-
-</section>
-<section>
-
-### `display: none;` 
-
-- Нужно **удалить** тег со страницы
-- Используется с помощью JS  
-
-</section>
-</section>
-<section>
-<section data-background-image={flexBoxWebp}>
-
-## Flexbox
 
 </section>
 </section>
