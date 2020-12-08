@@ -26,10 +26,11 @@ export const LESSON = "html-04";
 
 ## Источники
 
-1. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
-2. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
-3. [[CSS Tricks]](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
-4. [[CSS Trick]](https://css-tricks.com/box-sizing/)
+1. [[CSS Tricks] Box sizing](https://css-tricks.com/box-sizing/)
+2. [[Learn JS] Все значения свойства display](https://learn.javascript.ru/display)
+3. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
+4. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
+5. [[CSS Tricks] CSS Grids without media queries](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
 
 </section>
 <section>
@@ -466,6 +467,101 @@ html {
   background-size: cover;
 }
 ```
+
+</section>
+</section>
+<section>
+<section>
+
+#### CSS Property
+## `display`
+
+</section>
+<section>
+
+### `display: block;`
+
+- Стандартное значение всех блочных элементов
+- Блок стремится расшириться на всю доступную ширину
+- Блочные элементы располагаются один над другим, вертикально (если нет особых свойств позиционирования, например float).
+
+</section>
+<section>
+
+
+#### CSS Property
+### `float`
+
+- Раньше использовался для верстки всего сайта, сейчас по прямому назначению - для обтекания текста
+- Блок выпадает из потока ([см. clearfix](https://www.w3schools.com/howto/howto_css_clearfix.asp))
+- Игнорирует `display` и превращает элемент в `block`
+
+</section>
+<section>
+
+<CodeSandbox
+  lesson={LESSON}
+  height={600}
+  files={["style.css", "index.html"]}
+  example="float"
+  stage={STAGE}
+/>
+
+</section>
+<section>
+
+### `display: inline`
+
+- Стандартное свойство для всех строчных элементов
+- Элементы располагаются на той же строке, последовательно.
+- Ширина и высота элемента определяются по содержимому. Поменять их нельзя.
+
+</section>
+<section>
+
+### `display: inline-block;`
+
+- Как и инлайн-элемент:
+  - Располагается в строке.
+  - Размер устанавливается по содержимому.
+  - Наследует свойство `vertical-align`, о котором хорошо написано [здесь](https://htmlacademy.ru/blog/boost/frontend/the-vertical-align-property)
+- Во всём остальном – это блок, то есть:
+  - Элемент всегда прямоугольный.
+  - Работают свойства `width`/`height`.
+
+</section>
+<section>
+
+### Применение `display: inline-block;`
+
+- Встраивание блочных елементов в текст
+- [До flexbox] Расположение блочных елементов в ряд (например иконок)
+- [До flexbox] Вертикальное выравнивание по центру
+
+</section>
+<section>
+
+### `display: table;`, `display: table-cell;`, `display: table-row`; 
+
+```css
+table    { display: table; }
+tr       { display: table-row; }
+thead    { display: table-header-group; }
+tbody    { display: table-row-group; }
+tfoot    { display: table-footer-group; }
+col      { display: table-column; }
+colgroup { display: table-column-group; }
+td, th   { display: table-cell; }
+caption  { display: table-caption; }
+```
+
+</section>
+<section>
+
+### `display: none;` 
+
+- Нужно **удалить** тег со страницы
+- Используется с помощью JS  
 
 </section>
 </section>

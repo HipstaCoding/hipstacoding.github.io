@@ -12,9 +12,8 @@ export default function CodeSanbox({
 }) {
   const sanboxId = id || EXAMPLES[stage];
   const initalPath = encodeURIComponent(`/${lesson}/${example}/index.html`);
-  const module = files
-    .map(file => encodeURIComponent(`/${lesson}/${example}/${file}`))
-    .join(",");
+  const module = files.map(file => `/${lesson}/${example}/${file}`).join(",");
+
   const src = `https://codesandbox.io/embed/${sanboxId}?fontsize=15&hidenavigation=1&initialpath=${initalPath}&moduleview=0&theme=dark&hidedevtools=1&module=${module}&view=split&expanddevtools=0&forcerefresh=1`;
   return (
     <iframe
