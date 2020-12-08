@@ -30,9 +30,10 @@ export const LESSON = "html-04";
 1. [[CSS Tricks] Box sizing](https://css-tricks.com/box-sizing/)
 2. [[Learn JS] Все значения свойства display](https://learn.javascript.ru/display)
 3. [[CSS Tricks] A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-4. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
-5. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
-6. [[CSS Tricks] CSS Grids without media queries](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
+4. [[CSS Tricks] A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+5. [[YouTube] CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk)
+6. [[Habr] CSS Grid Layout. Быстрый старт](https://habr.com/ru/post/325760/)
+7. [[CSS Tricks] CSS Grids without media queries](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
 
 </section>
 <section>
@@ -459,6 +460,55 @@ caption  { display: table-caption; }
 
 ## CSS Grids
 ### `display: grid;`
+
+</section>
+<section>
+
+### Типы Grid
+
+</section>
+<section>
+
+### Явные
+#### Explicit
+
+- Количество компонентов определенно
+- Новые компоненты не появляются автоматически
+- Родительские свойства `grid-template-column`, `grid-template-rows`, `grid-areas`
+- Дочерние свойства `grid-area`, `grid-column`, `grid-row`
+
+</section>
+<section>
+
+#### Алгоритм расположения явных сеток
+
+1. Делим контейнеры верхнего уровня на секции
+2. Задаем кол-во столбцов `grid-template-column` для родителя
+3. Задаем кол-во рядов `grid-template-rows` для родилетя
+4. Пишем схему сетки в свойство `grid-areas` для родителя
+5. Определяем свойство `grid-area` для дочерних контейнеров
+
+
+</section>
+<section>
+
+### Невные
+#### Implicit
+
+- Количество компонентов не определенно
+- Новые компоненты могут появляються автоматически
+- Свойства `grid-auto-column`, `grid-auto-rows`, `grid-auto-flow`
+
+</section>
+<section>
+
+<CodeSandbox
+  lesson={LESSON}
+  height={600}
+  files={["style.css", "index.html"]}
+  example="grid"
+  stage={STAGE}
+/>
 
 </section>
 <section>
