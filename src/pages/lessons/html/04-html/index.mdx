@@ -234,6 +234,7 @@ html {
 
 - Может иметь значение `auto`.
 - ["Схлопывание" (collapse) отступов](https://dev.to/camfilho/margin-collapse-explained-by-images-361e).
+- Вертикальный отступ в % считается от ширины (sic!)
 
 </section>
 </section>
@@ -269,6 +270,20 @@ html {
 />
 
 </section>
+<section>
+
+#### CSS property
+### Функции в CSS
+
+```css
+.box {
+  margin: 20px;
+  width: calc(100% - 40px);
+  height: calc(100vh - 40px);
+}
+
+```
+
 </section>
 <section>
 
@@ -284,6 +299,7 @@ html {
   stage={STAGE}
 />
 
+</section>
 </section>
 <section>
 <section>
