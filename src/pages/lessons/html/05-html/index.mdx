@@ -13,7 +13,13 @@ export const LESSON = "html-05";
 >
 <section>
 
-# CSS Псевдоэлементы и селекторы
+# Селекторы, псевдоклассы и псевдоэлементы
+
+</section>
+<section>
+
+- [Список псевдоклассов](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+- [Список псевдоэлементов](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
 
 </section>
 </section>
@@ -114,7 +120,7 @@ export const LESSON = "html-05";
 </section>
 <section>
 
-Псевдокласс - ключевое слово, которое указывает **состояние** элемента. 
+Псевдокласс - слектор CSS, который указывает **состояние** элемента. 
 
 ```css
 a:hover {
@@ -246,6 +252,39 @@ ol li:nth-child(2n + 1) {
 - Строчные иконки не нужны с появлением flexbox
 - Грузятся все иконки даже если все не нужны
 - Нельзя стилизовать отдельные части иконок
+
+</section>
+</section>
+<section>
+<section>
+
+## Псевдоэлементы
+
+</section>
+<section>
+
+Псевдоэлемент - селектор CSS, который стилизует то, что не объявленно напрямую в HTML. 
+
+```css
+ul li::before {
+  content: "-";
+}
+
+.width-image::after {
+  content: "";
+  display: block;
+  background-image: url('path/to/image.png');
+  width: 100px;
+  height: 100px;
+}
+```
+
+</section>
+<section>
+
+### Внегласное правило CSS 5.3
+
+Псевдоэлемент пишется через два двоеточие `::`, но работает можно писать и как псевдокласс `:after`
 
 </section>
 </section>
