@@ -7,7 +7,7 @@ const EditorContainer = styled.div`
   width: 100%;
 
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 50% 50%;
 
   pre {
     height: 100%;
@@ -18,6 +18,7 @@ const EditorContainer = styled.div`
 
   pre code {
     border-radius: 0;
+    max-height: 100%;
   }
 
   iframe {
@@ -45,10 +46,12 @@ function getHtml(html, css) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    ${css}
     html {
       font-size: 24px;
     }
+  </style>
+  <style>
+  ${css}
   </style>
 </head>
 <body>

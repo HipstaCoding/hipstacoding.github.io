@@ -1,5 +1,6 @@
 import background from "./images/background.jpg";
 import html51 from "./snippets/unit51.html";
+import html52 from "./snippets/nth-child-number/index.html";
 
 export const STAGE = "html";
 export const LESSON = "html-05";
@@ -106,5 +107,64 @@ ul li:last-child {
 
 <RevealCssEditor css3="/* пиши сюда CSS */" html={html51} />
 
+</section>
+</section>
+<section>
+<section>
+
+### Псевдокласс :nth-child
+
+</section>
+<section>
+
+#### Режим 1 - число
+
+```css
+ol li:nth-child(2) {
+  color: yellow;
+}
+```
+
+</section>
+<section>
+
+#### Режим 2 - четный/неченый
+##### even/odd
+
+```css
+ol li:nth-child(even) {
+  color: yellow;
+}
+
+ol li:nth-child(odd) {
+  color: blue;
+}
+```
+
+</section>
+<section>
+
+#### Режим 3 - формула
+
+```css
+ol li:nth-child(2n + 1) {
+  color: yellow;
+}
+```
+
+</section>
+<section>
+
+#### Задача 5.2
+### "Полезный :nth-child"
+
+1. Поставить синий фон на 4 элемент
+2. Все четные красные
+3. Все нечетные зеленые
+4. Каждый третий - подчёркнутый
+
+</section>
+<section>
+  <RevealCssEditor css3="/* пиши сюда CSS */" html={html52} />
 </section>
 </section>
