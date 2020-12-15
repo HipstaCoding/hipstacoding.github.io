@@ -18,8 +18,10 @@ export const LESSON = "html-05";
 </section>
 <section>
 
-- [Список псевдоклассов](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
-- [Список псевдоэлементов](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+- [[MDN] Список псевдоклассов](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+- [[MDN] Список псевдоэлементов](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+- [[Github] Тест специфичности](https://mjswensen.github.io/css-power-ups/the-cascade-and-specificity/specificity-quiz/)
+- [[Learn JS] Знаете ли вы селекторы?](https://learn.javascript.ru/css-selectors)
 
 </section>
 </section>
@@ -285,6 +287,59 @@ ul li::before {
 ### Внегласное правило CSS 5.3
 
 Псевдоэлемент пишется через два двоеточие `::`, но работает можно писать и как псевдокласс `:after`
+
+</section>
+</section>
+<section>
+<section>
+
+### CSS Specifity
+## Специфичность
+
+</section>
+<section>
+
+### Порядок специфичности
+
+- inline style
+- id
+- class, pseudo-class, attribute
+- elements
+
+</section>
+<section>
+
+### Расчет специфичности
+
+<ImgContainer width="80%">
+
+![CSS Specifity calculation](./images/specifity.png)
+
+</ImgContainer>
+</section>
+<section>
+
+### Внегласное правило CSS 5.4
+
+Начинайте с самой малой специфичности и при необходимости повышайте ее.
+
+</section>
+<section>
+
+### !important
+
+```
+.class {
+  color: red!important;
+}
+```
+
+</section>
+<section>
+
+### Тест на специфичность
+
+Для тех, кто будет заниматься версткой или кому интересно, советую пройти [этот](https://mjswensen.github.io/css-power-ups/the-cascade-and-specificity/specificity-quiz/) тест.
 
 </section>
 </section>
