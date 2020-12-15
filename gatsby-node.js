@@ -10,8 +10,10 @@ const fs = require("fs");
 const hljs = require("highlight.js/lib/core");
 const markdown = require("highlight.js/lib/languages/markdown");
 const xml = require("highlight.js/lib/languages/xml");
+const css = require("highlight.js/lib/languages/css");
 
 hljs.registerLanguage("xml", xml);
+hljs.registerLanguage("css", css);
 hljs.registerLanguage("markdown", markdown);
 
 exports.onCreateWebpackConfig = ({ actions, stage, loaders }) => {

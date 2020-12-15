@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { pickLine } from "./utils";
 import Code from "./RevealCode";
 import RevealHtmlEditor from "./RevealHtmlEditor";
+import RevealCssEditor from "./RevealCssEditor";
 
 export const Image = styled.img`
   width: auto;
@@ -59,4 +60,5 @@ export default {
   Fragment,
   AnimatedCode,
   RevealHtmlEditor,
+  RevealCssEditor,
 };

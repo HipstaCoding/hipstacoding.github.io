@@ -30,10 +30,11 @@ export default function CodeEditor({
   value = "",
   placeholder,
   onChange,
+  language = "xml",
   ...props
 }) {
   const [selected, setSelected] = useState(value.length);
-  const code = hljs.highlight("xml", value).value + "\n";
+  const code = hljs.highlight(language, value).value + "\n";
   const textareaRef = useRef();
   const codeRef = useRef();
 

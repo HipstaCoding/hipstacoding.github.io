@@ -1,0 +1,110 @@
+import background from "./images/background.jpg";
+import html51 from "./snippets/unit51.html";
+
+export const STAGE = "html";
+export const LESSON = "html-05";
+
+<section
+  data-background={background}
+  data-background-size="cover"
+  data-background-position="top left"
+  data-background-opacity={0.1}
+>
+<section>
+
+# CSS Псевдоэлементы и селекторы
+
+</section>
+</section>
+<section>
+<section>
+
+## Дочерние селекторы
+
+Комбинация из двух и более селекторов идущих через пробел:
+
+```html
+<ul class="section-list">
+  <li>section 1</a>
+  <li>section 2</a>
+</ul>
+```
+
+```css
+.section-list li {
+  text-transform: uppercase;
+}
+```
+
+</section>
+<section>
+
+#### Внегласное правило CSS 5.1
+### Не больше двух селекторов!
+
+</section>
+<section>
+
+#### Внегласное правило CSS 5.2
+### Предпочтение отдается отдельному классу
+
+</section>
+<section>
+
+### Когда использовать?
+
+- Когда лень давать класс элементу
+- Могут быть дочерние теги только одного типа (например: `ul li`)
+- Один и тот же компонент отображается в зависимости от родителя 
+
+</section>
+</section>
+<section>
+<section>
+
+## Псевдоклассы
+
+</section>
+<section>
+
+Псевдокласс - ключевое слово, которое указывает **состояние** элемента. 
+
+```css
+a:hover {
+  color: tomato;
+}
+
+a:visited {
+  color: magenta;
+}
+```
+
+</section>
+<section>
+
+### Псевдоклассы :first-child и :last-child
+
+```css
+ul li:first-child {
+
+}
+
+ul li:last-child {
+
+}
+```
+
+</section>
+<section>
+
+#### Задача 5.1
+### "Не совсем :first-child"
+Покрасить первую ссылку в красный цвет используя псевдокласс `:first-child`
+
+</section>
+<section>
+
+<RevealCssEditor css3="/* пиши сюда CSS */" html={html51} />
+
+</section>
+</section>

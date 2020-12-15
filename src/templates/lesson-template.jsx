@@ -3,12 +3,14 @@ import Logo from "components/Logo";
 import { Link } from "gatsby";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
+import css from "highlight.js/lib/languages/css";
 import { MDXProvider } from "@mdx-js/react";
 import components from "components/lessons/mdx";
 import Layout from "../components/layout";
 import RevealProvider from "components/lessons/reveal/RevealProvider.jsx";
 
 hljs.registerLanguage("xml", xml);
+hljs.registerLanguage("css", css);
 
 const StyledLogo = styled(Logo)`
   position: absolute;
