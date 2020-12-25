@@ -48,6 +48,24 @@ function getHtml(html, css) {
   <style>
     html {
       font-size: 24px;
+      min-height: 100%;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+      height: 1px;
+    }
+     
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
     }
   </style>
   <style>

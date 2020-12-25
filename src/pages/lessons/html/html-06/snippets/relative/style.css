@@ -1,0 +1,17 @@
+.relative {
+  position: relative;
+  top: -20px;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 5px dashed #C57BDD;
+}

@@ -4,10 +4,10 @@ const Container = styled.code`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 0.05em solid ${({ theme }) => theme.colors.textColor};
   border-radius: 3px;
-  color: #abb2bf;
-  background: #282c34;
+  color: ${({ theme }) => theme.colors.textColor};
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
   width: 54px;
   height: 54px;
 

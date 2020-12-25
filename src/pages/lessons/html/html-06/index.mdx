@@ -1,0 +1,88 @@
+import background from "./images/background.jpg";
+import relativeHtml from "./snippets/relative/index.html";
+import relativeCss from "./snippets/relative/style.css";
+
+<section
+  data-background={background}
+  data-background-size="cover"
+  data-background-position="top left"
+  data-background-opacity={0.1}
+>
+<section>
+
+### Урок 6
+
+# Позиционирование
+
+![positioning img](./images/positioning.png)
+
+</section>
+<section>
+
+1. [[Medium] About CSS Positioning](https://medium.com/@demayous1/about-css-positioning-7a913dc7425a)
+
+
+</section>
+</section>
+<section>
+<section>
+
+## Общее позиционирование
+
+</section>
+<section>
+
+- Для декорирования отдельных элементов
+- Не для сеток
+- Добавляют stacking context
+- Нарушают привычный поток документа
+
+</section>
+<section>
+
+```css
+.reverse-cowboy {
+  position: static; /* default */
+  position: relative;
+  position: absolute;
+  position: fixed;
+  position: sticky;
+}
+```
+
+</section>
+<section>
+
+```css
+.reverse-cowboy {
+  position: relative;
+
+  top: auto; /* px, rem, %, vh, vw */
+  bottom: auto;
+
+  left: auto;
+  right: auto;
+
+  z-index: 1: /* integer */
+}
+```
+
+</section>
+</section>
+<section>
+<section>
+
+## `position: relative;`
+
+</section>
+<section>
+
+![relative positioning](./images/relative.png)
+
+</section>
+<section>
+
+<RevealCssEditor css3={relativeCss} html={relativeHtml} />
+
+</section>
+</section>

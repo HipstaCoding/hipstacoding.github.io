@@ -36,7 +36,7 @@ $linkColorHover: lighten( $linkColor, 15% );
 $linkDecoration: underline;
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
-$heading1Size: 2.5em;
+$heading1Size: 2.3em;
 $heading2Size: 1.6em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
@@ -77,4 +77,15 @@ $heading4Size: 1.0em;
 
 .reveal table ul {
   margin: 0;
+}
+
+.reveal ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.reveal ul > li::before {
+  content: '✯';
+  margin: 0 0.5em;
 }
