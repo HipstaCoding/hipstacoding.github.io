@@ -1,0 +1,16 @@
+.chess-deck {
+  margin: 20px;
+  width: 400px;
+  height: 400px;
+  outline: 2px solid chocolate;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.black-square {
+  background-color: black;
+  flex-shrink: 0;
+  width: 12.5%;
+  height: 12.5%;
+}

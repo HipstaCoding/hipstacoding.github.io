@@ -1,6 +1,8 @@
 import background from "./images/background.jpg";
 import relativeHtml from "./snippets/relative/index.html";
 import relativeCss from "./snippets/relative/style.css";
+import unit61Html from "./snippets/6-1-unit-relative/index.html";
+import unit61Css from "./snippets/6-1-unit-relative/style.css";
 
 <section
   data-background={background}
@@ -40,6 +42,8 @@ import relativeCss from "./snippets/relative/style.css";
 </section>
 <section>
 
+### `position`
+
 ```css
 .reverse-cowboy {
   position: static; /* default */
@@ -52,6 +56,8 @@ import relativeCss from "./snippets/relative/style.css";
 
 </section>
 <section>
+
+### `top`, `bottom`, `left`, `right`
 
 ```css
 .reverse-cowboy {
@@ -66,6 +72,26 @@ import relativeCss from "./snippets/relative/style.css";
   z-index: 1: /* integer */
 }
 ```
+
+</section>
+<section>
+
+### `top`, `bottom`, `left`, `right`
+
+- Значение `auto` равняется изначальной позиции
+- Значение в `%` считается от высоты/ширины родителя
+- Могут принимать отрицательные значения
+- Игнорируются при отсуствии свойства `position` и его значения `static`
+
+</section>
+<section>
+
+### `top` и `left` в приоритете
+
+- если `position` равно `absolute` или `fixed`, а элемент может растягиваются - `top` и `bottom`, 
+  `left` и `right` растягивают элемент 
+- `top` и `bottom` - отступ от начальной точки по вертикали (ось y)
+- `left` и `right` - отступ от начальной точки по горизонтали (ось x)
 
 </section>
 </section>
@@ -83,6 +109,37 @@ import relativeCss from "./snippets/relative/style.css";
 <section>
 
 <RevealCssEditor css3={relativeCss} html={relativeHtml} />
+
+</section>
+<section id="unit-relative">
+
+#### Задача 6.1
+
+### Шахматная доска
+
+Расположить каждую вторую ячейку с помощью `position: relative;` так, чтобы образовалась шахматная доска.
+
+</section>
+<section>
+
+<RevealCssEditor html={unit61Html} css3={unit61Css} />
+
+</section>
+<section>
+
+### `position: relative` vs `margin`
+
+<div class="r-stack">
+
+<p class="fragment fade-out" data-fragment-index={1}> В 95% случаев мы можем обойтись отступом и не использовать `position: relative`, в том числе использовать
+отрицательные отступы (negative margins). Особенность относительного позиционирования - его сдвиг не влияет 
+на другие элементы. </p>
+<p class="fragment fade-in-then-out" data-fragment-index={1}>
+  Но все же он используется и в паре с <inlineCode>position: absolute</inlineCode>!
+  <audio data-autoplay src="/sounds/surprise-motherfucker.mp3" />  
+</p>
+
+</div>
 
 </section>
 </section>

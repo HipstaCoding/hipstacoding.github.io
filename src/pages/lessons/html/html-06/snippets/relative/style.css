@@ -1,17 +1,24 @@
 .relative {
   position: relative;
-  top: -20px;
-}
-
-.container {
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  top: 50px;
+  left: 50px;
 }
 
 .box {
-  width: 200px;
-  height: 200px;
-  border: 5px dashed #C57BDD;
+  width: 150px;
+  height: 150px;
+  border: 5px dashed #000000;
+  text-align: center;
+}
+
+.box:nth-child(1) {
+  background-color: #d55353;
+}
+
+.box:nth-child(2) {
+  background-color: #5858ef;
+}
+
+.box:nth-child(3) {
+  background-color: #80e880;
 }
