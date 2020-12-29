@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import RevealCodeEditor from "./RevealCodeEditor";
+import RevealCode from "./RevealCode";
 
 const EditorContainer = styled.div`
   display: grid;
@@ -93,7 +94,7 @@ export default function RevealHtmlCssEditor({
   return (
     <EditorContainer className="r-stretch editor" rows={rows} columns={columns}>
       <HtmlCodeEditor>
-        <code className="language-html">{html}</code>
+        <RevealCode className="language-html">{html}</RevealCode>
       </HtmlCodeEditor>
       <RevealCodeEditor
         {...props}
