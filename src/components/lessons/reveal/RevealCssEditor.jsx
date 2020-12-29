@@ -6,8 +6,9 @@ const EditorContainer = styled.div`
   display: grid;
   width: 100%;
 
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: ${({ columns }) => `${columns[0]}% ${columns[1]}%`};
+  grid-template-rows: ${({ rows }) => `${rows[0]}% ${rows[1]}%`};
+  font-size: 0.75em;
 
   pre {
     height: 100%;
@@ -78,13 +79,19 @@ function getHtml(html, css) {
 </html>`;
 }
 
-export default function RevealHtmlCssEditor({ css3, html, ...props }) {
+export default function RevealHtmlCssEditor({
+  css3,
+  html,
+  rows = [50, 50],
+  columns = [50, 50],
+  ...props
+}) {
   const [cssValue, setCss] = useState(css3);
 
   const srcdoc = getHtml(html, cssValue);
 
   return (
-    <EditorContainer className="r-stretch editor">
+    <EditorContainer className="r-stretch editor" rows={rows} columns={columns}>
       <HtmlCodeEditor>
         <code className="language-html">{html}</code>
       </HtmlCodeEditor>

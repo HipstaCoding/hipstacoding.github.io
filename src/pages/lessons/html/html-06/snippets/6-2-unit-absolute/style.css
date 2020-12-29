@@ -1,0 +1,20 @@
+.darts-background {
+  background-image: url("/images/units/6-2/darts.png");
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+}
+
+.dart {
+  background-image: url("/images/units/6-2/dart.png");
+  width: 100px;
+  height: 77px;
+}
+
+.bullseye {
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  background-color: red;
+
+}

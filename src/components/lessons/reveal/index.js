@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { pickLine } from "./utils";
-import Code from "./RevealCode";
+import RevealCode from "./RevealCode";
 import RevealHtmlEditor from "./RevealHtmlEditor";
 import RevealCssEditor from "./RevealCssEditor";
 
@@ -45,9 +45,9 @@ export const AnimatedCode = ({
   if (lines) children = pickLine(children, lines);
   return (
     <pre {...props}>
-      <Code className={className} data-line-numbers={numbers}>
+      <RevealCode className={className} data-line-numbers={numbers}>
         {children}
-      </Code>
+      </RevealCode>
     </pre>
   );
 };

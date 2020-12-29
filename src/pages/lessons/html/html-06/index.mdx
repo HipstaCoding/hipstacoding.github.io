@@ -1,8 +1,12 @@
 import background from "./images/background.jpg";
 import relativeHtml from "./snippets/relative/index.html";
 import relativeCss from "./snippets/relative/style.css";
+import absoluteHtml from "./snippets/absolute/index.html";
+import absoluteCss from "./snippets/absolute/style.css";
 import unit61Html from "./snippets/6-1-unit-relative/index.html";
 import unit61Css from "./snippets/6-1-unit-relative/style.css";
+import unit62Html from "./snippets/6-2-unit-absolute/index.html";
+import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 
 <section
   data-background={background}
@@ -98,7 +102,15 @@ import unit61Css from "./snippets/6-1-unit-relative/style.css";
 <section>
 <section>
 
-## `position: relative;`
+## Относительное позиционирование
+### `position: relative;`
+
+</section>
+<section>
+
+*Относительное позиционирование* сдвигает элемент относительно его обычного положения.
+
+При этом его предыдущее место в потоке документа остается **зарезервированным**.
 
 </section>
 <section>
@@ -140,6 +152,58 @@ import unit61Css from "./snippets/6-1-unit-relative/style.css";
 </p>
 
 </div>
+
+</section>
+</section>
+<section>
+<section>
+
+## Абсолютное позиционирование
+### `position: absolute`
+
+</section>
+<section>
+
+**Абсолютное позиционирование** сдвигает элемент относительно экрана или другого элемента со свойством
+`position` (не `static`).
+
+</section>
+<section>
+
+<ImgContainer>
+
+![absolute position](images/position-absolute.png)
+
+</ImgContainer>
+
+</section>
+<section>
+
+### Расположение относительно *экрана*
+
+<RevealCssEditor rows={[25, 75]} html={absoluteHtml} css3={absoluteCss} />
+
+</section>
+<section>
+
+### Расположение относительно *родителя*
+
+<RevealCssEditor rows={[25, 75]} html={absoluteHtml} css3={absoluteCss} />
+
+</section>
+<section id="unit-absolute">
+
+#### Задача 6.2
+
+### "В яблочко"
+
+1. Расположить дротик `.dark` в центре дартса c помощью `position: absolute`
+2. Раскрасить центр дартса в красный цвет используя `.bullseye` 
+
+</section>
+<section>
+
+<RevealCssEditor rows={[25, 75]} html={unit62Html} css3={unit62Css} />
 
 </section>
 </section>

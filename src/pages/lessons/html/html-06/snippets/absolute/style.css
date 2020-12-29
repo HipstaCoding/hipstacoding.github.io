@@ -1,0 +1,24 @@
+.absolute {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border: 5px dashed #000000;
+  text-align: center;
+}
+
+.box:nth-child(1) {
+  background-color: #d55353;
+}
+
+.box:nth-child(2) {
+  background-color: #5858ef;
+}
+
+.box:nth-child(3) {
+  background-color: #80e880;
+}
