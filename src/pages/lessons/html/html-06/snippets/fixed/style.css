@@ -1,0 +1,14 @@
+.clippy {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  height: 150px;
+  background-image: url("/gifs/clippy.gif");
+  background-size: cover;
+}
+
+p {
+  text-indent: 2em;
+  padding: 0 20px;
+}

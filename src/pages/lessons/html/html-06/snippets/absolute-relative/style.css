@@ -1,0 +1,27 @@
+.container {
+  border: 5px solid #E44D26;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  /* css хак для создания сетки 50x50 пикселей
+  https://stackoverflow.com/questions/3540194/how-to-make-a-grid-like-graph-paper-grid-with-just-css */
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+}
+
+.absolute {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border: 5px dashed #C57BDD;
+  text-align: center;
+}

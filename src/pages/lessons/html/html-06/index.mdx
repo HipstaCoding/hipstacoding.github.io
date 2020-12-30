@@ -3,10 +3,16 @@ import relativeHtml from "./snippets/relative/index.html";
 import relativeCss from "./snippets/relative/style.css";
 import absoluteHtml from "./snippets/absolute/index.html";
 import absoluteCss from "./snippets/absolute/style.css";
+import absoluteRelativeHtml from "./snippets/absolute-relative/index.html";
+import absoluteRelativeCss from "./snippets/absolute-relative/style.css";
+import fixedHtml from "./snippets/fixed/index.html";
+import fixedCss from "./snippets/fixed/style.css";
 import unit61Html from "./snippets/6-1-unit-relative/index.html";
 import unit61Css from "./snippets/6-1-unit-relative/style.css";
 import unit62Html from "./snippets/6-2-unit-absolute/index.html";
 import unit62Css from "./snippets/6-2-unit-absolute/style.css";
+import unit63Html from "./snippets/6-3-unit-fixed/index.html";
+import unit63Css from "./snippets/6-3-unit-fixed/style.css";
 
 <section
   data-background={background}
@@ -26,7 +32,6 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 <section>
 
 1. [[Medium] About CSS Positioning](https://medium.com/@demayous1/about-css-positioning-7a913dc7425a)
-
 
 </section>
 </section>
@@ -92,8 +97,8 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 
 ### `top` и `left` в приоритете
 
-- если `position` равно `absolute` или `fixed`, а элемент может растягиваются - `top` и `bottom`, 
-  `left` и `right` растягивают элемент 
+- если `position` равно `absolute` или `fixed`, а элемент может растягиваются - `top` и `bottom`,
+  `left` и `right` растягивают элемент
 - `top` и `bottom` - отступ от начальной точки по вертикали (ось y)
 - `left` и `right` - отступ от начальной точки по горизонтали (ось x)
 
@@ -103,12 +108,13 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 <section>
 
 ## Относительное позиционирование
-### `position: relative;`
+
+#### `position: relative;`
 
 </section>
 <section>
 
-*Относительное позиционирование* сдвигает элемент относительно его обычного положения.
+_Относительное позиционирование_ сдвигает элемент относительно его обычного положения.
 
 При этом его предыдущее место в потоке документа остается **зарезервированным**.
 
@@ -143,12 +149,16 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 
 <div class="r-stack">
 
-<p class="fragment fade-out" data-fragment-index={1}> В 95% случаев мы можем обойтись отступом и не использовать `position: relative`, в том числе использовать
-отрицательные отступы (negative margins). Особенность относительного позиционирования - его сдвиг не влияет 
-на другие элементы. </p>
+<p class="fragment fade-out" data-fragment-index={1}>
+  {" "}
+  В 95% случаев мы можем обойтись отступом и не использовать `position: relative`,
+  в том числе использовать отрицательные отступы (negative margins). Особенность
+  относительного позиционирования - его сдвиг не влияет на другие элементы.{" "}
+</p>
 <p class="fragment fade-in-then-out" data-fragment-index={1}>
-  Но все же он используется и в паре с <inlineCode>position: absolute</inlineCode>!
-  <audio data-autoplay src="/sounds/surprise-motherfucker.mp3" />  
+  Но все же он используется и в паре с{" "}
+  <inlineCode>position: absolute</inlineCode>!
+  <audio data-autoplay src="/sounds/surprise-motherfucker.mp3" />
 </p>
 
 </div>
@@ -159,13 +169,21 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 <section>
 
 ## Абсолютное позиционирование
-### `position: absolute`
+
+#### `position: absolute`
 
 </section>
 <section>
 
-**Абсолютное позиционирование** сдвигает элемент относительно экрана или другого элемента со свойством
-`position` (не `static`).
+**Абсолютное позиционирование** удаляет элемент из потока и сдвигает относительно экрана или другого
+элемента со свойством `position` (не `static`).
+
+</section>
+<section>
+
+### Расположение относительно _экрана_
+
+<RevealCssEditor rows={[25, 75]} html={absoluteHtml} css3={absoluteCss} />
 
 </section>
 <section>
@@ -179,16 +197,13 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 </section>
 <section>
 
-### Расположение относительно *экрана*
+### Расположение относительно _родителя_
 
-<RevealCssEditor rows={[25, 75]} html={absoluteHtml} css3={absoluteCss} />
-
-</section>
-<section>
-
-### Расположение относительно *родителя*
-
-<RevealCssEditor rows={[25, 75]} html={absoluteHtml} css3={absoluteCss} />
+<RevealCssEditor
+  rows={[25, 75]}
+  html={absoluteRelativeHtml}
+  css3={absoluteRelativeCss}
+/>
 
 </section>
 <section id="unit-absolute">
@@ -198,12 +213,47 @@ import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 ### "В яблочко"
 
 1. Расположить дротик `.dark` в центре дартса c помощью `position: absolute`
-2. Раскрасить центр дартса в красный цвет используя `.bullseye` 
+2. Раскрасить центр дартса в красный цвет используя `.bullseye`
 
 </section>
 <section>
 
 <RevealCssEditor rows={[25, 75]} html={unit62Html} css3={unit62Css} />
+
+</section>
+</section>
+<section>
+<section>
+
+## Фиксированное позиционирование
+
+#### `position: fixed`
+
+</section>
+<section>
+
+
+**Фиксированное позиционирование** удаляет элемент из потока, сдвигает относительно экрана и 
+**фиксирует** его на этом месте
+
+</section>
+<section>
+
+<RevealCssEditor html={fixedHtml} css3={fixedCss} />
+
+</section>
+<section>
+
+#### Задача 6.3
+### Модальное окно
+
+
+
+</section>
+<section>
+
+<RevealCssEditor rows={[25, 75]} html={unit63Html} css3={unit63Css} />
+
 
 </section>
 </section>
