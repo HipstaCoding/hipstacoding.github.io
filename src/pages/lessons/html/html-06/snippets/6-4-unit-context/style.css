@@ -1,0 +1,85 @@
+.your .card {
+  bottom: 0;
+  position: absolute;
+}
+
+.your .ten {
+  left: 0;
+}
+
+.your .jack {
+  left: 20px;
+}
+
+.your .queen {
+  left: 40px;
+}
+
+.your .king {
+  left: 60px;
+}
+
+.your .ace {
+  left: 80px;
+}
+
+body {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  width: 500px;
+  height: 200px;
+  border: 2px solid black;
+  position: relative;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+}
+
+.card {
+  width: 73px;
+  height: 97px;
+  background-image: url("/images/units/6-4/cards.png");
+}
+
+.nine {
+  background-position: -584px -197px;
+}
+
+.ten {
+  background-position: -658px -197px;
+}
+
+.jack {
+  background-position: -732px -197px;
+}
+
+.queen {
+  background-position: -804px -197px;
+}
+
+.king {
+  background-position: -878px -197px;
+}
+
+.ace {
+  background-position: 0 -197px;
+}
+
+.opponnent {
+  display: flex;
+}
+
+.opponnent.deck {
+  z-index: 10;
+  position: relative;
+}
+
+.opponnent .card {
+  margin-right: 27px;
+}

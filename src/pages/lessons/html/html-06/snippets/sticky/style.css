@@ -1,0 +1,34 @@
+.sticky {
+  position: sticky;
+  top: 50px;
+  left: 50px;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border: 5px dashed #000000;
+  text-align: center;
+}
+
+.box:nth-child(1) {
+  background-color: #d55353;
+}
+
+.box:nth-child(2) {
+  background-color: #5858ef;
+}
+
+.box:nth-child(3) {
+  background-color: #80e880;
+}
+
+.container {
+  /* для скролла */
+  height: 2000px;
+  border: 5px solid #E44D26;
+}
+
+body {
+  height: 3000px;
+}

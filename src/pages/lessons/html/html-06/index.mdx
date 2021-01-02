@@ -7,12 +7,16 @@ import absoluteRelativeHtml from "./snippets/absolute-relative/index.html";
 import absoluteRelativeCss from "./snippets/absolute-relative/style.css";
 import fixedHtml from "./snippets/fixed/index.html";
 import fixedCss from "./snippets/fixed/style.css";
+import stickyHtml from "./snippets/sticky/index.html";
+import stickyCss from "./snippets/sticky/style.css";
 import unit61Html from "./snippets/6-1-unit-relative/index.html";
 import unit61Css from "./snippets/6-1-unit-relative/style.css";
 import unit62Html from "./snippets/6-2-unit-absolute/index.html";
 import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 import unit63Html from "./snippets/6-3-unit-fixed/index.html";
 import unit63Css from "./snippets/6-3-unit-fixed/style.css";
+import unit64Html from "./snippets/6-4-unit-context/index.html";
+import unit64Css from "./snippets/6-4-unit-context/style.css";
 
 <section
   data-background={background}
@@ -32,6 +36,8 @@ import unit63Css from "./snippets/6-3-unit-fixed/style.css";
 <section>
 
 1. [[Medium] About CSS Positioning](https://medium.com/@demayous1/about-css-positioning-7a913dc7425a)
+2. [[MDN] Position](https://developer.mozilla.org/ru/docs/Web/CSS/position)
+3. [[MDN] Stacking context](https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
 </section>
 </section>
@@ -247,13 +253,58 @@ _Относительное позиционирование_ сдвигает �
 #### Задача 6.3
 ### Модальное окно
 
-
+Разместить модальное окно по центру экрана и затемнить текст за этим окном. Затемнение и центрирование
+уже сделанно в `.modal-background`, осталось только правильно его зафиксировать. 
 
 </section>
 <section>
 
 <RevealCssEditor html={unit63Html} css3={unit63Css} />
 
+</section>
+</section>
+<section>
+<section>
+
+## Липкое позиционирование
+#### `position: sticky`
+
+</section>
+<section>
+
+**Липкое позиционирование** - гибрид относительного и фиксированного позиционирования. Он обрабатывается как относительно позиционированный до тех пор, пока он не пересечет заданный порог, после чего будет считаться фиксированным, пока не достигнет границы его родителя.
+
+</section>
+<section>
+
+<RevealCssEditor html={stickyHtml} css3={stickyCss} />
+
+</section>
+</section>
+<section>
+<section>
+
+## Контекст наложения
+#### Stacking Сontext
+
+</section>
+<section>
+
+Свойство z-index определяет порядок отрисовки компонента
+
+</section>
+
+<section>
+
+#### Задача 6.4
+## "Играем в дурака"
+
+Ваши карты снизу, карты противника сверху. Нужно "побить" все карты провника.
+
+</section>
+<section>
+
+<RevealCssEditor html={unit64Html} css3={unit64Css} />
 
 </section>
 </section>
