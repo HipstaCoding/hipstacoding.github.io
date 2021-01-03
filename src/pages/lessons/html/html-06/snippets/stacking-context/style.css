@@ -1,0 +1,50 @@
+.absolute {
+  position: absolute;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border: 5px dashed #000000;
+  text-align: center;
+}
+
+.box:nth-child(1) {
+  background-color: #d55353;
+}
+
+.box:nth-child(2) {
+  top: 50px;
+  left: 50px;
+  background-color: #E44D26;
+}
+
+.box:nth-child(3) {
+  top: 100px;
+  left: 100px;
+  background-color: #F7DF1E;
+}
+
+.box:nth-child(4) {
+  background-color: #80e880;
+  top: 150px;
+  left: 150px;
+}
+
+.box:nth-child(5) {
+  top: 200px;
+  left: 200px;
+  background-color: #53C1DF;
+}
+
+.box:nth-child(6) {
+  background-color: #5858ef;
+  top: 250px;
+  left: 250px;
+}
+
+.box:nth-child(7) {
+  background-color: #C57BDD;
+  top: 250px;
+  left: 250px;
+}

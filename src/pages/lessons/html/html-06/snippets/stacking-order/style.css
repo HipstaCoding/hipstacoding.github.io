@@ -1,0 +1,35 @@
+.absolute {
+  position: absolute;
+}
+
+.box {
+  padding-top: 20px;
+  width: 70%;
+  height: 70%;
+  border-radius: 55%;
+  border: 5px dashed #000000;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.box:nth-child(1) {
+  background-color: #d55353;
+  right: 0;
+}
+
+.box:nth-child(2) {
+  background-color: #E44D26;
+  top: 0;
+}
+
+.box:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  background-color: #F7DF1E;
+}
+
+.box:nth-child(4) {
+  background-color: #80e880;
+  bottom: 0;
+  right: 0;
+}

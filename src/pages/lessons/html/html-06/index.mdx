@@ -1,4 +1,5 @@
 import background from "./images/background.jpg";
+import theEnd from "./images/the-end.png";
 import relativeHtml from "./snippets/relative/index.html";
 import relativeCss from "./snippets/relative/style.css";
 import absoluteHtml from "./snippets/absolute/index.html";
@@ -9,14 +10,20 @@ import fixedHtml from "./snippets/fixed/index.html";
 import fixedCss from "./snippets/fixed/style.css";
 import stickyHtml from "./snippets/sticky/index.html";
 import stickyCss from "./snippets/sticky/style.css";
+import stackingContextHtml from "./snippets/stacking-context/index.html";
+import stackingContextCss from "./snippets/stacking-context/style.css";
+import stackingCustomHtml from "./snippets/stacking-custom/index.html";
+import stackingCustomCss from "./snippets/stacking-custom/style.css";
+import stackingOrderHtml from "./snippets/stacking-order/index.html";
+import stackingOrderCss from "./snippets/stacking-order/style.css";
 import unit61Html from "./snippets/6-1-unit-relative/index.html";
 import unit61Css from "./snippets/6-1-unit-relative/style.css";
 import unit62Html from "./snippets/6-2-unit-absolute/index.html";
 import unit62Css from "./snippets/6-2-unit-absolute/style.css";
 import unit63Html from "./snippets/6-3-unit-fixed/index.html";
 import unit63Css from "./snippets/6-3-unit-fixed/style.css";
-import unit64Html from "./snippets/6-4-unit-context/index.html";
-import unit64Css from "./snippets/6-4-unit-context/style.css";
+import unit65Html from "./snippets/6-5-unit-context/index.html";
+import unit65Css from "./snippets/6-5-unit-context/style.css";
 
 <section
   data-background={background}
@@ -161,13 +168,26 @@ _Относительное позиционирование_ сдвигает �
   в том числе использовать отрицательные отступы (negative margins). Особенность
   относительного позиционирования - его сдвиг не влияет на другие элементы.{" "}
 </p>
-<p class="fragment fade-in-then-out" data-fragment-index={1}>
+<p class="fragment fade-in" data-fragment-index={1}>
   Но все же он используется и в паре с{" "}
   <inlineCode>position: absolute</inlineCode>!
   <audio data-autoplay src="/sounds/surprise-motherfucker.mp3" />
 </p>
 
 </div>
+
+</section>
+<section>
+
+#### Пример
+
+<ImgContainer width="80%">
+
+![position: relative example](./images/example-relative.png)
+
+###### Источник: [dribble](https://dribbble.com/shots/9380781-Locatee-Landing-page)
+
+</ImgContainer>
 
 </section>
 </section>
@@ -181,8 +201,22 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
+<div class="r-stack">
+
+<p class="fragment fade-out" data-fragment-index={1}>
+
 **Абсолютное позиционирование** удаляет элемент из потока и сдвигает относительно экрана или другого
 элемента со свойством `position` (не `static`).
+
+</p>
+<p class="fragment fade-in" data-fragment-index={1}>
+
+Чаще всего `position: absolute` используют в паре с `position: relative` у родительского элемента 
+(контейнера)! 
+
+<audio data-autoplay src="/sounds/surprise-motherfucker.mp3" />
+</p>
+</div>
 
 </section>
 <section>
@@ -227,6 +261,19 @@ _Относительное позиционирование_ сдвигает �
 <RevealCssEditor rows={[25, 75]} html={unit62Html} css3={unit62Css} />
 
 </section>
+<section>
+
+### Пример
+
+<ImgContainer width="80%">
+
+![position: relative example](./images/example-absolute.png)
+
+###### Источник: [html5up](https://html5up.net/uploads/demos/spectral/#three)
+
+</ImgContainer>
+
+</section>
 </section>
 <section>
 <section>
@@ -237,7 +284,6 @@ _Относительное позиционирование_ сдвигает �
 
 </section>
 <section>
-
 
 **Фиксированное позиционирование** удаляет элемент из потока, сдвигает относительно экрана и 
 **фиксирует** его на этом месте
@@ -260,6 +306,19 @@ _Относительное позиционирование_ сдвигает �
 <section>
 
 <RevealCssEditor html={unit63Html} css3={unit63Css} />
+
+</section>
+<section>
+
+#### Пример
+
+<ImgContainer width="80%">
+
+![position: relative example](./images/example-fixed.png)
+
+###### Источник: [html5Up](https://html5up.net/hyperspace)
+
+</ImgContainer>
 
 </section>
 </section>
@@ -290,13 +349,53 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-Свойство z-index определяет порядок отрисовки компонента
+Контекст наложения - это концепция трехмерного расположения HTML элементов вдоль оси Z по отношению к пользователю, находящемуся перед экраном. 
 
 </section>
-
 <section>
 
-#### Задача 6.4
+<ImgContainer width="80%">
+
+![stacking error windows](./images/stacking-error.png)
+
+</ImgContainer>
+
+</section>
+<section>
+
+<RevealCssEditor html={stackingContextHtml} css3={stackingContextCss} />
+
+</section>
+<section>
+
+Свойство `z-index` определяет порядок отрисовки компонента и принимает значения:
+
+- `auto` (**default**) - не создает внутренний контекст наложения
+- `<integer>` - может быть целым положительным и отрицательным числом
+
+</section>
+<section>
+
+<RevealCssEditor html={stackingCustomHtml} css3={stackingCustomCss} />
+
+</section>
+<section>
+
+#### Внегласное правило CSS 6.5
+### Не использовать z-index
+
+Управлять передним элементом через его порядок и свойством `position`, а `z-index` использовать в
+крайнем случае.
+
+</section>
+<section>
+
+<RevealCssEditor html={stackingOrderHtml} css3={stackingOrderCss} />
+
+</section>
+<section>
+
+#### Задача 6.5
 ## "Играем в дурака"
 
 Ваши карты снизу, карты противника сверху. Нужно "побить" все карты провника.
@@ -304,7 +403,29 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={unit64Html} css3={unit64Css} />
+<RevealCssEditor html={unit65Html} css3={unit65Css} />
+
+</section>
+</section>
+<section>
+<section>
+
+#### Домашнее задание 6
+## Спозиционируй позиционируемое
+
+Добавь все позиционируемые элементы со своего шаблона к себе на сайт. Если у тебя в шаблоне нету 
+таких элементов, добавь что-то из другого шаблона или же придумай задачу сам. 
+
+</section>
+<section>
+
+## Есть вопросы?
+#### Записывайся на практические занятия в [канале](https://t.me/hipstacodingschool)!
+
+</section>
+<section data-background={theEnd}>
+
+<audio data-autoplay src="/sounds/temptation-sensation.mp3" />
 
 </section>
 </section>

@@ -44,42 +44,43 @@ body {
 .card {
   width: 73px;
   height: 97px;
-  background-image: url("/images/units/6-4/cards.png");
+  background-image: url("/images/sprites/cards.png");
 }
 
 .nine {
-  background-position: -584px -197px;
+  background-position: calc(100% * 8 / 12) calc(100% * 2 / 3);
 }
 
 .ten {
-  background-position: -658px -197px;
+  background-position: calc(100% * 9 / 12) calc(100% * 2 / 3);
 }
 
 .jack {
-  background-position: -732px -197px;
+  background-position: calc(100% * 10 / 12) calc(100% * 2 / 3);
 }
 
 .queen {
-  background-position: -804px -197px;
+  background-position: calc(100% * 11 / 12) calc(100% * 2 / 3);
 }
 
 .king {
-  background-position: -878px -197px;
+  background-position: 100% calc(100% * 2 / 3);
 }
 
 .ace {
-  background-position: 0 -197px;
+  background-position: 0 calc(100% * 2 / 3);
 }
 
-.opponnent {
+.opponent {
   display: flex;
 }
 
-.opponnent.deck {
+.opponent.deck {
   z-index: 10;
   position: relative;
 }
 
-.opponnent .card {
+.opponent .card {
   margin-right: 27px;
+  flex-shrink: 0;
 }
