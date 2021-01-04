@@ -6,6 +6,7 @@ import Pre from "../reveal/RevealPre";
 import icons from "components/common/Icons";
 import CodeSandbox from "components/common/CodeSandbox";
 import InlineCode from "./InlineCode";
+import PassProps from "../reveal/PassProps";
 
 const A = props => <a {...props} target="blank" />;
 
@@ -18,6 +19,7 @@ export default {
   Code,
   Hotkey,
   CodeSandbox,
+  PassProps,
   ...revealComponents,
   ...icons,
 };
