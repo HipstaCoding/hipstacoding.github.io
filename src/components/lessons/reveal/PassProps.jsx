@@ -1,10 +1,11 @@
 import { Children } from "react";
 
 export default function PassProps({ children, ...props }) {
-  console.log(props, children);
+  const [firstChild, ...otherChildren] = Children.toArray(children);
 
-  return Children.map(children, (child, i) => {
-    if (i === 0) return <child.type {...child.props} {...props} />;
-    return child;
-  });
+  return (
+    <firstChild.type {...firstChild.props} {...props}>
+      {[...firstChild.props.children, ...otherChildren]}
+    </firstChild.type>
+  );
 }

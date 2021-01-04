@@ -159,16 +159,15 @@ _Относительное позиционирование_ сдвигает �
 <section>
 
 ### `position: relative` vs `margin`
-
 <div class="r-stack">
 <PassProps className="fragment fade-out" data-fragment-index={0}>
- 
+
 В 95% случаев мы можем обойтись отступом и не использовать `position: relative`,
 в том числе использовать отрицательные отступы (negative margins). Особенность
 относительного позиционирования - его сдвиг не влияет на другие элементы.
 
 </PassProps>
-<PassProps className="fragment fade-in" data-fragment-index={0}>
+<PassProps className="fragment fade-in"  data-fragment-index={0}>
 
 Но все же он используется и в паре с `position: absolute`!
 
@@ -200,15 +199,14 @@ _Относительное позиционирование_ сдвигает �
 
 </section>
 <section>
-
 <div class="r-stack">
-<PassProps className="fragment fade-out" data-fragment-index={0}>
+<PassProps className="fragment fade-out" data-fragment-index={1}>
 
 **Абсолютное позиционирование** удаляет элемент из потока и сдвигает относительно экрана или другого
 элемента со свойством `position` (не `static`).
 
 </PassProps>
-<PassProps className="fragment fade-in" data-fragment-index={0}>
+<PassProps className="fragment fade-in" data-fragment-index={1}>
 
 Чаще всего `position: absolute` используют в паре с `position: relative` у родительского элемента 
 (контейнера)! 
