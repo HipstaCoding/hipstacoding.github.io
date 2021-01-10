@@ -1,10 +1,10 @@
 import { useEffect, useContext, useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Logo from "components/Logo";
 import { Link } from "gatsby";
 import { ReactComponent as HtmlColoredSvg } from "assets/icons/html5-css3.svg";
 import { RevealContext } from "./RevealProvider";
-import { opacityAnimationCss } from "lib/utils/styled-components"; 
+import { opacityAnimationCss } from "lib/utils/styled-components";
 
 const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
   position: absolute;
