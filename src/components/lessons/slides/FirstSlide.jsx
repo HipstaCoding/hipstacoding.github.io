@@ -1,13 +1,5 @@
-import { ReactComponent as HtmlColoredSvg } from "assets/icons/html5-colored.svg";
 import styled from "styled-components";
 
-const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  opacity: 0.7;
-  transform: rotate(-10deg);
-`;
 
 const StyledSection = styled.section`
   h3 {
@@ -28,10 +20,7 @@ const StyledSection = styled.section`
     height: 4px;
     background-color: ${({ theme }) => theme.colors.textColor};
   }
-
 `;
-
-
 
 export default function FirstSection({ backgroundImg, children }) {
   return (
@@ -41,8 +30,7 @@ export default function FirstSection({ backgroundImg, children }) {
       data-background-position="top left"
       data-background-opacity="0.1"
     >
-        <StyledHtmlColoredSvg height="50vh" />
-        {children}
+      {children}
     </StyledSection>
   );
 }
