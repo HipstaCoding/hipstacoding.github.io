@@ -57,7 +57,9 @@ const RevealViewport = styled.div`
 `;
 
 const Gradient = styled.div`
-  ${opacityAnimationCss}
+  position: absolute;
+  opacity: ${({ isVisilbe }) => (isVisilbe ? 1 : 0)};
+  transition: opacity 0.5s;
   bottom: 0;
   left: 0;
   right: 0;
