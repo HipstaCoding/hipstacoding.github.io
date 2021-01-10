@@ -67,7 +67,7 @@ const Gradient = styled.div`
   transform: rotate(-180deg);
   background: linear-gradient(
     180deg,
-    #1d1f23 19.93%,
+    #1d1f23 15.93%,
     rgba(29, 31, 35, 0) 92.7%
   );
   pointer-events: none;
