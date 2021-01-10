@@ -2,37 +2,32 @@ import { useEffect, useContext, useState } from "react";
 import styled, { css } from "styled-components";
 import Logo from "components/Logo";
 import { Link } from "gatsby";
-import { ReactComponent as HtmlColoredSvg } from "assets/icons/html5-colored.svg";
+import { ReactComponent as HtmlColoredSvg } from "assets/icons/html5-css3.svg";
 import { RevealContext } from "./RevealProvider";
-
-const opacityAnimationCss = css`
-  position: absolute;
-  opacity: ${({ isVisilbe }) => (isVisilbe ? 0.5 : 0)};
-  transition: opacity 0.5s, transform 0.8s;
-  transform: ${({ isVisilbe }) =>
-    isVisilbe ? "tranlateY(-50%)" : "translateY(-100%)"};
-`;
+import { opacityAnimationCss } from "lib/utils/styled-components"; 
 
 const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
-  right: 0;
+  position: absolute;
+  right: -10%;
   z-index: 0;
   max-height: 100%;
-  width: 50%;
+  width: 70%;
   top: 50%;
+  ${opacityAnimationCss(0.5)}
+  transition: opacity 0.5s, transform 0.8s;
   transform: ${({ isVisilbe }) =>
-    isVisilbe ? "translateY(-50%) rotate(-10deg)" : "translateY(-100%)"};
-  ${opacityAnimationCss}
+    isVisilbe ? "translateY(-50%)" : "rotate(10deg) translateY(-100%)"};
 `;
 
 const StyledLogo = styled(Logo)`
-  bottom: 10vh;
   fill: ${({ theme }) => theme.colors.textColor};
   padding: 0 10px;
-  width: 100%;
 `;
 
 const LeftLink = styled(Link)`
-  ${opacityAnimationCss}
+  position: absolute;
+  transition: opacity 0.5s, transform 0.8s;
+  ${opacityAnimationCss(0.5)}
   width: 150px;
   bottom: 20px;
   left: 40px;
@@ -41,7 +36,9 @@ const LeftLink = styled(Link)`
 `;
 
 const CenterLink = styled(Link)`
-  ${opacityAnimationCss}
+  position: absolute;
+  transition: opacity 0.5s, transform 0.8s;
+  ${opacityAnimationCss(0.5)}
   bottom: 10vh;
   left: 50%;
   width: 20vh;
@@ -58,7 +55,7 @@ const RevealViewport = styled.div`
 
 const Gradient = styled.div`
   position: absolute;
-  opacity: ${({ isVisilbe }) => (isVisilbe ? 1 : 0)};
+  ${opacityAnimationCss(0.5)}
   transition: opacity 0.5s;
   bottom: 0;
   left: 0;
@@ -75,20 +72,13 @@ const Gradient = styled.div`
 
 export default function RevealView({ children }) {
   const reveal = useContext(RevealContext);
-  const [isFirstSlide, setFirstSlide] = useState(true);
-  console.log("isFirstSlide", isFirstSlide);
+  const [slides, setSlides] = useState([0, 0]);
+  const isFirstSlide = slides[0] === 0 && slides[1] === 0;
+
   useEffect(() => {
-    console.log("reveal", reveal);
     if (reveal) {
       reveal.on("slidechanged", ({ indexh, indexv }) => {
-        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-        console.log(event.indexh, event.indexv);
-        if (indexh === 0 && indexv === 0) {
-          setFirstSlide(true);
-        } else {
-          setFirstSlide(false);
-        }
-        // if (event.previousSlide)
+        setSlides([indexv, indexh]);
       });
     }
   }, [reveal]);
