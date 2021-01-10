@@ -5,16 +5,23 @@ import { Link } from "gatsby";
 import { ReactComponent as HtmlColoredSvg } from "assets/icons/html5-colored.svg";
 import { RevealContext } from "./RevealProvider";
 
-const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
+const opacityAnimationCss = css`
   position: absolute;
+  opacity: ${({ isVisilbe }) => (isVisilbe ? 0.5 : 0)};
+  transition: opacity 0.5s, transform 0.8s;
+  transform: ${({ isVisilbe }) =>
+    isVisilbe ? "tranlateY(-50%)" : "translateY(-100%)"};
+`;
+
+const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
   right: 0;
   z-index: 0;
   max-height: 100%;
   width: 50%;
   top: 50%;
-  transform: translateY(-50%) rotate(-10deg);
-  transition: opacity 0.5s;
-  opacity: ${({ isVisilbe }) => (isVisilbe ? 0.7 : 0)};
+  transform: ${({ isVisilbe }) =>
+    isVisilbe ? "translateY(-50%) rotate(-10deg)" : "translateY(-100%)"};
+  ${opacityAnimationCss}
 `;
 
 const StyledLogo = styled(Logo)`
@@ -24,25 +31,24 @@ const StyledLogo = styled(Logo)`
   width: 100%;
 `;
 
-const linkCss = css`
-  position: absolute;
-  opacity: ${({ isVisilbe }) => (isVisilbe ? 0.5 : 0)};
-  transition: opacity 0.5s;
-`
-
 const LeftLink = styled(Link)`
-  ${linkCss}
+  ${opacityAnimationCss}
   width: 150px;
   bottom: 20px;
   left: 40px;
+  transform: ${({ isVisilbe }) =>
+    isVisilbe ? "translateY(0)" : "translateY(100%)"};
 `;
 
 const CenterLink = styled(Link)`
-  ${linkCss}
+  ${opacityAnimationCss}
   bottom: 10vh;
   left: 50%;
   width: 20vh;
-  transform: translateX(-50%);
+  transform: ${({ isVisilbe }) =>
+    isVisilbe
+      ? "translateY(0) translateX(-50%)"
+      : "translateY(-100%) translateX(-50%)"};
 `;
 
 const RevealViewport = styled.div`
@@ -51,7 +57,7 @@ const RevealViewport = styled.div`
 `;
 
 const Gradient = styled.div`
-  position: fixed;
+  ${opacityAnimationCss}
   bottom: 0;
   left: 0;
   right: 0;
@@ -87,7 +93,7 @@ export default function RevealView({ children }) {
   return (
     <>
       <StyledHtmlColoredSvg isVisilbe={isFirstSlide} />
-      <Gradient />
+      <Gradient isVisilbe={isFirstSlide} />
       <RevealViewport id="reveal" className="reveal">
         <div className="slides">{children}</div>
       </RevealViewport>
