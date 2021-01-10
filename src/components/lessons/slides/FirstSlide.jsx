@@ -1,24 +1,25 @@
 import styled from "styled-components";
 
-
 const StyledSection = styled.section`
   h3 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
+    line-height: 4.5rem;
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-family: "Source Code Pro", monospace;
   }
 
   hr {
     width: 90px;
-    height: 4px;
+    height: 2px;
     background-color: ${({ theme }) => theme.colors.textColor};
+    margin: 0 auto;
   }
 `;
 
