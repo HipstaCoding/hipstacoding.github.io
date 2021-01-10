@@ -1,4 +1,3 @@
-import background from "./images/background.jpg";
 import theEnd from "./images/the-end.png";
 import relativeHtml from "./snippets/relative/index.html";
 import relativeCss from "./snippets/relative/style.css";
@@ -25,19 +24,15 @@ import unit63Css from "./snippets/6-3-unit-fixed/style.css";
 import unit65Html from "./snippets/6-5-unit-context/index.html";
 import unit65Css from "./snippets/6-5-unit-context/style.css";
 
-<section
-  data-background={background}
-  data-background-size="cover"
-  data-background-position="top left"
-  data-background-opacity={0.1}
->
+<FirstSlide backgroundImg={require("./images/background.jpg")}>
 <section>
 
 ### Урок 6
 
+---
+
 # Позиционирование
 
-![positioning img](./images/positioning.png)
 
 </section>
 <section>
@@ -47,7 +42,7 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 3. [[MDN] Stacking context](https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
 </section>
-</section>
+</FirstSlide>
 <section>
 <section>
 

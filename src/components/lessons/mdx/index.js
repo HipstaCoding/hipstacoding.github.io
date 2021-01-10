@@ -7,6 +7,7 @@ import icons from "components/common/Icons";
 import CodeSandbox from "components/common/CodeSandbox";
 import InlineCode from "./InlineCode";
 import PassProps from "../reveal/PassProps";
+import FirstSlide from "../../lessons/slides/FirstSlide";
 
 const A = props => <a {...props} target="blank" />;
 
@@ -20,6 +21,7 @@ export default {
   Hotkey,
   CodeSandbox,
   PassProps,
+  FirstSlide,
   ...revealComponents,
   ...icons,
 };
