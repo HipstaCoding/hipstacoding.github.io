@@ -22,6 +22,7 @@ const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
 const StyledLogo = styled(Logo)`
   fill: ${({ theme }) => theme.colors.textColor};
   padding: 0 10px;
+  width: 100%;
 `;
 
 const LeftLink = styled(Link)`
@@ -55,7 +56,7 @@ const RevealViewport = styled.div`
 
 const Gradient = styled.div`
   position: absolute;
-  ${opacityAnimationCss(0.5)}
+  ${opacityAnimationCss(1)}
   transition: opacity 0.5s;
   bottom: 0;
   left: 0;
