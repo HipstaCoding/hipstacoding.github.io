@@ -16,7 +16,7 @@ hljs.registerLanguage("css", css);
 const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
   position: absolute;
   right: 0;
-  opacity: 0.5;
+  opacity: 0.7;
   z-index: 0;
   max-height: 100%;
   width: 50%;
@@ -31,7 +31,7 @@ const StyledLogo = styled(Logo)`
   width: 250px;
   fill: ${({ theme }) => theme.colors.textColor};
   padding: 0 10px;
-  opacity: 0.16;
+  opacity: 0.5;
   transform: translateX(-50%);
 `;
 
