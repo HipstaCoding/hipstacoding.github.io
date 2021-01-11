@@ -74,25 +74,27 @@ exports.onCreateWebpackConfig = ({ actions, stage, loaders, getConfig }) => {
   actions.replaceWebpackConfig(config);
 };
 
-exports.onCreatePage = async ({ page, actions }) => {
-  if (page.path.includes("/lessons/")) {
-    const imgPath = path.join(
-      __dirname,
-      "src/pages",
-      page.path,
-      "images/background.jpg"
-    );
-
-    try {
-      const styles = fs.readFileSync(
-        "./src/lib/reveal-theme/atom-one-dark.css",
-        "utf8"
+if (process.env.BACKGROUN_IMAGE_GENERATION) {
+  exports.onCreatePage = async ({ page }) => {
+    if (page.path.includes("/lessons/")) {
+      const imgPath = path.join(
+        __dirname,
+        "src/pages",
+        page.path,
+        "images/background.jpg"
       );
-      const sourceCode = fs.readFileSync(page.componentPath, "utf8");
 
-      const trimCode = sourceCode.split("\n").slice(0, 50).join("\n");
-      const highlightedCode = hljs.highlight("markdown", trimCode).value + "\n";
-      const html = `
+      try {
+        const styles = fs.readFileSync(
+          "./src/lib/reveal-theme/atom-one-dark.css",
+          "utf8"
+        );
+        const sourceCode = fs.readFileSync(page.componentPath, "utf8");
+
+        const trimCode = sourceCode.split("\n").slice(0, 50).join("\n");
+        const highlightedCode =
+          hljs.highlight("markdown", trimCode).value + "\n";
+        const html = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -111,13 +113,14 @@ exports.onCreatePage = async ({ page, actions }) => {
   </body>
 </html>`;
 
-      await nodeHtmlToImage({
-        output: imgPath,
-        html,
-      });
-      console.log("Background Image Creation Success!", imgPath);
-    } catch (err) {
-      console.log("Background Image Creation Error!", err);
+        await nodeHtmlToImage({
+          output: imgPath,
+          html,
+        });
+        console.log("Background Image Creation Success!", imgPath);
+      } catch (err) {
+        console.log("Background Image Creation Error!", err);
+      }
     }
-  }
-};
+  };
+}

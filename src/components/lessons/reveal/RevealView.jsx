@@ -78,6 +78,8 @@ export default function RevealView({ children }) {
 
   useEffect(() => {
     if (reveal) {
+      const { v, h } = reveal.getIndices();
+      setSlides([v, h]);
       reveal.on("slidechanged", ({ indexh, indexv }) => {
         setSlides([indexv, indexh]);
       });

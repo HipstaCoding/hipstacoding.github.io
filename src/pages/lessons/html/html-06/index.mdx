@@ -1,28 +1,4 @@
 import theEnd from "./images/the-end.png";
-import relativeHtml from "./snippets/relative/index.html";
-import relativeCss from "./snippets/relative/style.css";
-import absoluteHtml from "./snippets/absolute/index.html";
-import absoluteCss from "./snippets/absolute/style.css";
-import absoluteRelativeHtml from "./snippets/absolute-relative/index.html";
-import absoluteRelativeCss from "./snippets/absolute-relative/style.css";
-import fixedHtml from "./snippets/fixed/index.html";
-import fixedCss from "./snippets/fixed/style.css";
-import stickyHtml from "./snippets/sticky/index.html";
-import stickyCss from "./snippets/sticky/style.css";
-import stackingContextHtml from "./snippets/stacking-context/index.html";
-import stackingContextCss from "./snippets/stacking-context/style.css";
-import stackingCustomHtml from "./snippets/stacking-custom/index.html";
-import stackingCustomCss from "./snippets/stacking-custom/style.css";
-import stackingOrderHtml from "./snippets/stacking-order/index.html";
-import stackingOrderCss from "./snippets/stacking-order/style.css";
-import unit61Html from "./snippets/6-1-unit-relative/index.html";
-import unit61Css from "./snippets/6-1-unit-relative/style.css";
-import unit62Html from "./snippets/6-2-unit-absolute/index.html";
-import unit62Css from "./snippets/6-2-unit-absolute/style.css";
-import unit63Html from "./snippets/6-3-unit-fixed/index.html";
-import unit63Css from "./snippets/6-3-unit-fixed/style.css";
-import unit65Html from "./snippets/6-5-unit-context/index.html";
-import unit65Css from "./snippets/6-5-unit-context/style.css";
 
 <FirstSlide backgroundImg={require("./images/background.jpg")}>
 <section>
@@ -37,9 +13,10 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 </section>
 <section>
 
-1. [[Medium] About CSS Positioning](https://medium.com/@demayous1/about-css-positioning-7a913dc7425a)
-2. [[MDN] Position](https://developer.mozilla.org/ru/docs/Web/CSS/position)
-3. [[MDN] Stacking context](https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+1. [[YouTube] Координатная Плоскость](https://www.youtube.com/watch?v=aOhVGfdRtgU)
+2. [[Medium] About CSS Positioning](https://medium.com/@demayous1/about-css-positioning-7a913dc7425a)
+3. [[MDN] Position](https://developer.mozilla.org/ru/docs/Web/CSS/position)
+4. [[MDN] Stacking context](https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
 </section>
 </FirstSlide>
@@ -51,17 +28,23 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 </section>
 <section>
 
-- Для декорирования отдельных элементов
-- Не для сеток
-- Добавляют stacking context
-- Нарушают привычный поток документа
+**Позиционирование** - способ расположения элементов **вне** сетки.
 
 </section>
 <section>
 
+### Позиционирование:
+
+- **Распологает** декоративные элементы.
+- Добавляет **контекст наложения**.
+- **Нарушает** привычный **поток документа**.
+
+</section>
+<section data-auto-animate={true}>
+
 ### `position`
 
-```css
+```css data-id="reverse-cowboy"
 .reverse-cowboy {
   position: static; /* default */
   position: relative;
@@ -72,11 +55,11 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 ```
 
 </section>
-<section>
+<section data-auto-animate>
 
-### `top`, `bottom`, `left`, `right`
+### Дополнительные свойства
 
-```css
+```css data-id="reverse-cowboy"
 .reverse-cowboy {
   position: relative;
 
@@ -85,7 +68,6 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 
   left: auto;
   right: auto;
-
   z-index: 1: /* integer */
 }
 ```
@@ -93,22 +75,33 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 </section>
 <section>
 
-### `top`, `bottom`, `left`, `right`
+### Свойства <br /> `top, bottom, left, right`
 
-- Значение `auto` равняется изначальной позиции
-- Значение в `%` считается от высоты/ширины родителя
-- Могут принимать отрицательные значения
-- Игнорируются при отсуствии свойства `position` и его значения `static`
+- `top` и `bottom` - отступ по вертикали
+- `left` и `right` - отступ по горизонтали
+- `top` и `left` - в приоритете
+- Игнорируются при `position: static`
 
 </section>
 <section>
 
-### `top` и `left` в приоритете
+### Значения <br /> `top, bottom, left, right`
 
-- если `position` равно `absolute` или `fixed`, а элемент может растягиваются - `top` и `bottom`,
-  `left` и `right` растягивают элемент
-- `top` и `bottom` - отступ от начальной точки по вертикали (ось y)
-- `left` и `right` - отступ от начальной точки по горизонтали (ось x)
+- `auto` - равняется изначальной позиции
+- `%` - считается от высоты/ширины родителя
+- `px, rem, vh, vw` - могут принимать отрицательные значения
+
+</section>
+<section>
+
+<ImgContainer width="80%">
+
+![Van Damme fixed](../html-06/images/vandamme.png)
+
+</ImgContainer>
+
+Если `position` равно `absolute` или `fixed`, а элемент может растягиваются - `top` и `bottom`,
+`left` и `right` растягивают элемент
 
 </section>
 </section>
@@ -117,12 +110,12 @@ import unit65Css from "./snippets/6-5-unit-context/style.css";
 
 ## Относительное позиционирование
 
-#### `position: relative;`
+#### `position: relative`
 
 </section>
 <section>
 
-_Относительное позиционирование_ сдвигает элемент относительно его обычного положения.
+**Относительное позиционирование** сдвигает элемент относительно его обычного положения.
 
 При этом его предыдущее место в потоке документа остается **зарезервированным**.
 
@@ -134,7 +127,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor css3={relativeCss} html={relativeHtml} />
+<RevealCssEditor css3={require("./snippets/relative/style.css")} html={require("./snippets/relative/index.html")} />
 
 </section>
 <section id="unit-relative">
@@ -143,12 +136,12 @@ _Относительное позиционирование_ сдвигает �
 
 ### Шахматная доска
 
-Расположить каждую вторую ячейку с помощью `position: relative;` так, чтобы образовалась шахматная доска.
+Расположить каждую вторую ячейку с помощью `position: relative` так, чтобы образовалась шахматная доска.
 
 </section>
 <section>
 
-<RevealCssEditor html={unit61Html} css3={unit61Css} />
+<RevealCssEditor html={require("./snippets/6-1-unit-relative/index.html")} css3={require("./snippets/6-1-unit-relative/style.css")} />
 
 </section>
 <section>
@@ -215,7 +208,7 @@ _Относительное позиционирование_ сдвигает �
 
 ### Расположение относительно _экрана_
 
-<RevealCssEditor rows={[25, 75]} html={absoluteHtml} css3={absoluteCss} />
+<RevealCssEditor rows={[25, 75]} html={require("./snippets/absolute/index.html")} css3={require("./snippets/absolute/style.css")} />
 
 </section>
 <section>
@@ -233,8 +226,8 @@ _Относительное позиционирование_ сдвигает �
 
 <RevealCssEditor
   rows={[25, 75]}
-  html={absoluteRelativeHtml}
-  css3={absoluteRelativeCss}
+  html={require("./snippets/absolute-relative/index.html")}
+  css3={require("./snippets/absolute-relative/style.css")}
 />
 
 </section>
@@ -250,7 +243,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor rows={[25, 75]} html={unit62Html} css3={unit62Css} />
+<RevealCssEditor rows={[25, 75]} html={require("./snippets/6-2-unit-absolute/index.html")} css3={require("./snippets/6-2-unit-absolute/style.css")} />
 
 </section>
 <section>
@@ -283,7 +276,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={fixedHtml} css3={fixedCss} />
+<RevealCssEditor html={require("./snippets/fixed/index.html")} css3={require("./snippets/fixed/style.css")} />
 
 </section>
 <section>
@@ -297,7 +290,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={unit63Html} css3={unit63Css} />
+<RevealCssEditor html={require("./snippets/6-3-unit-fixed/index.html")} css3={require("./snippets/6-3-unit-fixed/style.css")} />
 
 </section>
 <section>
@@ -328,7 +321,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={stickyHtml} css3={stickyCss} />
+<RevealCssEditor html={require("./snippets/sticky/index.html")} css3={require("./snippets/sticky/style.css")} />
 
 </section>
 </section>
@@ -355,7 +348,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={stackingContextHtml} css3={stackingContextCss} />
+<RevealCssEditor html={require("./snippets/stacking-context/index.html")} css3={require("./snippets/stacking-context/style.css")} />
 
 </section>
 <section>
@@ -368,7 +361,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={stackingCustomHtml} css3={stackingCustomCss} />
+<RevealCssEditor html={require("./snippets/stacking-custom/index.html")} css3={require("./snippets/stacking-custom/style.css")} />
 
 </section>
 <section>
@@ -382,7 +375,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={stackingOrderHtml} css3={stackingOrderCss} />
+<RevealCssEditor html={require("./snippets/stacking-order/index.html")} css3={require("./snippets/stacking-order/style.css")} />
 
 </section>
 <section>
@@ -395,7 +388,7 @@ _Относительное позиционирование_ сдвигает �
 </section>
 <section>
 
-<RevealCssEditor html={unit65Html} css3={unit65Css} />
+<RevealCssEditor html={require("./snippets/6-5-unit-context/index.html")} css3={require("./snippets/6-5-unit-context/style.css")} />
 
 </section>
 </section>
