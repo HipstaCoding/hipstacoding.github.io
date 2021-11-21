@@ -80,6 +80,8 @@ function getHtml(html, css) {
 </html>`;
 }
 
+const isModule = x => typeof x === "object" && x.default;
+
 export default function RevealHtmlCssEditor({
   css3,
   html,
@@ -87,14 +89,17 @@ export default function RevealHtmlCssEditor({
   columns = [50, 50],
   ...props
 }) {
-  const [cssValue, setCss] = useState(css3);
+  const htmlString = isModule(html) ? html.default : html;
+  const cssString = isModule(css3) ? css3.default : css3;
 
-  const srcdoc = getHtml(html, cssValue);
+  const [cssValue, setCss] = useState(cssString, css3);
+
+  const srcdoc = getHtml(htmlString, cssValue);
 
   return (
     <EditorContainer className="r-stretch editor" rows={rows} columns={columns}>
       <HtmlCodeEditor>
-        <RevealCode className="language-html">{html}</RevealCode>
+        <RevealCode className="language-html">{htmlString}</RevealCode>
       </HtmlCodeEditor>
       <RevealCodeEditor
         {...props}
