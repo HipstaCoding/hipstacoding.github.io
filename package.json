@@ -19,7 +19,7 @@
     "react-helmet": "6.1.0",
     "react-spring": "8.0.27",
     "reveal.js": "4.2.0",
-    "sass": "1.43.4",
+    "sass": "1.44.0",
     "styled-components": "5.3.3"
   },
   "devDependencies": {
