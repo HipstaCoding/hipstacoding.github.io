@@ -6,8 +6,8 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
-    branches: [ master ]
-
+    branches:
+     - 'releases/**'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -40,6 +40,6 @@ jobs:
           summary: ${{ github.event_path }}
 
           # Issue description
-          description: ${{ github.base_ref }}
+          description: ${{ toJSON(github) }}
           # Additional fields in JSON format
           # fields: # optional
