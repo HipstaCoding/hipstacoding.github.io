@@ -33,7 +33,7 @@ jobs:
         uses: atlassian/gajira-create@v2.0.1
         with:
           # Key of the project
-          project: HIPSTA
+          project: CA
           # Type of the issue to be created. Example: 'Incident'
           issuetype: Task
           # Issue summary
