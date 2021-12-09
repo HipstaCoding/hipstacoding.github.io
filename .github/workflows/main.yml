@@ -37,9 +37,9 @@ jobs:
           # Type of the issue to be created. Example: 'Incident'
           issuetype: Task
           # Issue summary
-          summary: Build completed for ${{ github.repository }}
+          summary: ${{ github.event_path }}
 
           # Issue description
-          description: ${{ JSON.stirngift(github, null, 2) }}
+          description: ${{ github.base_ref }}
           # Additional fields in JSON format
           # fields: # optional
