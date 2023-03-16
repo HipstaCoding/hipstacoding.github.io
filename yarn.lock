@@ -6706,10 +6706,10 @@ gatsby-plugin-sitemap@5.11.1:
     minimatch "^3.0.4"
     sitemap "^7.0.0"
 
-gatsby-plugin-split-css@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-split-css/-/gatsby-plugin-split-css-2.0.0.tgz#4edb082d73353e813b0cc82a19c9c4d8bd0de937"
-  integrity sha512-8icrK951WmDIjS5w9u0h2MQXHcEF9zzAhtWToxCb0Jv1tHkgCAKFjnUVjQGfxvkOO2GhfCEcbywbWjXiW0xyrQ==
+gatsby-plugin-split-css@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-split-css/-/gatsby-plugin-split-css-2.0.3.tgz#843c0121b846c08e2e5418ee56ca55c972ee296b"
+  integrity sha512-1QG2Yt9mj47vLF8tKSNEeHrHa3taeVc4YqUwPHM1h2Qk30QIbht+8M30p4/5tYw0kUhyorho3SnkDCtVGgCbOg==
 
 gatsby-plugin-styled-components@5.11.0:
   version "5.11.0"
