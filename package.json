@@ -18,7 +18,7 @@
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-spring": "8.0.27",
-    "reveal.js": "4.3.0",
+    "reveal.js": "4.5.0",
     "sass": "1.44.0",
     "styled-components": "5.3.3"
   },
