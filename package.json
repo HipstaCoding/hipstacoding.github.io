@@ -20,7 +20,7 @@
     "react-spring": "8.0.27",
     "reveal.js": "4.3.0",
     "sass": "1.44.0",
-    "styled-components": "5.3.3"
+    "styled-components": "5.3.11"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "1.13.3",
