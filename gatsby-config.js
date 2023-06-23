@@ -5,31 +5,9 @@ const description =
 module.exports = {
   siteMetadata: {
     title,
-    siteUrl: "https://hipstacoding.school/",
+    siteUrl: "https://hipstacoding.github.io/",
     description,
-    image: "https://hipstacoding.school/hipsta-logo.jpg",
-    keywords: [
-      "courses",
-      "курсы",
-      "front end",
-      "frontend",
-      "front-end",
-      "программирование",
-      "it",
-      "с нуля",
-      "школа программирования",
-      "деньги",
-      "работа",
-      "Киев",
-      "богатство",
-      "процветание",
-      "собственный вебсайт",
-      "hipstacoding",
-      "hipsta",
-      "coding",
-      "school",
-      "it shool kyiv",
-    ],
+    image: "https://hipstacoding.github.io/hipsta-logo.jpg"
   },
   plugins: [
     "gatsby-transformer-sharp",
@@ -93,7 +71,7 @@ module.exports = {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: title,
-        short_name: "hipstacoding.school",
+        short_name: "hipstacoding.github.io",
         start_url: "/",
         background_color: "#282c34",
         display: "minimal-ui",
