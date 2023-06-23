@@ -74,7 +74,7 @@ exports.onCreateWebpackConfig = ({ actions, stage, loaders, getConfig }) => {
   actions.replaceWebpackConfig(config);
 };
 
-if (process.env.BACKGROUN_IMAGE_GENERATION) {
+if (process.env.BACKGROUND_IMAGE_GENERATION) {
   exports.onCreatePage = async ({ page }) => {
     if (page.path.includes("/lessons/")) {
       const imgPath = path.join(

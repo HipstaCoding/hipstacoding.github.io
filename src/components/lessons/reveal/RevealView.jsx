@@ -15,8 +15,8 @@ const StyledHtmlColoredSvg = styled(HtmlColoredSvg)`
   top: 50%;
   ${opacityAnimationCss(0.5)}
   transition: opacity 0.5s, transform 0.8s;
-  transform: ${({ isVisilbe }) =>
-    isVisilbe ? "translateY(-50%)" : "rotate(10deg) translateY(-100%)"};
+  transform: ${({ isVisible }) =>
+    isVisible ? "translateY(-50%)" : "rotate(10deg) translateY(-100%)"};
 `;
 
 const StyledLogo = styled(Logo)`
@@ -32,8 +32,8 @@ const LeftLink = styled(Link)`
   width: 150px;
   bottom: 20px;
   left: 40px;
-  transform: ${({ isVisilbe }) =>
-    isVisilbe ? "translateY(0)" : "translateY(100%)"};
+  transform: ${({ isVisible }) =>
+    isVisible ? "translateY(0)" : "translateY(100%)"};
 `;
 
 const CenterLink = styled(Link)`
@@ -43,8 +43,8 @@ const CenterLink = styled(Link)`
   bottom: 10vh;
   left: 50%;
   width: 20vh;
-  transform: ${({ isVisilbe }) =>
-    isVisilbe
+  transform: ${({ isVisible }) =>
+    isVisible
       ? "translateY(0) translateX(-50%)"
       : "translateY(-100%) translateX(-50%)"};
 `;
@@ -79,7 +79,7 @@ export default function RevealView({ children }) {
   useEffect(() => {
     if (reveal) {
       const { v, h } = reveal.getIndices();
-      setSlides([v, h]);
+      if (v != null && h != null) setSlides([v, h]);
       reveal.on("slidechanged", ({ indexh, indexv }) => {
         setSlides([indexv, indexh]);
       });
@@ -87,15 +87,15 @@ export default function RevealView({ children }) {
   }, [reveal]);
   return (
     <>
-      <StyledHtmlColoredSvg isVisilbe={isFirstSlide} />
-      <Gradient isVisilbe={isFirstSlide} />
+      <StyledHtmlColoredSvg isVisible={isFirstSlide} />
+      <Gradient isVisible={isFirstSlide} />
       <RevealViewport id="reveal" className="reveal">
         <div className="slides">{children}</div>
       </RevealViewport>
-      <LeftLink to="/" isVisilbe={!isFirstSlide}>
+      <LeftLink to="/" isVisible={!isFirstSlide}>
         <StyledLogo />
       </LeftLink>
-      <CenterLink to="/" isVisilbe={isFirstSlide}>
+      <CenterLink to="/" isVisible={isFirstSlide}>
         <StyledLogo />
       </CenterLink>
     </>
