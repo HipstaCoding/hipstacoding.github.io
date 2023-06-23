@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hipstacoding.school/sitemap.xml
+Sitemap: https://hipstacoding.github.io/sitemap.xml
