@@ -7,7 +7,8 @@ module.exports = {
     title,
     siteUrl: "https://hipstacoding.github.io/",
     description,
-    image: "https://hipstacoding.github.io/hipsta-logo.jpg"
+    image: "https://hipstacoding.github.io/hipsta-logo.jpg",
+    keywords: ["front-end"],
   },
   plugins: [
     "gatsby-transformer-sharp",
