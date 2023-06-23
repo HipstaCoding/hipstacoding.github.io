@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{B8hr:function(e,c,n){"use strict";n.r(c);var t=n("nKUr"),a=n("q1tI"),r=n("9xCv"),s=n("Wbzz"),i=n("ZEko");c.default=Object(r.c)((function(){var e=Object(r.a)(),c=e.firebase,n=e.isLoading,b=e.user;return Object(a.useEffect)((function(){c&&(n||b&&Object(s.navigate)("/dashboard/schedule"))}),[c,n,b]),Object(t.jsx)(i.a,{children:"ДОБРО ПОДАЛОВАТЬ В HIPSTA CODING SCHOOl"})}))}}]);
+//# sourceMappingURL=component---src-pages-welcome-jsx-8a6bc6f1a2e2b0920bda.js.map
