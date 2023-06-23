@@ -12,6 +12,7 @@ import ol from "./snippets/ol.html";
 import linkHtml from "./snippets/link.html";
 import listExampleHtml from "./snippets/list-example.html";
 import githubGif from "./images/github-3.gif";
+import theEnd from "../html-06/images/the-end.png";
 
 <section
   data-background={background}
@@ -21,41 +22,41 @@ import githubGif from "./images/github-3.gif";
 >
 <section>
 
-## Урок 1.
+## Lesson 1.
 
-# Героическое вступление в
+# Heroic introduction in
 
 <HtmlLogo height="30vh" />
 
 </section>
 <section>
 
-## А так же:
+## And also:
 
-- История HTML и зачем он нужен
-- Основные понятия
-- Как редактировать HTML
-- Выкладываем свою первую HTML страничку в интернет
-- Изучаем первые HTML теги
-
-</section>
-</section>
-<section>
-<section>
-
-### Часть 0.
-
-## Подготовка к занятию
+- History of HTML and its significance
+- Key concepts
+- Editing HTML
+- Publishing our first HTML page on the internet
+- Learning the first HTML tags
 
 </section>
+</section>
+<section>
 <section>
 
-### Програмное обеспечение
+### Part 0.
 
-Для работы нам понадобятся две програмы:
+## Preparing for the Lesson
 
-1. [Visual Studio Code ©](https://code.visualstudio.com/) - тут будем писать код.
-2. [Google Chrome ©](https://www.google.com/chrome/) - тут будем смотреть на результат.
+</section>
+<section>
+
+### Software
+
+We will need two programs for our work:
+
+1. [Visual Studio Code ©](https://code.visualstudio.com/) - we will write code here.
+2. [Google Chrome ©](https://www.google.com/chrome/) - we will view the results here.
 
 </section>
 <section>
@@ -64,19 +65,19 @@ import githubGif from "./images/github-3.gif";
 
 <div data-fragment-index={1} class="fragment fade-out">
 
-Обе программы поддерживают плагины от сторонних разработчиков
+Both programs support plugins from third-party developers.
 
-Чтобы вручную не перезагружать страницу, мы будем использовать плагин LiveReload © для
-[Visual Studio Code ©](https://marketplace.visualstudio.com/items?itemName=ziishaned.livereload) и
+To avoid manually refreshing the page, we will use the LiveReload © plugin for
+[Visual Studio Code ©](https://marketplace.visualstudio.com/items?itemName=ziishaned.livereload) and
 [Google Chrome ©](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=ru).
 
-Для начала нужно просто их установить.
+To get started, simply install them.
 
 </div>
 
 <div data-fragment-index={1} class="fragment fade-in-then-out" style={{ width: "100%" }}>
 
-![Установка live reload in vscode](./images/live-reload-vscode.png)
+![Installation live reload in vscode](./images/live-reload-vscode.png)
 
 </div>
 
@@ -88,7 +89,7 @@ import githubGif from "./images/github-3.gif";
 
 <div class="fragment fade-in-then-out" style={{ width: "100%" }}>
 
-![Установка live reload in chrome](./images/live-reload-chrome-1.png)
+![Installation live reload in chrome](./images/live-reload-chrome-1.png)
 
 </div>
 
@@ -105,16 +106,16 @@ import githubGif from "./images/github-3.gif";
 
 ### GitHub
 
-Я называю эт сооциальной сетью для программистов, где вместо фоточек и постов показывается ваш код. Для начала нужно просто [зарегестрироваться](https://github.com/), а так же при желании добавить [меня](https://github.com/xlwknx) в друзья и поставить лайк (звездочку) [сайту школы](https://github.com/HipstaCodingSchool/hipsta-home-web).
+I call it a social network for programmers, where instead of photos and posts, your code is showcased. To get started, simply [register](https://github.com/) and, if you wish, add [me](https://github.com/xLEWKANx) as a friend and give a like (star) to the [hipstacoding website](https://github.com/HipstaCoding/hipstacoding.github.io).
 
 </section>
 </section>
 <section>
 <section>
 
-### Часть 1.
+### Part 1.
 
-## История HTML
+## History of HTML
 
 </section>
 <section>
@@ -123,11 +124,11 @@ import githubGif from "./images/github-3.gif";
 
 <span>
 
-### 1990 год
+### 1990
 
 <span className="fragment fade-in">
 
-- Британец Тимоти Джон Бернерс-Ли в Женевском ЦЕРНе изобрел первый в мире браузер, который назывался **World Wide Web** (сокращенно **WWW**).
+- British scientist Tim Berners-Lee invented the world's first browser called **World Wide Web** (abbreviated as **WWW**) at CERN in Geneva.
 
 </span>
 
@@ -143,23 +144,21 @@ import githubGif from "./images/github-3.gif";
 </section>
 <section>
 
-### 1991 год
+### 1991 
 
 <ul>
   <li className="fragment">
-Этот же кент изобретает язык гипертекстовой разметки, он же HyperText Markup Language, он же HTML, предназначенный для разметки и оформления документов World Wide Web.
+    The same guy invents the HyperText Markup Language, also known as HTML, designed for structuring and formatting documents on the World Wide Web.
   </li>
   <li className="fragment">
-
-В этом году появляется первый в мире [интернет сайт](http://info.cern.ch/hypertext/WWW/TheProject.html).
-
+    This year marks the appearance of the world's first <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">website</a>
   </li>
 </ul>
 
 </section>
 <section>
 
-### Первая браузерная война
+### First Browser War
 
 #### 1995-1999
 
@@ -170,10 +169,10 @@ Netscape vs Internet Explorer
 
 <div className="r-stack">
 
-- **1995** В Netscape работник Brandan Eich создал JavaScript за 10 дней и назвал его Mocha
-- **1996** Microsoft внедрили в Intenet Explorer язык стилей CSS
-- **1997** Microsoft добавили Internet Explorer в Windows
-- **1999** Internet Explorer вытеснил Netscape из рынка
+- **1995** In Netscape, employee Brandan Eich created JavaScript in 10 days and initially named it Mocha.
+- **1996** Microsoft implemented the CSS (Cascading Style Sheets) language into Internet Explorer.
+- **1997** Microsoft added Internet Explorer to Windows.
+- **1999** Internet Explorer displaced Netscape from the market.
 
 <span className="fragment" style={{ width: "40%" }}>
 
@@ -186,13 +185,13 @@ Netscape vs Internet Explorer
 </section>
 <section>
 
-### Вторая браузерная война или "Браузерный зоопарк"
+### Second Browser War or "Browser Zoo"
 
 #### 2005-2015
 
-Internet explorer vs:
+Internet Explorer vs:
 
-- Netscape, который стал Mozilla Firefox
+- Netscape, which became Mozilla Firefox
 - Apple Safari
 - Opera Mini
 - Google Chrome
@@ -202,53 +201,53 @@ Internet explorer vs:
 <section>
 <section>
 
-### Зачем и кому нужен HTML?
+### Why is HTML needed and who needs it?
 
 </section>
 <section>
 
-#### Front-End Разработчики
+#### Front-End Developers
 
-Fron-End'еры должны знать HTML и CSS досконально. Разработка на Front-End выглядит следующим образом:
+Front-End developers need to have a thorough understanding of HTML and CSS. The Front-End development process looks like this:
 
-- Строится структура документа из HTML.
-- Добавляется оформление с помощью CSS.
-- Для интерактивных компонентов пишется код на JavaScript.
-
-</section>
-<section>
-
-#### Все остальные разработчики
-
-HTML все еще самый лучший простой, а порой и единственный способ создать пользовательский интерфейс.
+- Building the document structure using HTML.
+- Adding styling using CSS.
+- Writing JavaScript code for interactive components.
 
 </section>
 <section>
 
-#### UI/UX Дизайнеры
+#### All Other Developers
 
-Любой хороший UI/UX Дизайнер должен знать как работает HTML и CSS чтобы делать правильные интерфейсы. Так же дизайнер, который умеет верстать будет оцениваться дороже на рынке труда.
-
-</section>
-<section>
-
-#### SEO специалисты
-
-Для клиентской поисковой оптимизации необходимо править HTML теги, хоть и порой не напрямую.
+HTML is still the best and sometimes the only way to create a user interface.
 
 </section>
 <section>
 
-#### Маркетологи
+#### UI/UX Designers
 
-Маркетологи как правило его не знают, но каждый день имеют дело с email'ами, которые написаны на HTML, а так же сервисами, которые встраиваются на сайт через HTML (например Google Analytics), поэтому постоянно просят разработчиков помочь им с этим. Имея знания о том, как работает HTML они могут делать это сами и тем самым повысить свою стоимость на рынке.
+Any good UI/UX designer should know how HTML and CSS work in order to create proper interfaces. Additionally, a designer who can code will be more valued in the job market.
+
+</section>
+<section>
+
+#### SEO Specialists
+
+For client-side search engine optimization, it is necessary to modify HTML tags, albeit sometimes indirectly.
+
+</section>
+<section>
+
+#### Marketers
+
+Marketers usually do not know HTML, but they deal with emails written in HTML on a daily basis, as well as services that are embedded into websites through HTML (e.g., Google Analytics). Therefore, they constantly rely on developers to assist them. By having knowledge of how HTML works, they can do it themselves and thereby increase their market value.
 
 </section>
 <section>
 
 <div className="r-stack">
 
-#### Где можно увидеть HTML
+#### Where Can You See HTML?
 
 <div class="fragment fade-in-then-out" style={{ width: "50%" }}>
 
@@ -275,7 +274,7 @@ HTML все еще самый лучший простой, а порой и ед
 ![Ibox and ATMs](./usage/ibox.jpg)
 
 </div>
-<div class="fragment fade-in-then-out" style={{ width: "80%" }}>
+<div class="fragment fade-in" style={{ width: "80%" }}>
 
 ![Ibox and ATMs](./usage/kfc.jpg)
 
@@ -287,15 +286,14 @@ HTML все еще самый лучший простой, а порой и ед
 <section>
 <section>
 
-## Основные понятия
+## Key concepts
 
 </section>
 <section>
 
-### Браузер
+### Browser
 
-_(от англ. Browser - обозреватель)_ - программа,
-через которую вы заходите в интернет.
+- a program through which you access the Internet.
 
 <Relative>
   <Image height="20vh" src={browsers} />
@@ -323,17 +321,17 @@ _(от англ. Browser - обозреватель)_ - программа,
       fontSize: "2rem",
     }}
   >
-    <span style={{ transform: "rotate(30deg)" }}>Еще живы 😭</span>
+    <span style={{ transform: "rotate(30deg)" }}>Still alive 😭</span>
   </div>
 </Relative>
 
 <p>
 <span className="fragment fade-in-then-out" data-fragment-index={1}>
-  Хорошие новости
+  Good news
 </span>
 
 <span className="fragment fade-in-then-out" data-fragment-index={2}>
-  Плохие новости
+  Bad news
 </span>
 </p>
 
@@ -342,28 +340,22 @@ _(от англ. Browser - обозреватель)_ - программа,
 
 ### HTML
 
-_(от англ. HyperText Markup Language — «язык гипертекстовой
-разметки»)_ — стандартизированный язык разметки веб-страниц во Всемирной паутине.
+- a standardized markup language for web pages on the World Wide Web.
 
 © Wikipedia
 
-<p className="fragment">
+</section>
+<section>
 
-_Ну и, я и сам могу это в википедии прочитать, что это вообще значит, умник?_
+### HyperText
 
-</p>
+- text that differs from ordinary text in that it contains [hyperlinks](https://www.w3.org/WhatIs.html) (here
+
 
 </section>
 <section>
 
-### Гипертекст
-
-_(англ. HyperText)_ - текст, отличающийся от обычного тем, что содержит [гиперссылки](https://www.w3.org/WhatIs.html) (далее просто ссылки), т.е можно из одного текста перейти в другой.
-
-</section>
-<section>
-
-### Язык разметки
+### Markup language
 
 <RevealHtmlEditor source={markupDefinition} />
 
@@ -376,11 +368,10 @@ _(англ. HyperText)_ - текст, отличающийся от обычно
 
 ### HTML Tag
 
-Единица языка HTML. Тегами
-обозначается структура HTML документа, определяется его служебная
-информация и контент.
+A unit of the HTML language. Tags are used to denote the structure of an HTML document, define its metadata and content.
 
 </span>
+
 <div className="fragment" style={{ width: "80%" }}>
 
 ![HTML Tag tattoo](./images/tag.jpg)
@@ -395,12 +386,12 @@ _(англ. HyperText)_ - текст, отличающийся от обычно
 
 <span>
 
-### Баг
+### Bug (software bug)
 
-_(англ. software bug)_ - оышибка допущенная в коде программы, повлекшая за собой неожиданный результат. Определенние появилось во времена, когда вычислительные машины занимали целые
-команаты.
+An error in a program's code that leads to an unexpected result. The term originated in the days when computing machines occupied entire rooms.
 
-Баги возникают как и по вине разработчика так и в следствии ошибок в инструментах разработки.
+Bugs can occur both due to developer errors and as a result of mistakes in development tools.
+
 
 </span>
 <div className="fragment" style={{ width: "80%" }}>
@@ -415,17 +406,14 @@ _(англ. software bug)_ - оышибка допущенная в коде п�
 <section>
 <section>
 
-## Начинаем работу с HTML
+## Getting Started with HTML
 
 </section>
 <section>
 
-Если сильно упростить - то интернет это набор HTML файлов, которые
-лежат на специальных компьюетрах, называемыми серверами.
+If we simplify it greatly, the internet is a collection of HTML files that are hosted on special computers called servers.
 
-{" "}
-
-<p className="fragment">Давай-те же создадим вам первый HTML файл!</p>
+<p className="fragment">Let's create your first HTML file!</p>
 
 </section>
 <section>
@@ -433,49 +421,49 @@ _(англ. software bug)_ - оышибка допущенная в коде п�
 <table>
   <thead>
     <tr>
-      <th>Действие</th>
+      <th>Action</th>
       <th>🔥 Hotkey / Icon</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Создаем папку my-website</td>
+      <td>Create a folder my-website</td>
       <td>
         <Hotkey mac={["ctrl", "shift", "N"]} />
       </td>
     </tr>
     <tr>
-      <td>Открываем VSCode</td>
+      <td>Open VSCode</td>
       <td>
         <VSCodeLogo />
       </td>
     </tr>
     <tr>
-      <td>Открываем папку в VSCode</td>
+      <td>Open folder in VSCode</td>
       <td>
         <Hotkey mac={["ctrl", "O"]} />
       </td>
     </tr>
     <tr>
-      <td>Создаем новый файл</td>
+      <td>Create a new file</td>
       <td>
         <Hotkey mac={["ctrl", "N"]} />
       </td>
     </tr>
     <tr>
-      <td>Сохраняем пустой файл</td>
+      <td>Save the empty file</td>
       <td>
         <Hotkey mac={["ctrl", "S"]} />
       </td>
     </tr>
     <tr>
-      <td>Называем файл index.html</td>
+      <td>Name the file index.html</td>
       <td>
         <Hotkey mac={["enter"]} />
       </td>
     </tr>
     <tr>
-      <td>Немножко магии</td>
+      <td>A little bit of magic</td>
       <td>
         <Hotkey mac={["!", "tab"]} />
       </td>
@@ -483,26 +471,22 @@ _(англ. software bug)_ - оышибка допущенная в коде п�
   </tbody>
 </table>
 
-</section>
-<section>
-
-В интернете так принято, что первая страница, которая открывается
-пользователю называется `index.html`.
-
-[google.com](https://www.google.com/) === [google.com.ua/index.html](https://www.google.com/index.html)
 
 </section>
 <section>
 
-Для удобной разработки нужно запустить LiveReload плагин, который будет
-перезагружать страницу каждый раз, когда мы ее сохраняем.
+In WEB the first page that is opened to the user to be named <code>index.html</code>.
 
-<VSCodeLogo />: <Hotkey mac={["ctrl", "shift", "P"]} /> -> LiveReload:
-Enable/Disable server
+<a href="https://www.google.com/">google.com</a> === <a href="https://www.google.com/index.html">google.com/index.html</a>
+</section>
+<section>
+
+To facilitate development, it is recommended to install the LiveReload plugin, which will automatically reload the page every time we save it.
+
+<VSCodeLogo />: <Hotkey mac={["ctrl", "shift", "P"]} /> -> LiveReload: Enable/Disable server
 
 <span style={{ display: "inline-flex" }}>
-  <ChromeLogo />: Нажать на кнопку <ImgIcon src={liveReloadUrl} /> в панеле
-  разширений
+  <ChromeLogo />: Click on the <ImgIcon src={liveReloadUrl} /> button in the extension panel
 </span>
 
 </section>
@@ -510,7 +494,7 @@ Enable/Disable server
 <section>
 <section>
 
-### Структура HTML
+### Structure of page in HTML 
 
 </section>
 <section data-auto-animate>
@@ -524,12 +508,7 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-говорит интерпретатору что далее в документе будет использован язык HTML версии 5.
-
-</section>
-<section data-auto-animate>
-
-<AnimatedCode data-id="code-animation">{htmlStructure}</AnimatedCode>
+The `<!DOCTYPE html>` declaration tells the interpreter that HTML version 5 will be used in the document.
 
 </section>
 <section data-auto-animate>
@@ -538,11 +517,11 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-Тег, открывающий html документ. Является обязательным корневым тегом. Атрибут _lang_ определяет язык документа и является обязательным.
+The `<html>` tag is the opening tag for an HTML document. It is a required root tag. The `lang` attribute specifies the language of the document and is also required.
 
 <Fragment>
 
-Атрибут lang принимает значения в формате [BCP47](https://r12a.github.io/app-subtags/). Звучит страшно, но на деле это в основном "en", но если нужен какой-то другой язык его можно найти или проверить по ссылке.
+The `lang` attribute accepts values in the [BCP47](https://r12a.github.io/app-subtags/) format. It may sound intimidating, but in practice, it is mostly "en" for English. However, if you need to specify another language, you can find or verify its code using the provided link.
 
 </Fragment>
 
@@ -560,7 +539,7 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-Тег, содержащий служебную информацию для браузера. Вот [список тегов](https://developer.mozilla.org/ru/docs/Web/HTML/Element/head#%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B8%D1%82%D0%B5_%D1%82%D0%B0%D0%BA%D0%B6%D0%B5), которые он может содержать.
+The `head` tag contains meta-information for the browser. Here is a [list of tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head) that it can include.
 
 </section>
 <section>
@@ -569,9 +548,9 @@ Enable/Disable server
 <meta />
 ```
 
-Тег, описывающий метаданные.
+The `meta` tag describes metadata.
 
-[Метаданные](https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%9C%D0%B5%D1%82%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5) - это данные, что описывают другие данные. Мета теги очень сильно зависят от атрибутов, которые в них объявленны.
+[Metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata) is data that describes other data. Meta tags heavily depend on the attributes declared within them.
 
 </section>
 <section data-auto-animate>
@@ -589,23 +568,21 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-Тег задающий кодировку.
+The `meta` tag specifies the character encoding.
 
 </div>
 <div data-fragment-index={1} className="fragment fade-in-then-out" style={{ width: "100%" }}>
 
-![Кракозябры](./images/wiki-charset.png)
+![encoded message](./images/wiki-charset.png)
 
 </div>
 <div className="fragment" style={{ width: "100%" }}>
 
-Кракозябры в 99.9% случаев свидетельствуют о проблемах с кодировкой.
+Gibberish characters in 99.9% of cases indicate encoding issues.
 
-Если кракозябры в браузере - значит был некорректно указан метатег с
-атрибутом `charset`.
+If gibberish characters appear in the browser, it means the `charset` attribute in the meta tag was incorrectly specified.
 
-Если кракозябры в файле - то или файл был сохранен с неверной
-кодировкой или читается с неверной кодировкой.
+If gibberish characters appear in a file, it means either the file was saved with the wrong encoding or it is being read with the wrong encoding.
 
 </div>
 </div>
@@ -624,9 +601,9 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-Метатег, отвечающий за корректное отображение на мобильных
-телефонах.
-Фактически он говорит, что ширина области отображения (viewport) должна равняться ширине девайса, а изначальный масштаб (inital scale) не будет изменен (не отдален и не приближен, а равен 1).
+
+The meta tag responsible for proper display on mobile phones.
+In essence, it specifies that the viewport width should be equal to the device width, and the initial scale should not be changed (neither zoomed out nor zoomed in, but set to 1).
 
 </section>
 <section data-auto-animate>
@@ -642,7 +619,7 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-Название вкладки. Является очень важным с точки зрения поисковой оптимизации.
+The title of the tab. It is very important for search engine optimization.
 
 </section>
 <section data-auto-animate>
@@ -655,14 +632,14 @@ Enable/Disable server
   {htmlStructure}
 </AnimatedCode>
 
-Тег тела документа. Содержит визуальную часть HTML документа. На странице может быть только один `<body />` тег.
+The body tag of the document. It contains the visual content of the HTML document. There can only be one `<body />` tag on a page.
 
 </section>
 </section>
 <section>
 <section>
 
-## Текст в HTML
+## Text in HTML
 
 </section>
 <section>
@@ -672,20 +649,20 @@ Enable/Disable server
   <table>
     <thead style={{ verticalAlign: "top" }}>
       <tr>
-        <th>описание</th>
-        <th>символ</th>
-        <th>код c буквами</th>
-        <th>код с цифрами</th>
+        <th>description</th>
+        <th>symbol</th>
+        <th>letter code</th>
+        <th>numeric code</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>
           <a
-            href="https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D1%80%D0%B0%D0%B7%D1%80%D1%8B%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB"
+            href="https://en.wikipedia.org/wiki/Non-breaking_space"
             target="_blank"
           >
-            Неразрывный пробел
+            Non-breaking space
           </a>
         </td>
         <td>&nbsp;</td>
@@ -693,20 +670,20 @@ Enable/Disable server
         <td>&amp;#160;</td>
       </tr>
       <tr>
-        <td>Пробел</td>
+        <td>Space</td>
         <td>&#32;</td>
-        <td>нету 😔</td>
+        <td>none 😔</td>
         <td>&amp;#32;</td>
       </tr>
       <tr>
-        <td>Амперсант</td>
+        <td>Ampersand</td>
         <td>&amp;</td>
         <td>&amp;amp;</td>
         <td>&amp;#38;</td>
       </tr>
       <tr>
         <td>
-          Меньше <i>(less then)</i>
+          Less than <i>(less then)</i>
         </td>
         <td>&lt;</td>
         <td>&amp;lt;</td>
@@ -714,7 +691,7 @@ Enable/Disable server
       </tr>
       <tr>
         <td>
-          Больше <i>(greater then)</i>
+          Greater than <i>(greater then)</i>
         </td>
         <td>&gt;</td>
         <td>&amp;gt;</td>
@@ -725,72 +702,74 @@ Enable/Disable server
 </section>
 <section>
 
-Полный список [HTML спецсимволов](https://www.freeformatter.com/html-entities.html)
+Full list of [HTML special characters](https://www.freeformatter.com/html-entities.html)
 
 </section>
 <section>
 
-Отступы осуществляются с помощью тега `<p />`, который назван в честь слова "параграф"
+Indentations are achieved using the `<p />` tag, which is named after the word "paragraph".
 
-Спецификация HTML запрещает вкладывать тег `<p />` в другой тег `<p />`, поэтому отступы внутри `<p />` осуществляются с помощью тега `<br />`.
+The HTML specification prohibits nesting `<p />` tags inside another `<p />` tag, so indentations within `<p />` are achieved using the `<br />` tag.
+
 
 </section>
 </section>
 <section>
 <section>
 
-## Заголовки в HTML
+## Headings in HTML
 
+```html
+<h1>Heading level 1</h1>
+<h2>Heading level 2</h2>
+<h3>Heading level 3</h3>
+<h4>Heading level 4</h4>
+<h5>Heading level 5</h5>
+<h6>Heading level 6</h6>
 ```
-<h1>Заголовок 1 уровня</h1>
-<h2>Заголовок 2 уровня</h2>
-<h3>Заголовок 3 уровня</h3>
-<h4>Заголовок 4 уровня</h4>
-<h5>Заголовок 5 уровня</h5>
-<h6>Заголовок 6 уровня</h6>
-```
 
 </section>
 <section>
 
-#### Свойство HTML №0
+#### HTML Property No. 0
 
-### В HTML есть много негласных правил
+### HTML allows you to make mistakes
 
-Например, ничего не мешает написать несколько h1 заголовков на странице, но считается что он должен быть один.
+For example, nothing prevents you from having multiple h1 headings on a page, but it is considered that there should be only one.
 
 </section>
 </section>
 <section>
 <section>
 
-## Отступы в HTML
+## Indentation in HTML
 
 ```html
 <p>
-  Отступы в HTML осуществляются с помощью тега <p />
+  Indentation in HTML is achieved using the <p> tag.
 </p>
 <p>
-  Отступы внутри тега <p /> создаются с помощью тега <br />.
+  Indentation within the <p> tag is created using the <br /> tag.
 </p>
 ```
 
 </section>
 <section>
 
-#### Свойство HTML №1
+#### HTML Property №1
 
-### Парность тегов
+### Tag Pairing
 
-- Парнные теги могут содержать в себе текст (такие как тег `<p></p>`)
-- Не парные теги не могут содержать в себе текст (такие как тег `<br />`)
+- Paired tags can contain text within them (such as the `<p></p>` tag).
+- Non-paired tags cannot contain text within them (such as the `<br />` tag).
+
 
 </section>
 </section>
 <section>
 <section>
 
-## Cписки в HTML
+## Lists in HTML
 
 </section>
 <section>
@@ -805,13 +784,13 @@ Enable/Disable server
 </section>
 <section>
 
-#### Свойство HTML №2
+#### HTML Property No. 2
 
-### Вложенность тегов
+### Tag Nesting
 
-**Вложеность** _(англ. nesting)_ - свойство тегов содержать в себе другие теги.
+**Nesting** - the property of tags to contain other tags.
 
-Самое важно правило вложенности - первым закрывается самый последний открытый тег.
+The most important rule of nesting is that the last opened tag should be closed first.
 
 <pre>
   <code data-line-numbers="1|2">{listExampleHtml}</code>
@@ -822,7 +801,7 @@ Enable/Disable server
 <section>
 <section>
 
-## Ссылки
+## Links
 
 </section>
 <section>
@@ -832,26 +811,25 @@ Enable/Disable server
 </section>
 <section>
 
-#### Свойство HTML №3
+#### HTML Property No. 3
 
-### Атрибуты тегов
+### Tag Attributes
 
-Атрибут _(tag attribute)_ - дополнительные свойства HTML елементов. У всех HTML элементов есть общие
-аттрибуты и специфические.
+An attribute (tag attribute) is an additional property of HTML elements. All HTML elements have common attributes and specific attributes.
 
-Все атрибуты в HTML являются строками.
+All attributes in HTML are treated as strings.
 
 </section>
 <section>
 
-Атрибут **href** _(англ. Hyper REFerence)_ принимает URL адрес ссылки.
+The attribute **href** (Hyper REFerence) accepts the URL address of a link.
 
 </section>
 </section>
 <section>
 <section>
 
-## Публикация сайта
+## Website deployment
 
 </section>
 <section>
@@ -889,6 +867,11 @@ Enable/Disable server
 
 </div>
 </div>
+
+</section>
+<section data-background={theEnd}>
+
+<audio data-autoplay src="/sounds/temptation-sensation.mp3" />
 
 </section>
 </section>

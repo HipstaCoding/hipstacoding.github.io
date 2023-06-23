@@ -78,14 +78,3 @@ $heading4Size: 1.0em;
 .reveal table ul {
   margin: 0;
 }
-
-.reveal ul {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.reveal ul > li::before {
-  content: '✯';
-  margin: 0 0.5em;
-}

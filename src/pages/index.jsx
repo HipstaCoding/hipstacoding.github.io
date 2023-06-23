@@ -8,7 +8,6 @@ import AtomImage from "components/AtomImage";
 import Container from "components/common/Container";
 import { JsLogo, HtmlLogo, ReactLogo } from "components/common/Icons.jsx";
 
-
 const Banner = styled.div`
   position: relative;
   min-height: 580px;
