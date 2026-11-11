@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
-    "@svgr/webpack": "5.5.0",
+    "@svgr/webpack": "8.1.0",
     "gatsby": "4.11.1",
     "gatsby-image": "2.11.0",
     "highlight.js": "10.7.3",
